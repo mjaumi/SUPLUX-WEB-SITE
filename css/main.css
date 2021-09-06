@@ -36,11 +36,9 @@ header{
     align-items: center;
     justify-content: space-between;
     min-height: 4vw;
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: absolute;
     width: 100%;
-    z-index: 10;
+    z-index: 10000;
 }
 
 #logo{
@@ -108,6 +106,58 @@ header{
         stroke-dashoffset: 900;
     }
     
+}
+
+#nav_toggle_btn{
+
+    position: relative;
+    width: 50px;
+    height: 50px;
+    
+    
+    background-color: green;
+    cursor: pointer;
+    display: none;
+    justify-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+#nav_toggle_btn::before{
+
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 100px;
+    transition: 0.2s;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 0 white;
+}
+
+#nav_toggle_btn::after{
+
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 100px;
+    transition: 0.2s;
+    transform: translateY(10px);
+}
+
+#nav_toggle_btn.toggle_active::before{
+
+    transform: translateY(0px) rotate(45deg);
+    box-shadow: 0 0 0 white;
+}
+
+#nav_toggle_btn.toggle_active::after{
+
+    transform: translateY(0px) rotate(-45deg);
 }
 
 .nav_menu{
@@ -276,6 +326,38 @@ header{
 	0%, 33.33% { left: -100%; opacity: 0; }
   41.63%, 58.29% { left: 5%; opacity: 1; }
   66.66%, 100% { left: 110%; opacity: 0; }
+}
+
+@media(max-width: 1150px){
+
+    section {
+        scroll-snap-align: none;
+    }
+
+    .nav_menu{
+
+       display: none;
+    }
+
+    #nav_toggle_btn{
+
+        display: flex;
+        position: absolute;
+        right: 2em;
+        top: .75em
+    }
+
+    .hero_title h1{
+
+        font-size: 10vw; 
+    }
+
+    .title_1,
+    .title_2 {
+    
+        top: 40%; 
+        
+    }
 }
 
 .about_us{

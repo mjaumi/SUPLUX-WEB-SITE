@@ -20,7 +20,7 @@ var heroTitle1 = document.getElementById('hero_title_1');
 var heroTitle2 = document.getElementById('hero_title_2');
 
 videoHero.addEventListener("timeupdate", function () {
-    console.log(videoHero.currentTime);
+    
     if (videoHero.currentTime > 1) {
         
         heroTitle1.classList.add('title_1');
@@ -55,3 +55,10 @@ sigUpBtn.addEventListener('mouseleave', function (){
     sigUpBtnText.classList.remove('sign_up_btn_hover');
     sigUpBtnText.classList.add('sign_up_btn');
 });
+
+var toggleBtn = document.getElementById('nav_toggle_btn');
+
+toggleBtn.onclick = function(){
+
+    toggleBtn.classList.toggle('toggle_active');
+}
