@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,700;1,800;1,900&display=swap');
+
+*, *::before, *::after{
+
+    box-sizing: border-box;
+}
+
+body{
+
+    margin: 0;
+    font-size: 1.3rem;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+header{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4vw;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#logo{
+
+    min-width: 13vh;
+    margin-top: 1em;
+    margin-left: 2em;
+    fill: white;
+}
+
+.logo_hover_line{
+
+    fill:none;
+    stroke: white;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-width:12px;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+}
+
+#logo:hover{
+
+    fill: white;
+}
+
+#logo:hover polyline{
+
+    stroke: white;
+    animation: animate_logo 0.6s linear forwards;
+}
+
+.logo_hover_out_line{
+
+    fill:none;
+    stroke: white;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-width:12px;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    animation: animate_logo_reverse 0.6s linear forwards;
+}
+
+@keyframes animate_logo{
+
+    from{
+        stroke-dashoffset: 900;
+    }
+    to{
+        stroke-dashoffset: 0;
+    }
+    
+}
+
+@keyframes animate_logo_reverse{
+
+    0%{
+        stroke-dashoffset: 0;
+    }
+    50%{
+        stroke-dashoffset: 450;
+    }
+    100%{
+        stroke-dashoffset: 900;
+    }
+    
+}
+
+.nav_menu{
+
+    display: flex;
+    margin: 0 2em 0 0;
+}
+
+.nav_items{
+
+    list-style: none;
+}
+
+.nav_items + .nav_items{
+
+    margin-left: 2em;
+}
+
+.nav_items a{
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 22px;
+    color: white;
+    line-height: 45px;
+    margin: 0 0 2em;
+    max-width: 160px; 
+    position: relative;
+    width: 100%; 
+}
+
+.nav_link:hover,
+.nav_link:active {
+
+    transition: all 280ms ease-in-out;
+    letter-spacing: 5px;
+    color: white;
+}
+
+.nav_link::after,
+.nav_link::before {
+
+    content: '';
+    backface-visibility: hidden;
+    bottom: 0px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transition: all 280ms ease-in-out;
+    width: 0%;
+    height: 3px;
+    background-color: white;
+}
+
+.nav_link:hover::after,
+.nav_link:hover::before {
+   
+    transition: width 350ms ease-in-out;
+    width: 70%;
+}
+
+.nav_link:hover:before {
+
+    bottom: auto;
+    top: 0;
+    width: 70%;
+}
+
+#nav_link_btn:hover{
+
+    color: white;
+}
+
+.sign_up_btn_hover{
+
+    color: white;
+    letter-spacing: 5px;
+}
+
+.sign_up_btn{
+
+    background-image: linear-gradient(160deg, rgba(143,94,207,1) 15%, rgba(23,147,201,1) 35%, rgba(23,147,201,1) 60%, rgba(19,78,192,1) 100%); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#nav_btn_bg{
+
+    padding: 0.1em 1.5em;
+    border-radius: 100px;
+    background: white;
+    cursor: pointer;
+}
+
+#nav_btn_bg:hover{
+
+    text-align: center;
+    border: 2px solid white;
+    transition: all 280ms ease-in-out;
+    background-color: transparent;
+}
+
+.hero{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 4vw);
+    background-color: rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.video_bg{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: calc(100% + 4vw);
+    width: 100%;
+    object-fit: cover;
+    transform: translate(0, -75px);
+}
+
+.hero_title h1{
+
+    color: white;
+    font-size: 8vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    max-height: 2vh;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;
+}
+
+.title_1,
+.title_2 {
+    position: absolute;
+    display: block;
+    top: 30%; 
+    width: 90%;
+	animation-duration: 10s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+.title_1{
+	animation-name: anim-1;
+}
+
+.title_2{
+	animation-name: anim-2;
+}
+
+@keyframes anim-1 {
+	0%, 8.3% { left: -100%; opacity: 0; }
+    8.3%,25% { left: 5%; opacity: 1; }
+    33.33%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-2 {
+	0%, 33.33% { left: -100%; opacity: 0; }
+  41.63%, 58.29% { left: 5%; opacity: 1; }
+  66.66%, 100% { left: 110%; opacity: 0; }
+}
