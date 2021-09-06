@@ -38,6 +38,9 @@ videoHero.addEventListener("timeupdate", function () {
     }
 });
 
+/**
+ * this is to animate the sign up button 
+ */
 var sigUpBtnText = document.getElementById('nav_link_btn');
 var sigUpBtn = document.getElementById('nav_btn_bg');
 
