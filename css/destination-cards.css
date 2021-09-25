@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,700;1,800;1,900&display=swap');
+
+:root {
+
+    --clr-neutral-900: hsl(207, 19%, 9%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+}
+
+*,
+*::before,
+*::after {
+
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    line-height: 1.6;
+    background: var(--clr-neutral-900);
+    font-family: 'Poppins', sans-serif;
+}
+
+.destination_card_container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+    width: 80%;
+    place-items: center;
+    overflow: hidden;
+}
+
+.destination_card {
+
+    color: var(--clr-neutral-100);
+    background-size: cover;
+    padding: 10rem 0 0;
+    width: 320px;
+    height: 420px;
+    border-radius: 30px;
+    overflow: hidden;
+    transition: transform 500ms ease;
+    position: relative;
+}
+
+.destination_card_image {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 320px;
+    height: 420px;
+    border-radius: 30px;
+    overflow: hidden;
+    pointer-events: none;
+}
+  
+.destination_card_image img {
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 0;
+    opacity: 1;
+  }
+
+.destination_card + .destination_card{
+
+    margin-left: 32px;
+}
+
+.destination_card:hover .destination_card_image img,
+.destination_card:focus-within .destination_card_image img {
+        
+    -webkit-transition: all 0.65s ease;
+    transition: all 0.65s ease;
+    animation-name: zoom;
+    animation-duration: 15s;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes zoom {
+    from {
+      object-position: 0 50%;
+    }
+    to {
+      object-position: 100% 50%;
+    }
+  }
+
+.destination_card_content {
+
+    padding: 1.5rem;
+    height: 100%;
+    background: linear-gradient(hsl(0 0% 0% / 0),
+            hsl(0 0% 0% /0.3) 10%,
+            hsl(0 0% 0% / 1));
+}
+
+.destination_card_title {
+    
+    position: relative;
+    width: max-content;
+}
+
+.destination_card_title::after {
+    
+    content: '';
+    left: calc(1.5rem* -1);
+    position: absolute;
+    height: 4px;
+    bottom: -5px;
+    width: calc(100% + 1.5rem);
+    background: #119ae8;
+    transition: transform 500ms ease;
+    transform-origin:left;
+}
+.destination_card:hover .destination_card_title::after,
+.destination_card:focus-within .destination_card_title::after{
+    
+    transform:scaleX(1);
+}
+
+.destination_card_body {
+   
+    color: rgb(255 255 255 / 0.8);
+    font-size: 0.7em;
+}
+
+.destination_card_button {
+    
+    cursor: pointer;
+    display: inline;
+    text-decoration: none;
+    color: var(--clr-neutral-100);
+    background: #119ae8;
+    padding: 0.5em 1em;
+    transition: 0.4s ease-in-out;
+    border-radius: 0.5em;
+    font-size: 0.8em;
+}
+
+.destination_card_button:hover,
+.destination_card_button:focus {
+    
+    background: var(--clr-neutral-100);
+}
+
+
+@media (hover){
+    
+    .destination_card_content{
+
+        transform:translateY(65%);
+        transition: transform 500ms ease;
+       
+    }
+
+    .destination_card:hover .destination_card_content, 
+    .destination_card:focus-within .destination_card_content {
+
+        transform: rotateY(0deg);
+        transition-delay: 500ms;
+       
+    
+    }
+
+    .destination_card:focus-within .destination_card_content{
+
+        transition-duration: 0ms;
+    }
+
+    .destination_card_content > *:not(.destination_card_title) {
+
+        opacity:0;
+        transition : opacity 500ms linear;
+    }
+
+    .destination_card:hover .destination_card_content > *:not(.destination_card_title),
+    .destination_card:focus-within .destination_card_content > *:not(.destination_card_title){
+
+        opacity:1;
+        transition-delay:700ms;
+    }
+
+    .destination_card_title:after{
+
+        transform: scaleX(0);
+    }
+}

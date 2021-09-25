@@ -1,0 +1,141 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+.box {
+    display: block;
+    min-width: 300px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+ 
+.upload-options {
+    position: relative;
+    height: 75px;
+    background-color: #119ae8;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+}
+
+ 
+.upload-options:hover .upload_btn_text{
+    
+    letter-spacing: 5px;
+}
+ 
+.upload-options input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+ 
+.upload-options label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.upload_btn_text{
+
+    color: white;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.upload-options label{
+
+    vertical-align: middle;
+    text-align: center; 
+}
+ 
+.upload-options label span {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center;
+}
+ 
+.js--image-preview {
+    height: 225px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-image: url('');
+    background-color: #ede8e4;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ 
+.js--image-preview::after {
+    content: "photo_size_select_actual";
+    font-family: 'Material Icons';
+    position: absolute;
+    font-size: 4.5em;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+ 
+.js--image-preview.js--no-default::after {
+	display: none;
+}
+ 
+.js--image-preview:nth-child(2) {
+	background-image: url('http://bastianandre.at/giphy.gif');
+}
+ 
+i.material-icons {
+    transition: color 100ms ease-in-out;
+    font-size: 2.25em;
+    line-height: 55px;
+    color: white;
+    display: block;
+}
+ 
+.drop {
+    display: block;
+    position: absolute;
+    background: rgba(95, 158, 160, 0.2);
+    border-radius: 100%;
+    transform: scale(0);
+}
+
+.animate {
+	animation: ripple 0.4s linear;
+}
+
+@keyframes ripple {
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+
+@media only screen and (max-width: 576px){
+
+    .box{
+
+        min-width: 0px;
+    }
+}
+ 

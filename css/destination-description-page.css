@@ -1,0 +1,232 @@
+body{
+
+    overflow-x: hidden;
+}
+
+h4{
+
+    margin: 0;
+    padding: 0;
+}
+
+#header{
+
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: top 0.3s;
+}
+
+.destination_intro {
+
+    background-image: url('../img/coxs-bazar.jpg');
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    background-blend-mode: multiply;
+    position: relative;
+}
+
+.destination_intro_title{
+
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.destination_description,
+.fare_info{
+
+    padding-top: 3em;
+    background-color: #119ae8;
+}
+
+.descripion_title{
+
+    color: white;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1em;
+}
+
+.description_text{
+
+    color: #032133;
+    margin: 2rem 0.5rem;
+    font-size: 0.8em;
+}
+
+.spot_title{
+
+    background-color: #032133;
+}
+
+.weather_details{
+
+    background-color: white;
+    padding: 3em 0 2em;
+}
+
+.weather_details .descripion_title{
+
+    color: #032133;
+}
+
+.destination_fare_info{
+
+    background-color: #119ae8;
+}
+
+.fare_card{
+
+    background-color: white;
+    border-color: transparent;
+    border-radius: 30px;
+    width: 80%;
+}
+
+tr {
+
+   height: 80px;
+}
+
+th{
+
+    vertical-align: middle;
+}
+
+th i{
+
+    color: black;
+    line-height: 1;
+}
+
+#footer{
+
+    min-height: 100px;
+    padding: 1em 0;
+}
+
+.footer_title{
+
+    margin-bottom: 0;
+}
+
+.destination_fare_info .descripion_title{
+
+    margin-top: 1.5em;
+}
+
+.destination_book_now_btn{
+
+    text-align: center;
+    background-color: #119ae8;
+    padding: 2em 0;
+}
+
+.destination_book_now_btn a{
+
+    text-decoration: none;
+    background-color: white;
+    padding: 0.5em 1em;
+    color: #032133;
+    border-radius: 1000px;
+    font-size: 1.5em;
+    font-weight: 600;
+    transition: 0.5s ease-in-out;
+}
+
+.destination_book_now_btn a:hover{
+
+    letter-spacing: 8px;
+    border: 5px solid white;
+    background: transparent;
+    color: white;
+}
+
+@media (min-width: 1800px) {
+    
+    #carouselExampleCaptions{
+
+        height: 60vh;
+        position: relative;
+    }
+    
+    .carousel-caption{
+    
+        position: absolute;
+        top: 30%;
+    }
+
+    .carousel-item img{
+
+        transform: translateY(-30%);
+        mix-blend-mode: multiply;
+    }
+}
+
+@media (min-width: 1000px){
+
+    .description_container{
+
+        display: flex;
+    }
+
+    .weather_details{
+
+        padding: 1em;
+    }
+
+    .destination_intro_title{
+
+        font-size: 8em;
+    }
+
+    .destination_description{
+
+        border-radius: 0 60px 60px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 0;
+    }
+
+    .descripion_title{
+
+        font-size: 2em;
+    }
+
+    .description_text{
+
+        font-size: 1em;
+        text-align: left;
+    }
+
+    .carousel-item{
+
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .carousel-caption h3{
+
+        font-size: 2em;
+    }
+
+    .destination_book_now_btn{
+
+        text-align: center;
+        background-color: #119ae8;
+        padding: 4em 0;
+    }
+    
+    .destination_book_now_btn a{
+    
+        text-decoration: none;
+        background-color: white;
+        padding: 1em 2em;
+        color: #032133;
+        border-radius: 1000px;
+        font-size: 2em;
+        font-weight: 600;
+    }
+}
