@@ -149,7 +149,16 @@ textarea {
     margin: 1em 0 .75em 2.2em;
     color: var(--gray-dark);
     font-weight: 600;
+    position: relative;
 }
+
+.form-text::after{
+
+    content: '*';
+    color: red;
+    position: absolute;
+}
+
 .radio_text{
 
     margin: 1em 0 .75em 2.2em;
