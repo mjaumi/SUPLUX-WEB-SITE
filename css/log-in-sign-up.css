@@ -47,7 +47,7 @@
     width: 50%;
     display: grid;
     grid-template-columns: 1fr;
-    z-index: 5;
+    z-index: 2;
     transition: 1s 0.7s  ease-in-out;
 }
 
@@ -331,6 +331,7 @@ form.sign_up_form{
         transform: translateX(-50%);
         right: initial;
         top: initial;
+        z-index: 5;
         transition: 2s ease-in-out;
     }
 
@@ -345,7 +346,6 @@ form.sign_up_form{
 
     .panels_container{
 
-        z-index: 10;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 2fr 1fr;
     }
