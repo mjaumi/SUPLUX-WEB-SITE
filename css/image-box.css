@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 .box {
-    display: block;
     min-width: 300px;
+    width: 30%;
     height: 300px;
     margin: 10px;
     border-radius: 30px;
@@ -136,6 +136,17 @@ i.material-icons {
     .box{
 
         min-width: 0px;
+        width: 93%;
+    }
+}
+
+@media only screen and (max-width: 300px){
+
+    .box{
+
+        margin: 0;
+        min-width: 0px;
+        width: 100%;
     }
 }
  

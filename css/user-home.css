@@ -1,0 +1,166 @@
+header{
+
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+body{
+
+    background-color: #119ae8;
+}
+
+table {
+
+    table-layout: fixed;
+    margin-top: 2em;
+}
+
+tr{
+
+    height: 80px;
+    vertical-align: middle;
+}
+
+td {
+
+    word-wrap: break-word;        
+    overflow-wrap: break-word;  
+    padding: 40px; 
+}
+
+main{
+
+    margin-top: 12vh;
+}
+
+.profile_title{
+
+    padding: 0 1em 1.5em;
+}
+
+.profile_title h1{
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 4em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.user_home_main_container{
+
+    height: 100%;
+}
+
+.user_details_container{
+
+    width: 90%;
+    margin: 4em 0 3em;
+    padding-bottom: 3em;
+    background-color: white;
+    border-radius: 60px;
+    position: relative;
+}
+
+.pic_container{
+
+    height: 50px;
+}
+
+.edit_option{
+
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1em;
+}
+
+.edit_option_text{
+
+    width: fit-content;
+    text-align: right;
+    margin-right: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 300px;
+    padding: 0.5em 1em;
+    background-color: #032133;
+    transition: 0.3s ease-in-out;
+}
+
+.edit_option_text i{
+
+    margin-right: 5px;
+}
+
+.edit_option_text:hover{
+
+    letter-spacing: 5px;
+}
+
+.info_table{
+
+    width: 90%;
+}
+
+.field_name{
+
+    width: 35%;
+    font-weight: 300;
+    color: #032133;
+    font-size: 15px;
+}
+
+.user_data{
+
+    color: #032133;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+#footer{
+
+    min-height: 100px;
+    padding: 1em 0;
+}
+
+.footer_title{
+
+    margin-bottom: 0;
+}
+
+@media (max-width: 750px){
+
+    .footer_title{
+
+        margin-bottom: 1.5em;
+    }
+}
+
+@media (min-width: 700px){
+
+    .edit_option_text,
+    .field_name,
+    .user_data{
+
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 1200px){
+
+    .edit_option_text,
+    .field_name,
+    .user_data{
+
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 550px) {
+    
+    .profile_title h1{
+
+        font-size: 2em;
+    }
+}

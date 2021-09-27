@@ -112,6 +112,14 @@ th i{
     margin-bottom: 0;
 }
 
+@media (max-width: 750px){
+
+    .footer_title{
+
+        margin-bottom: 1.5em;
+    }
+}
+
 .destination_fare_info .descripion_title{
 
     margin-top: 1.5em;
