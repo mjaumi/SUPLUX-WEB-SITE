@@ -64,6 +64,8 @@ header{
     top: 0;
     width: 100%;
     z-index: 100000;
+    padding: 10px 0;
+    transition: top 0.3s;
 }
 
 #fp-nav ul li a span, 
@@ -76,7 +78,7 @@ header{
 
     position: absolute;
     top: 0;
-   right: 90% !important;
+    right: 90% !important;
 }
 
 .fp-slidesNav.fp-bottom{
@@ -109,7 +111,6 @@ header{
 #logo{
 
     min-width: 13vh;
-    margin-top: 1em;
     margin-left: 2em;
     fill: var(--header-text-color);
     cursor: pointer;
@@ -311,6 +312,7 @@ header{
 
     color: #032133;
     transform-origin: center;
+    transition: 280ms ease-in-out;
 }
 
 #nav_btn_bg{
@@ -319,13 +321,13 @@ header{
     border-radius: 100px;
     background: var(--header-text-color);
     cursor: pointer;
+    transition: 280ms ease-in-out;
 }
 
 #nav_btn_bg:hover{
 
     text-align: center;
     border: 2px solid var(--header-text-color);
-    transition: all 280ms ease-in-out;
     background-color: transparent;
 }
 
@@ -600,7 +602,7 @@ header{
 
     .title_top{
 
-        top: 8%;
+        top: 10%;
     }
 }
 

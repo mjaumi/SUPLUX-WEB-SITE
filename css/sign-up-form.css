@@ -9,6 +9,32 @@ header{
     transition: top 0.3s;
 }
 
+input,
+select,
+option{
+
+    font-weight: 600;
+}
+
+.select_field {
+
+    appearance: none;
+}
+
+.gender_selector:after {
+    
+    content: '\f107';
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 20px;
+    top: 23%;
+    z-index: 1;
+    text-align: center;
+    line-height: 100%;
+    pointer-events: none;
+    font-size: 2em;
+}
+
 :root {
     --bc: #f9f3ee;
     --bc-dark: #141412;
@@ -46,15 +72,6 @@ header{
     font-size: 4em;
     color: white;
     text-transform: uppercase;
-}
-
-.form-wrapper
-
-textarea {
-    min-height: 10em;
-    font-family: var(--font-main);
-    transition: opacity .15s ease-in-out;
-    resize: none;
 }
 
 /* Global classes */
@@ -145,14 +162,16 @@ textarea {
     background-color: var(--red);
     color: var(--white);
 }
-.form-text {
+.form-text-required,
+.form-text{
+
     margin: 1em 0 .75em 2.2em;
     color: var(--gray-dark);
     font-weight: 600;
     position: relative;
 }
 
-.form-text::after{
+.form-text-required::after{
 
     content: '*';
     color: red;
@@ -173,8 +192,8 @@ textarea {
 }
 .form-input-max {
     margin: 1.5em 0;
-    display: flex;
-    justify-content: space-around;
+    /*display: flex;
+    justify-content: space-around;*/
 }
 .form-input-wrapper {
     width: 100%;
@@ -201,6 +220,19 @@ textarea {
 .form-input:focus {
     outline: none;
     border: 2px solid var(--primary);
+}
+
+.image_box{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image_box .form-text{
+
+    margin-left: 0;
 }
 
 #form-button {
@@ -244,6 +276,14 @@ textarea {
     margin-bottom: 0;
 }
 
+@media (max-width: 750px){
+
+    .footer_title{
+
+        margin-bottom: 1.5em;
+    }
+}
+
 /* Media Rules */
 @media only screen and (max-width: 1660px) {
     :root {
@@ -285,20 +325,18 @@ textarea {
         grid-column-gap: 0;
         grid-row-gap: 1.5em;
     }
-
-    .form-input-max{
-
-        display: block;
-    }
-
-    .image_box{
-
-        margin-top: 2em;
-    }
 }
 @media only screen and (max-width: 496px) {
     :root {
         /* Sizes */
         --heading: 1.75rem;
+    }
+}
+
+@media (max-width: 610px) {
+    
+    .form_title h1{
+
+        font-size: 2em;
     }
 }

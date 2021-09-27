@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUPLUX | SIGN UP FORM</title>
+    <title>SUPLUX | PROFILE</title>
 
     <!-- css file integration -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <Link rel="stylesheet" href="css/main.css">
     <Link rel="stylesheet" href="css/sign-up-form.css">
-    <Link rel="stylesheet" href="css/custom-radio-button.css">
+    <Link rel="stylesheet" href="css/user-home.css">
+    <Link rel="stylesheet" href="css/user-pro-pic.css">
     <Link rel="stylesheet" href="css/footer-social-icon.css">
-    <Link rel="stylesheet" href="css/image-box.css">
+    <Link rel="stylesheet" href="css/user-nav.css">
 </head>
 <body>
+    
     <header id="header">
         <div id="suplux_logo">
-            <a href="index.php#home-section">
+            <a href="index.html#home-section">
                 <svg id="logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 804.3 368">
                     <title>Suplux Home</title>
                     <path d="M515.84,283.74h-65a11.06,11.06,0,0,0-8.84-11h82.63A11.06,11.06,0,0,0,515.84,283.74Zm-77.57-11H411.73c-1.5,5.82-1.48,11,3.41,11h14.3A11.06,11.06,0,0,1,438.27,272.74Zm99,11c8.21-.2,14.68-2.35,14.78-11H528.45A11.09,11.09,0,0,1,537.28,283.72Zm11.2-14.67h3.57v1.45H412.37c2.14-6.85,4.44-13.79,4.44-13.79,3.08-7.27,5.9-12.14,9.9-14.69h6.07v-1.4h-3.07a16.36,16.36,0,0,1,4.87-.7H544c7.67,0,8.09,9.77,8.06,18.41h-3.6Zm-113.82-4.89,17.42-18.89H430c-5.15,2.64-12.06,18.89-12.06,18.89Zm109.37-19H456.91s-8,8.45-13.84,14.58h95.7c3.86,0,8.38-3.27,8.38-7.29S547.88,245.16,544,245.16ZM423.63,242h3.08a12.65,12.65,0,0,1,3-1.4h-6c-.05,0-5-.72-7.1,4.86l1.25.5C419.56,241.48,423.37,242,423.63,242Zm16.53,30.53a9.77,9.77,0,0,0-1.89.18H442A10.6,10.6,0,0,0,440.16,272.55Zm9.38,11.19h0a9.39,9.39,0,1,1-9.38-9.82,9.51,9.51,0,0,1,9.19,7.84A10,10,0,0,1,449.54,283.74Zm-4,0a5.36,5.36,0,1,0-5.36,5.59A5.51,5.51,0,0,0,445.52,283.72Zm81-11.17a9.67,9.67,0,0,0-1.88.18h3.77A10.81,10.81,0,0,0,526.56,272.55Zm9.38,11.17h0a9.39,9.39,0,1,1-18.76,0h0a9.39,9.39,0,1,1,18.76,0Zm-4,0a5.37,5.37,0,1,0-5.37,5.59A5.49,5.49,0,0,0,531.93,283.72Z" transform="translate(-72.92 -213)"/>
@@ -42,23 +44,142 @@
         </div>
         <div id="nav">
             <ul class="nav_menu">
-                <li class="nav_items"><a class="nav_link" href="index.php#about-us-section">about us</a></li>
-                <li class="nav_items"><a class="nav_link" href="index.php#destinations-section">destinations</a></li>
-                <li class="nav_items"><a class="nav_link" href="index.php#contact-us-section">contact us</a></li>
-                <li class="nav_items"><a class="nav_link" href="log-in-or-sign-up.php">log in</a></li>
-                <li class="nav_items nav_item_sign_up"><div id="nav_btn_bg"><a id="nav_link_btn" href="#">sign up</a></div></li>
+                <li class="nav_items"><a class="nav_link" href="index.html#about-us-section">about us</a></li>
+                <li class="nav_items"><a class="nav_link" href="index.html#destinations-section">destinations</a></li>
+                <li class="nav_items"><a class="nav_link" href="index.html#contact-us-section">contact us</a></li>
+                <li class="nav_items">
+                    <div class="dropdown" data-open="false">
+                        <button class="dropdown_button" aria-haspopup="true" aria-expanded="false">
+                            <span>
+                                <div class="nav_pro_pic">
+                                    <img src="img/me.jpg" width="100%" alt="user profile photo">
+                                </div>
+                                <p class="nav_pro_name">Milhan Joardar</p>
+                            </span>
+                            <i class="dropdown_button_arrow fa fa-angle-down"></i>
+                        </button>
+                    
+                        <ul class="dropdown_menu scale" aria-role="menu" aria-hidden="true">
+                            <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
+                                <a class="logged_in_nav_btn" href="#">
+                                    <i class="dropdown_item_icon fa fa-user" aria-hidden="true"></i>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+
+                            <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
+                                <a class="logged_in_nav_btn" href="#">
+                                    <i class="dropdown_item_icon fa fa-pencil" aria-hidden="true"></i>
+                                    <span>Edit Password</span>
+                                </a>
+                            </li>
+
+                            <li class="dropdown_menu_separator" role="separator"></li>
+                        
+                            <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
+                                <a class="logged_in_nav_btn" href="#">
+                                    <i class="dropdown_item_icon fa fa-bus" aria-hidden="true"></i>
+                                    <span>Book Ticket</span>
+                                </a> 
+                            </li>
+                        
+                            <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
+                                <a class="logged_in_nav_btn" href="#">
+                                    <i class="dropdown_item_icon fa fa-ban" aria-hidden="true"></i>
+                                    <span>Cancel Ticket</span>
+                                </a>
+                            </li>
+                        
+                            <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
+                                <a class="logged_in_nav_btn" href="#">
+                                    <i class="dropdown_item_icon fa fa-calendar" aria-hidden="true"></i>
+                                    <span>Purchase Log</span>
+                                </a>
+                            </li>
+                        
+                            <li class="dropdown_menu_separator" role="separator"></li>
+                        
+                            <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
+                                <a class="logged_in_nav_btn" href="#">
+                                    <i class="dropdown_item_icon fa fa-sign-out" aria-hidden="true"></i>
+                                    <span>Log Out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </header>
 
-    <main class="main_container">
-        <div class="form_title">
-            <h1>Sign up form</h1>
+    <main id="profile_main_container">
+        <div class="profile_title">
+            <h1>user profile</h1>
         </div>
-        <div class="form_container">
-            <div class="container_fluid">
-                <div class="row">
-                    <div class="col-md-12">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center justify-content-center">
+                    <div class="user_details_container">
+                        <div class="pic_container">
+                            <div class="avatar-upload">
+                                <div class="avatar-edit">
+                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                    <label for="imageUpload"></label>
+                                </div>
+                                <div class="avatar-preview">
+                                    <div id="imagePreview" style="background-image: url(img/me.jpg);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user_info_container">
+                            <div class="edit_option">
+                                <p class="edit_option_text"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</p>
+                            </div>
+                            <div class="user_info d-flex align-items-center justify-content-center">
+                                <table class="table info_table">
+                                    <tbody>
+                                        <tr>                                  
+                                            <td class="field_name">Name</td>
+                                            <td class="user_data">Milhan Joardar Aumi</td>
+                                        </tr>
+                                        <tr>                                  
+                                            <td class="field_name">Email</td>
+                                            <td class="user_data">mjaumi2864@gmail.com</td>
+                                        </tr>
+                                        <tr>                                 
+                                            <td class="field_name">Gender</td>
+                                            <td class="user_data">Male</td>                                  
+                                        </tr>
+                                        <tr>  
+                                            <td class="field_name">Date of Birth</td>
+                                            <td class="user_data">-</td>
+                                        </tr>
+                                        <tr>  
+                                            <td class="field_name">Mobile No</td>
+                                            <td class="user_data">01788744803</td>
+                                        </tr>
+                                        <tr>  
+                                            <td class="field_name">NID No</td>
+                                            <td class="user_data">4661490989</td>
+                                        </tr>
+                                        <tr>  
+                                            <td class="field_name">Address</td>
+                                            <td class="user_data">-</td>
+                                        </tr>
+                                        <tr>  
+                                            <td class="field_name">Emergency Contact</td>
+                                            <td class="user_data">-</td>
+                                        </tr>
+                                        <tr>  
+                                            <td class="field_name">Religion</td>
+                                            <td class="user_data">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         <div class="flexbox-col">
                             <div class="form-wrapper">
                                 <form id="form" method="post" name="emailform" action="email.php">
@@ -77,6 +198,16 @@
                                                 <input class="form-input" id="ulname" name="userlastname" type="text" placeholder="Last Name" aria-label="" required>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-input-max">
+                                        <p class="form-text">Date of Birth</p>
+                                        <div class="form-input-wrapper flexbox-left gender_selector">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            <div class="container text-center">
+                                                <input type="text" id="datepicker" class="date" readonly="readonly" placeholder="Date">
+                                              </div>
+                                              
+                                        </div> 
                                     </div>
                                     <div class="form-input-grid">
                                         <div>
@@ -107,18 +238,6 @@
                                                 </select>
                                             </div> 
                                         </div>
-                                        <div class="image_box">
-                                            <p class="form-text-required text-center mt-5 mb-4">Upload Profile Image</p>
-                                            <div class="box">
-                                                <div class="js--image-preview"></div>
-                                                <div class="upload-options">
-                                                    <label>
-                                                        <h3 class="upload_btn_text"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD AN IMAGE</h3>
-                                                        <input type="file" class="image-upload" accept="image/*">
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="form-input-grid d-flex justify-content-center">
                                         <div class="button-wrapper">
@@ -132,59 +251,47 @@
                 </div>
             </div>
         </div>
-    </main>
 
-    <div id="footer">
-        <div class="footer_container">
-            <div class="footer_content">
-                <p class="footer_title">© SUPLUX 2021. All Rights Reserved</p>
-
-                <div class="social_footer">
-                    <div class="social_title">
-                        <p>Find us on</p>
-                    </div>
-                    <div class="icon_container">
-                        <a class="icon" href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a class="icon" href="https://twitter.com/?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a class="icon" href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <div id="footer">
+            <div class="footer_container">
+                <div class="footer_content">
+                    <p class="footer_title">© SUPLUX 2021. All Rights Reserved</p>
+    
+                    <div class="social_footer">
+                        <div class="social_title">
+                            <p>Find us on</p>
+                        </div>
+                        <div class="icon_container">
+                            <a class="icon" href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a class="icon" href="https://twitter.com/?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a class="icon" href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-     <!-- js file integration -->
+    <!-- js file integration -->
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/image-box.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/header.js"></script>
+    <script src="js/pro-pic.js"></script>
+    <script src="js/user-nav.js"></script>
     <script>
-        /**
-         * this is to tell the browser that user wants to sign up 
-         */
-        var value="signup";
-        var queryString = "?param=" + value;
-        
-        var signUpBtn = document.getElementById('nav_link_btn'); 
-
-        signUpPressed = () => {
-
-            window.location.href = "log-in-or-sign-up.php" + queryString;
-        };
-
-        signUpBtn.addEventListener('click', signUpPressed);
 
         /**
-        * this is animating the header 
-        */
+     * this is animating the header 
+     */
         var prevScrollpos = window.pageYOffset;
         window.onscroll = function() {
         var currentScrollPos = window.pageYOffset;
-          if (prevScrollpos > currentScrollPos) {
+        if (prevScrollpos > currentScrollPos) {
             document.getElementById("header").style.top = "0";
-          } else {
-            document.getElementById("header").style.top = "-10vh";
-          }
-          prevScrollpos = currentScrollPos;
+        } else {
+            document.getElementById("header").style.top = "-11vh";
+        }
+        prevScrollpos = currentScrollPos;
         }
     </script> 
 </body>
