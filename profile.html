@@ -15,6 +15,7 @@
     <Link rel="stylesheet" href="css/user-pro-pic.css">
     <Link rel="stylesheet" href="css/footer-social-icon.css">
     <Link rel="stylesheet" href="css/user-nav.css">
+        <Link rel="stylesheet" href="css/date-picker.css">
 </head>
 <body>
     
@@ -52,7 +53,7 @@
                         <button class="dropdown_button" aria-haspopup="true" aria-expanded="false">
                             <span>
                                 <div class="nav_pro_pic">
-                                    <img src="img/me.jpg" width="100%" alt="user profile photo">
+                                    <img src="img/me.jpg" width="100%" alt="user profile image">
                                 </div>
                                 <p class="nav_pro_name">Milhan Joardar</p>
                             </span>
@@ -61,7 +62,7 @@
                     
                         <ul class="dropdown_menu scale" aria-role="menu" aria-hidden="true">
                             <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
-                                <a class="logged_in_nav_btn" href="#">
+                                <a class="logged_in_nav_btn" href="profile.html">
                                     <i class="dropdown_item_icon fa fa-user" aria-hidden="true"></i>
                                     <span>Profile</span>
                                 </a>
@@ -133,8 +134,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="user_info_container">
-                            <div class="edit_option">
+                        <div id="user_info_container">
+                            <div id="edit_option">
                                 <p class="edit_option_text"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</p>
                             </div>
                             <div class="user_info d-flex align-items-center justify-content-center">
@@ -180,71 +181,98 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="flexbox-col">
-                            <div class="form-wrapper">
-                                <form id="form" method="post" name="emailform" action="email.php">
-                                    <div class="form-input-grid">
-                                        <div>
-                                            <p class="form-text-required">First Name</p>
-                                            <div class="form-input-wrapper flexbox-left">
-                                                <i class="fa fa-user" aria-hidden="true"></i>
-                                                <input class="form-input" id="ufname" name="userfirstname" type="text" placeholder="First Name" aria-label="" required>
+                        <div id="edit_form">
+                            <div class="flexbox-col">
+                                <div class="form-wrapper">
+                                    <form id="form" method="post" name="emailform" action="email.php">
+                                        <div class="form-input-grid">
+                                            <div>
+                                                <p class="form-text-required">First Name</p>
+                                                <div class="form-input-wrapper flexbox-left">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <input class="form-input" id="ufname" name="userfirstname" type="text" placeholder="Enter First Name" aria-label="" required>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="form-text-required">Last Name</p>
+                                                <div class="form-input-wrapper flexbox-left">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <input class="form-input" id="ulname" name="userlastname" type="text" placeholder="Enter Last Name" aria-label="" required>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div>
-                                            <p class="form-text-required">Last Name</p>
+                                        <div class="form-input-max">
+                                            <p class="form-text">Date of Birth</p>
                                             <div class="form-input-wrapper flexbox-left">
-                                                <i class="fa fa-user" aria-hidden="true"></i>
-                                                <input class="form-input" id="ulname" name="userlastname" type="text" placeholder="Last Name" aria-label="" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-input-max">
-                                        <p class="form-text">Date of Birth</p>
-                                        <div class="form-input-wrapper flexbox-left gender_selector">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                            <div class="container text-center">
-                                                <input type="text" id="datepicker" class="date" readonly="readonly" placeholder="Date">
-                                              </div>
-                                              
-                                        </div> 
-                                    </div>
-                                    <div class="form-input-grid">
-                                        <div>
-                                            <p class="form-text-required">Mobile Number</p>
-                                            <div class="form-input-wrapper flexbox-left">
-                                                <i class="fa fa-mobile" aria-hidden="true"></i>
-                                                <input class="form-input" id="umobile" name="usermobilenumber" type="text" placeholder="Mobile Number" aria-label="" required>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p class="form-text-required">NID Number</p>
-                                            <div class="form-input-wrapper flexbox-left">
-                                                <i class="fa fa-id-card" aria-hidden="true"></i>
-                                                <input class="form-input" id="unid" name="usernidnumber" type="text" placeholder="NID Number" aria-label="" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-input-max">
-                                        <div class="gender_box">
-                                            <p class="form-text-required">Gender</p>
-                                            <div class="form-input-wrapper flexbox-left gender_selector">
-                                                <i class="fa fa-venus-mars" aria-hidden="true"></i>
-                                                <select class="form-input select_field">
-                                                    <option selected value="None">Gender</option>
-                                                    <option value="Male">Male</option>
-                                                    <option value="Female">Female</option>
-                                                    <option value="Others">Others</option>
-                                                </select>
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                <div class="text-center date_field">
+                                                    <input type="text" name="userdateofbirth" id="datepicker" class="date form-input" readonly="readonly" placeholder="Enter Date of Birth">
+                                                </div> 
                                             </div> 
                                         </div>
-                                    </div>
-                                    <div class="form-input-grid d-flex justify-content-center">
-                                        <div class="button-wrapper">
-                                            <button id="form-button" type="submit" class="button btn-primary">SUBMIT</button>
+                                        <div class="form-input-grid">
+                                            <div>
+                                                <p class="form-text-required">Mobile Number</p>
+                                                <div class="form-input-wrapper flexbox-left">
+                                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                                    <input class="form-input" id="umobile" name="usermobilenumber" type="text" placeholder="Enter Mobile Number" aria-label="" required>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="form-text-required">NID Number</p>
+                                                <div class="form-input-wrapper flexbox-left">
+                                                    <i class="fa fa-id-card" aria-hidden="true"></i>
+                                                    <input class="form-input" id="unid" name="usernidnumber" type="text" placeholder="Enter NID Number" aria-label="" required>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                        <div class="form-input-max">
+                                            <div class="gender_box">
+                                                <p class="form-text-required">Gender</p>
+                                                <div class="form-input-wrapper flexbox-left gender_selector">
+                                                    <i class="fa fa-venus-mars" aria-hidden="true"></i>
+                                                    <select class="form-input select_field">
+                                                        <option selected value="None">Select Gender</option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                        <option value="Others">Others</option>
+                                                    </select>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <div class="form-input-grid">
+                                            <div>
+                                                <p class="form-text">Emergency Contact</p>
+                                                <div class="form-input-wrapper flexbox-left">
+                                                    <i class="fa fa-address-book" aria-hidden="true"></i>
+                                                    <input class="form-input" id="uemergency" name="useremergencycontact" type="text" placeholder="Enter Emergency Contact" aria-label="">
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="form-text">Religion</p>
+                                                <div class="form-input-wrapper flexbox-left">
+                                                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                                    <input class="form-input" id="ureligion" name="userreligion" type="text" placeholder="Enter Religion" aria-label="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-input-max">
+                                            <p class="form-text">Address (Max 500)</p>
+                                            <div id="textarea" class="form-input-wrapper flexbox-left-start">
+                                                <i class="fa fa-commenting" aria-hidden="true"></i>
+                                                <textarea class="form-input" id="address" name="useraddress" placeholder="Enter Address" maxlength="500" aria-label=""></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-input-grid button_container">
+                                            <div class="button-wrapper">
+                                                <button id="form-button" type="submit" class="button btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>SAVE</button>
+                                            </div>
+                                            <div class="button-wrapper">
+                                                <button id="cancel_edit_btn" class="button btn-danger"><i class="fa fa-ban" aria-hidden="true"></i></i>CANCEL</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -275,9 +303,12 @@
     <!-- js file integration -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/header.js"></script>
     <script src="js/pro-pic.js"></script>
     <script src="js/user-nav.js"></script>
+    <script src="js/date-picker.js"></script>
+    <script src="js/profile.js"></script>
     <script>
 
         /**
