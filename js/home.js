@@ -3,7 +3,7 @@
  */
  window.onunload = function () {
     
-    window.location.href = "log-in-or-sign-up.html" + queryString;
+    window.location.href = "log-in-or-sign-up.php" + queryString;
   }
 
 /**
