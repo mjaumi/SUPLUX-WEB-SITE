@@ -1,11 +1,12 @@
 
 var queryString = decodeURIComponent(window.location.search);
+console.log(queryString);
 queryString = queryString.substring(1);
 var queries = queryString.split("&");
 var isLogInPressed = false;
 
 /**
-* this is to anmate the blue circle
+* this is to animate the blue circle
 */
 const signUpBtn = document.querySelector('#sign_up_btn');
 const logInBtn = document.querySelector('#log_in_btn');
@@ -14,15 +15,18 @@ const container = document.querySelector('.main_container');
 
 signUpBtn.addEventListener('click', () => {
 
+
     container.classList.add('sign_up_mode');
-    window.history.pushState('', 'New Page Title', 'log-in-or-sign-up.html?param=signup');
+    window.history.pushState('', 'New Page Title', 'log-in-or-sign-up.php?param=signup');
+
+    console.log(Window.location.search);
 });
 
 logInBtn.addEventListener('click', () => {
 
     container.classList.remove('sign_up_mode');
     isLogInPressed = true;
-    window.history.pushState('', 'New Page Title', 'log-in-or-sign-up.html?param=login');
+    window.history.pushState('', 'New Page Title', 'log-in-or-sign-up.php?param=login');
 });
 
 /**

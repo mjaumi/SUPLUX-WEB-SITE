@@ -16,7 +16,7 @@
 <body>
     <header id="header">
         <div id="suplux_logo">
-            <a href="index.html#home-section">
+            <a href="index.php#home-section">
                 <svg id="logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 804.3 368">
                     <title>Suplux Home</title>
                     <path d="M515.84,283.74h-65a11.06,11.06,0,0,0-8.84-11h82.63A11.06,11.06,0,0,0,515.84,283.74Zm-77.57-11H411.73c-1.5,5.82-1.48,11,3.41,11h14.3A11.06,11.06,0,0,1,438.27,272.74Zm99,11c8.21-.2,14.68-2.35,14.78-11H528.45A11.09,11.09,0,0,1,537.28,283.72Zm11.2-14.67h3.57v1.45H412.37c2.14-6.85,4.44-13.79,4.44-13.79,3.08-7.27,5.9-12.14,9.9-14.69h6.07v-1.4h-3.07a16.36,16.36,0,0,1,4.87-.7H544c7.67,0,8.09,9.77,8.06,18.41h-3.6Zm-113.82-4.89,17.42-18.89H430c-5.15,2.64-12.06,18.89-12.06,18.89Zm109.37-19H456.91s-8,8.45-13.84,14.58h95.7c3.86,0,8.38-3.27,8.38-7.29S547.88,245.16,544,245.16ZM423.63,242h3.08a12.65,12.65,0,0,1,3-1.4h-6c-.05,0-5-.72-7.1,4.86l1.25.5C419.56,241.48,423.37,242,423.63,242Zm16.53,30.53a9.77,9.77,0,0,0-1.89.18H442A10.6,10.6,0,0,0,440.16,272.55Zm9.38,11.19h0a9.39,9.39,0,1,1-9.38-9.82,9.51,9.51,0,0,1,9.19,7.84A10,10,0,0,1,449.54,283.74Zm-4,0a5.36,5.36,0,1,0-5.36,5.59A5.51,5.51,0,0,0,445.52,283.72Zm81-11.17a9.67,9.67,0,0,0-1.88.18h3.77A10.81,10.81,0,0,0,526.56,272.55Zm9.38,11.17h0a9.39,9.39,0,1,1-18.76,0h0a9.39,9.39,0,1,1,18.76,0Zm-4,0a5.37,5.37,0,1,0-5.37,5.59A5.49,5.49,0,0,0,531.93,283.72Z" transform="translate(-72.92 -213)"/>
@@ -40,10 +40,10 @@
         </div>
         <div id="nav">
             <ul class="nav_menu">
-                <li class="nav_items"><a class="nav_link" href="index.html#about-us-section">about us</a></li>
-                <li class="nav_items"><a class="nav_link" href="index.html#destinations-section">destinations</a></li>
-                <li class="nav_items"><a class="nav_link" href="index.html#contact-us-section">contact us</a></li>
-                <li class="nav_items"><a class="nav_link" href="log-in-or-sign-up.html">log in</a></li>
+                <li class="nav_items"><a class="nav_link" href="index.php#about-us-section">about us</a></li>
+                <li class="nav_items"><a class="nav_link" href="index.php#destinations-section">destinations</a></li>
+                <li class="nav_items"><a class="nav_link" href="index.php#contact-us-section">contact us</a></li>
+                <li class="nav_items"><a class="nav_link" href="log-in-or-sign-up.php">log in</a></li>
                 <li class="nav_items nav_item_sign_up"><div id="nav_btn_bg"><a id="nav_link_btn" href="#">sign up</a></div></li>
             </ul>
         </div>
@@ -169,7 +169,7 @@
 
         signUpPressed = () => {
 
-            window.location.href = "log-in-or-sign-up.html" + queryString;
+            window.location.href = "log-in-or-sign-up.php" + queryString;
         };
 
         signUpBtn.addEventListener('click', signUpPressed);
