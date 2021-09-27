@@ -36,7 +36,9 @@ if(isset($_POST['signup'])){
         // $_POST['signup_user_confirm_password'] = "";
         unset($_POST);
         $_SESSION['status'] = "Signup";
-        header("Location: ".$_SERVER['PHP_SELF']);
+        header("Location: sign-up-form.php");
+
+        //header("Location: ".$_SERVER['PHP_SELF']);
 
 
       } else{

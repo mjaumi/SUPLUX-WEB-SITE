@@ -1,3 +1,13 @@
+<?php
+
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,14 +77,14 @@
                                             <p class="form-text-required">First Name</p>
                                             <div class="form-input-wrapper flexbox-left">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                                <input class="form-input" id="ufname" name="userfirstname" type="text" placeholder="First Name" aria-label="" required>
+                                                <input class="form-input" id="ufname" name="user_first_name" type="text" placeholder="First Name" aria-label="" required>
                                             </div>
                                         </div>
                                         <div>
                                             <p class="form-text-required">Last Name</p>
                                             <div class="form-input-wrapper flexbox-left">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                                <input class="form-input" id="ulname" name="userlastname" type="text" placeholder="Last Name" aria-label="" required>
+                                                <input class="form-input" id="ulname" name="user_last_name" type="text" placeholder="Last Name" aria-label="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -83,14 +93,14 @@
                                             <p class="form-text-required">Mobile Number</p>
                                             <div class="form-input-wrapper flexbox-left">
                                                 <i class="fa fa-mobile" aria-hidden="true"></i>
-                                                <input class="form-input" id="umobile" name="usermobilenumber" type="text" placeholder="Mobile Number" aria-label="" required>
+                                                <input class="form-input" id="umobile" name="user_mobile_number" type="text" placeholder="Mobile Number" aria-label="" required>
                                             </div>
                                         </div>
                                         <div>
                                             <p class="form-text-required">NID Number</p>
                                             <div class="form-input-wrapper flexbox-left">
                                                 <i class="fa fa-id-card" aria-hidden="true"></i>
-                                                <input class="form-input" id="unid" name="usernidnumber" type="text" placeholder="NID Number" aria-label="" required>
+                                                <input class="form-input" id="unid" name="user_nid_number" type="text" placeholder="NID Number" aria-label="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +109,7 @@
                                             <p class="form-text-required">Gender</p>
                                             <div class="form-input-wrapper flexbox-left gender_selector">
                                                 <i class="fa fa-venus-mars" aria-hidden="true"></i>
-                                                <select class="form-input select_field">
+                                                <select class="form-input select_field" name="gender">
                                                     <option selected value="None">Gender</option>
                                                     <option value="Male">Male</option>
                                                     <option value="Female">Female</option>
@@ -114,7 +124,7 @@
                                                 <div class="upload-options">
                                                     <label>
                                                         <h3 class="upload_btn_text"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD AN IMAGE</h3>
-                                                        <input type="file" class="image-upload" accept="image/*">
+                                                        <input type="file" class="image-upload" accept="image/*" name="image">
                                                     </label>
                                                 </div>
                                             </div>
