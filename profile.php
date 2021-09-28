@@ -1,14 +1,44 @@
 <?php
 
+include 'config.php';
+
+session_start();
+error_reporting(0);
 
 
+if (!isset($_SESSION['user_name'])) {
+    header("Location: log-in-or-sign-up.php");
+}
 
+$user_email = $_SESSION['email'];
+
+$sql_query = "SELECT * FROM user_table WHERE user_email = '$user_email' ";
+
+$result = mysqli_query($conn, $sql_query);
+$row = mysqli_fetch_assoc($result);
+
+$user_name = $row['user_first_name']." ".$row['user_last_name'];
+$user_email = $row['user_email'];
+$user_gender = $row['user_gender'];   
+$user_mobile_number = $row['user_phone'];
+$user_nid = $row['user_nid'];
+$user_date_of_birth = $row['date_of_birth'];
+$user_address = $row['address'];
+$user_emergency_contact = $row['emergency_contact'];
+$user_religion = $row['religion'];
+
+if ($user_date_of_birth === null) {
+    # code...
+    $user_date_of_birth = "-";
+    $user_address = "-";
+    $user_emergency_contact = "-";
+    $user_religion = "-";
+    $user_image = "";
+}
+$user_image = "";
+    
 
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,39 +184,39 @@
                                     <tbody>
                                         <tr>                                  
                                             <td class="field_name">Name</td>
-                                            <td class="user_data">Milhan Joardar Aumi</td>
+                                            <td class="user_data"><?php echo $user_name?></td>
                                         </tr>
                                         <tr>                                  
                                             <td class="field_name">Email</td>
-                                            <td class="user_data">mjaumi2864@gmail.com</td>
+                                            <td class="user_data"><?php echo $user_email?></td>
                                         </tr>
                                         <tr>                                 
                                             <td class="field_name">Gender</td>
-                                            <td class="user_data">Male</td>                                  
+                                            <td class="user_data"><?php echo $user_gender?></td>                                  
                                         </tr>
                                         <tr>  
                                             <td class="field_name">Date of Birth</td>
-                                            <td class="user_data">-</td>
+                                            <td class="user_data"><?php echo $user_date_of_birth?></td>
                                         </tr>
                                         <tr>  
                                             <td class="field_name">Mobile No</td>
-                                            <td class="user_data">01788744803</td>
+                                            <td class="user_data"><?php echo $user_mobile_number?></td>
                                         </tr>
                                         <tr>  
                                             <td class="field_name">NID No</td>
-                                            <td class="user_data">4661490989</td>
+                                            <td class="user_data"><?php echo $user_nid?></td>
                                         </tr>
                                         <tr>  
                                             <td class="field_name">Address</td>
-                                            <td class="user_data">-</td>
+                                            <td class="user_data"><?php echo $user_address?></td>
                                         </tr>
                                         <tr>  
                                             <td class="field_name">Emergency Contact</td>
-                                            <td class="user_data">-</td>
+                                            <td class="user_data"><?php echo $user_emergency_contact?></td>
                                         </tr>
                                         <tr>  
                                             <td class="field_name">Religion</td>
-                                            <td class="user_data">-</td>
+                                            <td class="user_data"><?php echo $user_religion?></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -338,3 +368,7 @@
     </script> 
 </body>
 </html>
+
+
+
+

@@ -20,6 +20,7 @@ if (isset($_POST['sign_up_form'])) {
     $user_mobile_number = $_POST['user_mobile_number'];
     $user_nid_number = $_POST['user_nid_number'];
     $user_gender = $_POST['gender'];
+
     // $user_image = $_FILES['image'];
 
     // $img_name = $_FILES['image']['name'];
@@ -34,7 +35,7 @@ if (isset($_POST['sign_up_form'])) {
     $result = mysqli_query($conn, $sql);
     if($result){
         echo "<script>alert('User Registration Successful.')</script>";
-        unset($_POST);
+        $_SESSION['email'] = $user_email;
         header("Location: welcome.php");
 
     }else{

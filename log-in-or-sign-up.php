@@ -64,11 +64,10 @@ if(isset($_POST['login'])){
   $user_password = mysqli_real_escape_string($conn, md5($_POST['login_user_password']));
 
   $check_email = mysqli_query($conn, "SELECT * FROM user_table WHERE user_email = '$user_email' AND user_password = '$user_password' ");
-
-  //$check_user_name = mysqli_query($conn, "SELECT * FROM user_table WHERE user_email = '$user_email' AND user_password = '$user_password' ");
   if(mysqli_num_rows($check_email) > 0 ){
     $row = mysqli_fetch_assoc($check_email);
     $_SESSION['user_name'] = $row['user_name'];
+    $_SESSION['email'] = $user_email;
     
     header("Location: welcome.php");
 
