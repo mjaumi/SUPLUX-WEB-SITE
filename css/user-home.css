@@ -8,23 +8,22 @@ body{
     background-color: #119ae8;
 }
 
-table {
+.info_table {
 
     table-layout: fixed;
     margin-top: 2em;
 }
 
-tr{
+.info_table tr{
 
     height: 80px;
     vertical-align: middle;
 }
 
-td {
+.info_table td {
 
     word-wrap: break-word;        
-    overflow-wrap: break-word;  
-    padding: 40px; 
+    overflow-wrap: break-word; 
 }
 
 main{
@@ -66,7 +65,20 @@ main{
     height: 50px;
 }
 
-.edit_option{
+#user_info_container{
+
+    display: block;
+    opacity: 1;
+    transition: 0.3 ease-in-out;
+}
+
+#user_info_container.edit_mode{
+
+    display: none;
+    opacity: 0;
+}
+
+#edit_option{
 
     display: flex;
     justify-content: flex-end;
@@ -116,6 +128,19 @@ main{
     color: #032133;
     font-weight: 600;
     font-size: 15px;
+}
+
+#edit_form{
+
+    display: none;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+#edit_form.edit_mode{
+
+    display: block;
+    opacity: 1;
 }
 
 #footer{

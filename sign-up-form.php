@@ -167,14 +167,14 @@ if (isset($_POST['sign_up_form'])) {
                                             <p class="form-text-required">First Name</p>
                                             <div class="form-input-wrapper flexbox-left">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                                <input class="form-input" id="ufname" name="user_first_name" type="text" placeholder="First Name" aria-label="" required>
+                                                <input class="form-input" id="ufname" name="user_first_name" type="text" placeholder="Enter First Name" aria-label="" required>
                                             </div>
                                         </div>
                                         <div>
                                             <p class="form-text-required">Last Name</p>
                                             <div class="form-input-wrapper flexbox-left">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                                <input class="form-input" id="ulname" name="user_last_name" type="text" placeholder="Last Name" aria-label="" required>
+                                                <input class="form-input" id="ulname" name="user_last_name" type="text" placeholder="Enter Last Name" aria-label="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -183,20 +183,20 @@ if (isset($_POST['sign_up_form'])) {
                                             <p class="form-text-required">Mobile Number</p>
                                             <div class="form-input-wrapper flexbox-left">
                                                 <i class="fa fa-mobile" aria-hidden="true"></i>
-                                                <input class="form-input" id="umobile" name="user_mobile_number" type="text" placeholder="Mobile Number" aria-label="" required>
+                                                <input class="form-input" id="umobile" name="user_mobile_number" type="text" placeholder="Enter Mobile Number" aria-label="" required>
                                             </div>
                                         </div>
                                         <div>
                                             <p class="form-text-required">NID Number</p>
                                             <div class="form-input-wrapper flexbox-left">
                                                 <i class="fa fa-id-card" aria-hidden="true"></i>
-                                                <input class="form-input" id="unid" name="user_nid_number" type="text" placeholder="NID Number" aria-label="" required>
+                                                <input class="form-input" id="unid" name="user_nid_number" type="text" placeholder="Enter NID Number" aria-label="" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-input-max">
                                         <div class="gender_box">
-                                            <p class="form-text-required">Gender</p>
+                                            <p class="form-text-required">Select Gender</p>
                                             <div class="form-input-wrapper flexbox-left gender_selector">
                                                 <i class="fa fa-venus-mars" aria-hidden="true"></i>
                                                 <select class="form-input select_field" name="gender">
