@@ -19,35 +19,43 @@ if(isset($_POST['signup'])){
     $user_confirm_password = mysqli_real_escape_string($conn, md5($_POST['signup_user_confirm_password']));
 
     $check_email = mysqli_num_rows(mysqli_query($conn, "SELECT user_email FROM user_table WHERE user_email = '$user_email'"));
+    $check_user_name = mysqli_num_rows(mysqli_query($conn, "SELECT user_name FROM user_table WHERE user_name = '$user_name'"));
 
     if($user_password !== $user_confirm_password){
         echo "<script>alert('Password did not match.')</script>";
-    } elseif( $check_email > 0){
+    }elseif( $check_email > 0){
         echo "<script>alert('User already exist.')</script>";
-    } else {
-      $sql = "INSERT INTO user_table (user_name, user_email, user_password) VALUES ('$user_name', '$user_email', '$user_password')";
-      $result = mysqli_query($conn, $sql);
-      if($result){
-
-        echo "<script>alert('User Registration Successful.')</script>";
-        // $_POST['signup_user_name'] = "";
-        // $_POST['signup_user_email'] = "";
-        // $_POST['signup_user_password'] = "";
-        // $_POST['signup_user_confirm_password'] = "";
-        unset($_POST);
-        $_SESSION['status'] = "Signup";
+    }elseif( $check_user_name > 0){
+        echo "<script>alert('Username already exist. Try a different user name')</script>";
+    }elseif($check_email==0 && $check_user_name==0) {
+        
+        $_SESSION['name'] = $user_name;
+        $_SESSION['email'] = $user_email;
+        $_SESSION['password'] = $user_password;
         header("Location: sign-up-form.php");
+        
+        
+    //   $sql = "INSERT INTO user_table (user_name, user_email, user_password) VALUES ('$user_name', '$user_email', '$user_password')";
+    //   $result = mysqli_query($conn, $sql);
+    //   if($result){
+
+    //     echo "<script>alert('User Registration Successful.')</script>";
+    //     // $_POST['signup_user_name'] = "";
+    //     // $_POST['signup_user_email'] = "";
+    //     // $_POST['signup_user_password'] = "";
+    //     // $_POST['signup_user_confirm_password'] = "";
+    //     unset($_POST);
+    //     $_SESSION['status'] = "Signup";
+        
 
         //header("Location: ".$_SERVER['PHP_SELF']);
 
-
-      } else{
+    }else {
         echo "<script>alert('User Registration Failed.')</script>";
-
-      }
     }
-
 }
+
+
 
 
 if(isset($_POST['login'])){
@@ -70,6 +78,15 @@ if(isset($_POST['login'])){
   }
 
 }
+
+
+if (!isset($_POST['signup']) && !isset($_POST['login'])) {
+    unset($_POST);
+    # code...
+}
+
+
+
 ?>
 
 
@@ -144,20 +161,20 @@ if(isset($_POST['login'])){
                     <h2 class="form_title">Sign Up</h2>
                     <div class="input_field">
                         <i class="fa fa-user" aria-hidden="true"></i>
-                        <input type="text" name="signup_user_name" value="" placeholder="Username">
+                        <input type="text" name="signup_user_name" value="" placeholder="Username" required>
                     </div>
                     <div class="input_field">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
-                        <input type="email" name="signup_user_email" value="" placeholder="Email">
+                        <input type="email" name="signup_user_email" value="" placeholder="Email" required>
                     </div>
                     <div class="input_field">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input type="password" name="signup_user_password" id="sign_password_field" value="" placeholder="Password">
+                        <input type="password" name="signup_user_password" id="sign_password_field" value="" placeholder="Password" required>
                         <!-- <i id="toggler_sign" class="fa fa-eye" aria-hidden="true"></i> -->
                     </div>
                     <div class="input_field">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input type="password" name="signup_user_confirm_password" id="confirm_password_field" value="" placeholder="Confirm Password">
+                        <input type="password" name="signup_user_confirm_password" id="confirm_password_field" value="" placeholder="Confirm Password" required>
                         <!-- <i id="toggler_con" class="fa fa-eye" aria-hidden="true"></i> -->
                     </div>
                     <input type="submit" value="sign up" class="btn solid" name = "signup">
