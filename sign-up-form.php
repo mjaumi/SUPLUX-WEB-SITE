@@ -6,19 +6,13 @@ session_start();
 error_reporting(0);
 
 
-
-
-
-
-
-
-
 if(isset($_SESSION['user_name'])){
     header("Location: welcome.php");
 }
 
 
 if (isset($_POST['sign_up_form'])) {
+    $user_name = $_SESSION['name'];
     $user_email = $_SESSION['email'];
     $user_password = $_SESSION['password'];
     $user_first_name = $_POST['user_first_name'];
@@ -26,69 +20,27 @@ if (isset($_POST['sign_up_form'])) {
     $user_mobile_number = $_POST['user_mobile_number'];
     $user_nid_number = $_POST['user_nid_number'];
     $user_gender = $_POST['gender'];
-    $user_image = $_FILES['image'];
+    // $user_image = $_FILES['image'];
 
-    $img_name = $_FILES['image']['name'];
-    $img_size = $_FILES['image']['size'];
-    $tmp_name = $_FILES['image']['tmp_name'];
-    $error = $_FILES['image']['error'];
-    $user_name = $_SESSION['name'];
+    // $img_name = $_FILES['image']['name'];
+    // $img_size = $_FILES['image']['size'];
+    // $tmp_name = $_FILES['image']['tmp_name'];
+    // $user_name = $_SESSION['name'];
 
 
-    if ($error === 0) {
-        $img_extension = pathinfo($img_name, PATHINFO_EXTENSION);
-        $img_extension_lw = strtolower($img_extension);
 
-        $allowed_extension = array("jpg", "jpeg", "png");
+    $sql = "INSERT INTO user_table (user_name, user_email, user_password, user_first_name, user_last_name, user_gender, user_phone, user_nid) 
+    VALUES ('$user_name', '$user_email', '$user_password', '$user_first_name', '$user_last_name', '$user_gender', '$user_mobile_number', '$user_nid_number')";
+    $result = mysqli_query($conn, $sql);
+    if($result){
+        echo "<script>alert('User Registration Successful.')</script>";
+        unset($_POST);
+        header("Location: welcome.php");
 
-        if (in_array($img_extension_lw, $allowed_extension)) {
-            # code...
-        } else{
-            echo "<script>alert('Image File Only.')</script>";
-
-        }
-        # code...
+    }else{
+        echo "<script>alert('User Registration Failed.')</script>";
     }
-
-
-
-    
-
-    
-
-
-    
-    # code...
-    // $sql = "INSERT INTO user_table (user_name, user_email, user_password, user_first_name, user_last_name, user_gender, user_phone, user_nid) ".
-    // "VALUES ('$user_name', '$user_email', '$user_password')";
-    //   $result = mysqli_query($conn, $sql);
-    //   if($result){
-
-    //     echo "<script>alert('User Registration Successful.')</script>";
-    //     // $_POST['signup_user_name'] = "";
-    //     // $_POST['signup_user_email'] = "";
-    //     // $_POST['signup_user_password'] = "";
-    //     // $_POST['signup_user_confirm_password'] = "";
-    //     unset($_POST);
-    //     $_SESSION['status'] = "Signup";
-        
-
-    //     header("Location: ".$_SERVER['PHP_SELF']);
-
-    // }else{
-    //     echo "<script>alert('User Registration Failed.')</script>";
-    // }
-
-    
-}else{
-    unset($_POST);
-
 }
-
-
-
-
-
 
 
 
