@@ -36,7 +36,7 @@ if (isset($_POST['sign_up_form'])) {
     if($result){
         echo "<script>alert('User Registration Successful.')</script>";
         $_SESSION['email'] = $user_email;
-        header("Location: welcome.php");
+        header("Location: profile.php");
 
     }else{
         echo "<script>alert('User Registration Failed.')</script>";

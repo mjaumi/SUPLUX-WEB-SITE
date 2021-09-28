@@ -69,7 +69,7 @@ if(isset($_POST['login'])){
     $_SESSION['user_name'] = $row['user_name'];
     $_SESSION['email'] = $user_email;
     
-    header("Location: welcome.php");
+    header("Location: profile.php");
 
   } else{
     echo "<script>alert('Log in details incorrect.')</script>";

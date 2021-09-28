@@ -11,11 +11,13 @@ if (!isset($_SESSION['user_name'])) {
 }
 
 $user_email = $_SESSION['email'];
-
 $sql_query = "SELECT * FROM user_table WHERE user_email = '$user_email' ";
 
 $result = mysqli_query($conn, $sql_query);
 $row = mysqli_fetch_assoc($result);
+$user_first_name = $row['user_first_name'];
+echo $user_first_name;
+$user_last_name = $row['user_last_name'];
 
 $user_name = $row['user_first_name']." ".$row['user_last_name'];
 $user_email = $row['user_email'];
@@ -36,9 +38,34 @@ if ($user_date_of_birth === null) {
     $user_image = "";
 }
 $user_image = "";
+
+
+//$_POST['user_first_name'] = $user_first_name;
+
+if (isset($_POST['save'])) {
+    # code...
+    $user_first_name = $_POST['user_first_name'];
+    $user_last_name = $_POST['user_last_name'];
+    $user_name = $user_first_name." ".$user_last_name;
+    $user_date_of_birth = $_POST['user_date_of_birth'];
+    $user_email = $_POST['user_email'];
+    unset($_POST);
+    
     
 
+}
+if (!isset($_POST['save'])) {
+    # code...
+    $user_name = $row['user_first_name']." ".$row['user_last_name'];
+
+    
+    
+}
+   
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +83,7 @@ $user_image = "";
     <Link rel="stylesheet" href="css/user-pro-pic.css">
     <Link rel="stylesheet" href="css/footer-social-icon.css">
     <Link rel="stylesheet" href="css/user-nav.css">
-        <Link rel="stylesheet" href="css/date-picker.css">
+    <Link rel="stylesheet" href="css/date-picker.css">
 </head>
 <body>
     
@@ -142,7 +169,7 @@ $user_image = "";
                             <li class="dropdown_menu_separator" role="separator"></li>
                         
                             <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
-                                <a class="logged_in_nav_btn" href="#">
+                                <a class="logged_in_nav_btn" href="logout.php">
                                     <i class="dropdown_item_icon fa fa-sign-out" aria-hidden="true"></i>
                                     <span>Log Out</span>
                                 </a>
@@ -225,20 +252,20 @@ $user_image = "";
                         <div id="edit_form">
                             <div class="flexbox-col">
                                 <div class="form-wrapper">
-                                    <form id="form" method="post" name="emailform" action="email.php">
+                                    <form id="form" method="post" name="emailform" action="">
                                         <div class="form-input-grid">
                                             <div>
                                                 <p class="form-text-required">First Name</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input class="form-input" id="ufname" name="userfirstname" type="text" placeholder="Enter First Name" aria-label="" required>
+                                                    <input class="form-input" id="ufname" name="user_first_name" type="text" placeholder= "<?php echo $user_first_name?>" aria-label="" required>
                                                 </div>
                                             </div>
                                             <div>
                                                 <p class="form-text-required">Last Name</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input class="form-input" id="ulname" name="userlastname" type="text" placeholder="Enter Last Name" aria-label="" required>
+                                                    <input class="form-input" id="ulname" name="user_last_name" type="text" placeholder=" <?php echo $user_last_name?>" aria-label="" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -247,7 +274,7 @@ $user_image = "";
                                             <div class="form-input-wrapper flexbox-left">
                                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                                                 <div class="text-center date_field">
-                                                    <input type="text" name="userdateofbirth" id="datepicker" class="date form-input" readonly="readonly" placeholder="Enter Date of Birth">
+                                                    <input type="text" name="user_date_of_birth" id="datepicker" class="date form-input" readonly="readonly" placeholder="Enter Date of Birth">
                                                 </div> 
                                             </div> 
                                         </div>
@@ -256,14 +283,14 @@ $user_image = "";
                                                 <p class="form-text-required">Mobile Number</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-mobile" aria-hidden="true"></i>
-                                                    <input class="form-input" id="umobile" name="usermobilenumber" type="text" placeholder="Enter Mobile Number" aria-label="" required>
+                                                    <input class="form-input" id="umobile" name="user_mobile_number" type="text" placeholder="<?php echo $user_mobile_number?>" aria-label="">
                                                 </div>
                                             </div>
                                             <div>
                                                 <p class="form-text-required">NID Number</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-id-card" aria-hidden="true"></i>
-                                                    <input class="form-input" id="unid" name="usernidnumber" type="text" placeholder="Enter NID Number" aria-label="" required>
+                                                    <input class="form-input" id="unid" name="user_nid_number" type="text" placeholder="<?php echo $user_nid?>" aria-label="">
                                                 </div>
                                             </div>
                                         </div>
@@ -272,7 +299,7 @@ $user_image = "";
                                                 <p class="form-text-required">Gender</p>
                                                 <div class="form-input-wrapper flexbox-left gender_selector">
                                                     <i class="fa fa-venus-mars" aria-hidden="true"></i>
-                                                    <select class="form-input select_field">
+                                                    <select class="form-input select_field" name="gender">
                                                         <option selected value="None">Select Gender</option>
                                                         <option value="Male">Male</option>
                                                         <option value="Female">Female</option>
@@ -286,14 +313,14 @@ $user_image = "";
                                                 <p class="form-text">Emergency Contact</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-address-book" aria-hidden="true"></i>
-                                                    <input class="form-input" id="uemergency" name="useremergencycontact" type="text" placeholder="Enter Emergency Contact" aria-label="">
+                                                    <input class="form-input" id="uemergency" name="user_emergency_contact" type="text" placeholder="Enter Emergency Contact" aria-label="">
                                                 </div>
                                             </div>
                                             <div>
                                                 <p class="form-text">Religion</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                                    <input class="form-input" id="ureligion" name="userreligion" type="text" placeholder="Enter Religion" aria-label="">
+                                                    <input class="form-input" id="ureligion" name="user_religion" type="text" placeholder="Enter Religion" aria-label="">
                                                 </div>
                                             </div>
                                         </div>
@@ -301,15 +328,15 @@ $user_image = "";
                                             <p class="form-text">Address (Max 500)</p>
                                             <div id="textarea" class="form-input-wrapper flexbox-left-start">
                                                 <i class="fa fa-commenting" aria-hidden="true"></i>
-                                                <textarea class="form-input" id="address" name="useraddress" placeholder="Enter Address" maxlength="500" aria-label=""></textarea>
+                                                <textarea class="form-input" id="address" name="user_address" placeholder="Enter Address" maxlength="500" aria-label=""></textarea>
                                             </div>
                                         </div>
                                         <div class="form-input-grid button_container">
                                             <div class="button-wrapper">
-                                                <button id="form-button" type="submit" class="button btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>SAVE</button>
+                                                <button id="form-button" type="submit" class="button btn-success" name="save"><i class="fa fa-floppy-o" aria-hidden="true"></i>SAVE</button>
                                             </div>
                                             <div class="button-wrapper">
-                                                <button id="cancel_edit_btn" class="button btn-danger"><i class="fa fa-ban" aria-hidden="true"></i></i>CANCEL</button>
+                                                <button id="cancel_edit_btn" class="button btn-danger" name="cancel"><i class="fa fa-ban" aria-hidden="true"></i></i>CANCEL</button>
                                             </div>
                                         </div>
                                     </form>
