@@ -2,6 +2,7 @@
 
 include 'config.php';
 
+
 session_start();
 error_reporting(0);
 
@@ -15,8 +16,8 @@ $sql_query = "SELECT * FROM user_table WHERE user_email = '$user_email' ";
 
 $result = mysqli_query($conn, $sql_query);
 $row = mysqli_fetch_assoc($result);
+
 $user_first_name = $row['user_first_name'];
-echo $user_first_name;
 $user_last_name = $row['user_last_name'];
 
 $user_name = $row['user_first_name']." ".$row['user_last_name'];
@@ -24,43 +25,156 @@ $user_email = $row['user_email'];
 $user_gender = $row['user_gender'];   
 $user_mobile_number = $row['user_phone'];
 $user_nid = $row['user_nid'];
+
+
 $user_date_of_birth = $row['date_of_birth'];
-$user_address = $row['address'];
-$user_emergency_contact = $row['emergency_contact'];
-$user_religion = $row['religion'];
 
-if ($user_date_of_birth === null) {
-    # code...
+if($user_date_of_birth === null){
     $user_date_of_birth = "-";
-    $user_address = "-";
-    $user_emergency_contact = "-";
-    $user_religion = "-";
-    $user_image = "";
 }
-$user_image = "";
+
+else if($user_date_of_birth !== null){
+    $user_date_of_birth = date("d M , Y", strtotime($user_date_of_birth));
+    
+}
+$user_address = $row['address'];
+if($user_address === null){
+    $user_address = "-";
+    $user_address_for_placeholder = "Enter Your Address";
+
+} else{
+    $user_address_for_placeholder = $user_address;
+
+}
+$user_emergency_contact = $row['emergency_contact'];
+if ($user_emergency_contact === null) {
+    $user_emergency_contact = "-";
+    $user_emergency_contact_for_placeholder = 'Enter Emergency Contact';
+    #..
+}else{
+    $user_emergency_contact_for_placeholder = $user_emergency_contact;
+
+}
+
+$user_religion = $row['religion'];
+if($user_religion === null){
+    $user_religion = "-";
+    $user_religion_for_placeholder = "Enter Your Religion";
+} else{
+    $user_religion_for_placeholder = $user_religion;
+}
 
 
-//$_POST['user_first_name'] = $user_first_name;
+
+    //$user_image = "";
+//$user_image = "";
+
+
+
 
 if (isset($_POST['save'])) {
     # code...
-    $user_first_name = $_POST['user_first_name'];
-    $user_last_name = $_POST['user_last_name'];
+    if (!empty($_POST['user_first_name'])) {
+        # code...
+        $user_first_name = $_POST['user_first_name'];
+        $sql_query = "UPDATE user_table SET user_first_name = '$user_first_name' WHERE user_email = '$user_email'";
+        mysqli_query($conn, $sql_query);
+    }
+
+    if (!empty($_POST['user_last_name'])) {
+        # code...
+        $user_last_name = $_POST['user_last_name'];
+        $sql_query = "UPDATE user_table SET user_last_name = '$user_last_name' WHERE user_email = '$user_email'";
+        mysqli_query($conn, $sql_query);
+    }
+
+
     $user_name = $user_first_name." ".$user_last_name;
-    $user_date_of_birth = $_POST['user_date_of_birth'];
-    $user_email = $_POST['user_email'];
+
+    if (!empty($_POST['user_date_of_birth'])) {
+        # code...
+        $user_date_of_birth = $_POST['user_date_of_birth'];
+        $user_date_of_birth = date("d M , Y", strtotime($user_date_of_birth));
+        $target_user_date_of_birth = date("Y-m-d", strtotime($user_date_of_birth));
+        $sql_query = "UPDATE user_table SET date_of_birth = '$target_user_date_of_birth' WHERE user_email = '$user_email'";
+        mysqli_query($conn, $sql_query);
+        //echo $user_date_of_birth;
+    }
+
+    if (!empty($_POST['user_mobile_number'])) {
+        # code...
+        $user_mobile_number = $_POST['user_mobile_number'];
+        $sql_query = "UPDATE user_table SET user_phone = '$user_mobile_number' WHERE user_email = '$user_email'";
+        mysqli_query($conn, $sql_query);
+    }
+
+    if (!empty($_POST['user_nid_number'])) {
+        # code...
+        $user_nid = $_POST['user_nid_number'];
+        $sql_query = "UPDATE user_table SET user_nid = '$user_nid' WHERE user_email = '$user_email'";
+        mysqli_query($conn, $sql_query);
+    }
+
+    if ($_POST['gender'] !== "None") {
+
+        $user_gender = $_POST['gender'];
+        $sql_query = "UPDATE user_table SET user_gender = '$user_gender' WHERE user_email = '$user_email'";
+        mysqli_query($conn, $sql_query);
+    }
+
+    if (!empty($_POST['emergency_contact'])) {
+
+        $user_emergency_contact = $_POST['emergency_contact'];
+        if ($user_emergency_contact === "") {
+            $user_emergency_contact = "-";
+            $user_emergency_contact_for_placeholder = 'Enter Emergency Contact';
+        }else{
+            $user_emergency_contact_for_placeholder = $user_emergency_contact;
+        }
+        $sql_query = "UPDATE user_table SET emergency_contact = '$user_emergency_contact' WHERE user_email = '$user_email'";
+        mysqli_query($conn, $sql_query);
+    }
+
+    if (!empty($_POST['address'])) {
+        $user_address = $_POST['address'];
+        if ($user_address === "") {
+            $user_address = "-";
+            $user_address_for_placeholder = 'Enter Your Address';
+            
+        }else{
+            $user_address_for_placeholder = $user_address;
+        }
+        $sql_query = "UPDATE user_table SET address = '$user_address' WHERE user_email = '$user_email'";
+        mysqli_query($conn, $sql_query);
+    }
+
+    if (!empty($_POST['religion'])) {
+        $user_religion = $_POST['religion'];
+        if ($user_religion === "") {
+            $user_religion = "-";
+            $user_religion_for_placeholder = 'Enter Your Religion';
+            
+        }else{
+            $user_religion_for_placeholder = $user_religion;
+        }
+        $sql_query = "UPDATE user_table SET religion = '$user_religion' WHERE user_email = '$user_email'";
+        mysqli_query($conn, $sql_query);
+    }
+
+    
+
+}
+
+if (isset($_POST['cancel'])) {
+    # code...
     unset($_POST);
     
-    
-
 }
-if (!isset($_POST['save'])) {
-    # code...
-    $user_name = $row['user_first_name']." ".$row['user_last_name'];
 
-    
-    
-}
+
+
+
+
    
 
 ?>
@@ -88,6 +202,7 @@ if (!isset($_POST['save'])) {
 <body>
     
     <header id="header">
+    
         <div id="suplux_logo">
             <a href="index.php#home-section">
                 <svg id="logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 804.3 368">
@@ -120,6 +235,7 @@ if (!isset($_POST['save'])) {
                     <div class="dropdown" data-open="false">
                         <button class="dropdown_button" aria-haspopup="true" aria-expanded="false">
                             <span>
+                            
                                 <div class="nav_pro_pic">
                                     <img src="img/me.jpg" width="100%" alt="user profile image">
                                 </div>
@@ -211,6 +327,7 @@ if (!isset($_POST['save'])) {
                                     <tbody>
                                         <tr>                                  
                                             <td class="field_name">Name</td>
+                                            
                                             <td class="user_data"><?php echo $user_name?></td>
                                         </tr>
                                         <tr>                                  
@@ -252,20 +369,20 @@ if (!isset($_POST['save'])) {
                         <div id="edit_form">
                             <div class="flexbox-col">
                                 <div class="form-wrapper">
-                                    <form id="form" method="post" name="emailform" action="">
+                                    <form id="form" method="POST" name="emailform" action="">
                                         <div class="form-input-grid">
                                             <div>
                                                 <p class="form-text-required">First Name</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input class="form-input" id="ufname" name="user_first_name" type="text" placeholder= "<?php echo $user_first_name?>" aria-label="" required>
+                                                    <input class="form-input" id="ufname" name="user_first_name" type="text" placeholder= "<?php echo $user_first_name?>" aria-label="">
                                                 </div>
                                             </div>
                                             <div>
                                                 <p class="form-text-required">Last Name</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input class="form-input" id="ulname" name="user_last_name" type="text" placeholder=" <?php echo $user_last_name?>" aria-label="" required>
+                                                    <input class="form-input" id="ulname" name="user_last_name" type="text" placeholder=" <?php echo $user_last_name?>" aria-label="">
                                                 </div>
                                             </div>
                                         </div>
@@ -310,25 +427,25 @@ if (!isset($_POST['save'])) {
                                         </div>
                                         <div class="form-input-grid">
                                             <div>
-                                                <p class="form-text">Emergency Contact</p>
+                                                <p class="form-text-required">Emergency Contact</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-address-book" aria-hidden="true"></i>
-                                                    <input class="form-input" id="uemergency" name="user_emergency_contact" type="text" placeholder="Enter Emergency Contact" aria-label="">
+                                                    <input class="form-input" id="uemergency" name="emergency_contact" type="text" placeholder="<?php echo $user_emergency_contact_for_placeholder?>" aria-label="">
                                                 </div>
                                             </div>
                                             <div>
-                                                <p class="form-text">Religion</p>
+                                                <p class="form-text-required">Religion</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                                    <input class="form-input" id="ureligion" name="user_religion" type="text" placeholder="Enter Religion" aria-label="">
+                                                    <input class="form-input" id="ureligion" name="religion" type="text" placeholder="<?php echo $user_religion_for_placeholder?>" aria-label="">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-input-max">
-                                            <p class="form-text">Address (Max 500)</p>
+                                            <p class="form-text-required">Address (Max 500)</p>
                                             <div id="textarea" class="form-input-wrapper flexbox-left-start">
                                                 <i class="fa fa-commenting" aria-hidden="true"></i>
-                                                <textarea class="form-input" id="address" name="user_address" placeholder="Enter Address" maxlength="500" aria-label=""></textarea>
+                                                <textarea class="form-input" id="address" name="address" placeholder="<?php echo $user_address_for_placeholder?>" maxlength="500" aria-label=""></textarea>
                                             </div>
                                         </div>
                                         <div class="form-input-grid button_container">
