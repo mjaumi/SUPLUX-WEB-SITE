@@ -1,5 +1,6 @@
-
-
+/**
+ * this is enabling and disabling the edit option
+ */
 const editBtn = document.getElementById('edit_option');
 const userInfoTable = document.getElementById('user_info_container');
 const editForm = document.getElementById('edit_form');

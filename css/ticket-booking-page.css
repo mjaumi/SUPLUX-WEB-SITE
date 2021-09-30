@@ -1,0 +1,41 @@
+
+.booking_title{
+
+    padding: 0 1em 1.5em;
+    margin-top: 5em;
+}
+
+.booking_title h1{
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 4em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.booking_search_box{
+
+    width: 75%;
+    background-color: white;
+    margin: 3em 0;
+    border-radius: 60px;
+}
+
+#form {
+    
+    margin-bottom: 0;
+}
+
+@media (max-width: 610px) {
+    
+    .booking_title h1{
+
+        font-size: 2em;
+    }
+
+    .booking_search_box{
+
+        width: 100%;
+    }
+}

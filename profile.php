@@ -146,7 +146,7 @@ if (!isset($_POST['save'])) {
                             <li class="dropdown_menu_separator" role="separator"></li>
                         
                             <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
-                                <a class="logged_in_nav_btn" href="#">
+                                <a class="logged_in_nav_btn" href="ticket-booking.php">
                                     <i class="dropdown_item_icon fa fa-bus" aria-hidden="true"></i>
                                     <span>Book Ticket</span>
                                 </a> 
@@ -380,8 +380,8 @@ if (!isset($_POST['save'])) {
     <script>
 
         /**
-     * this is animating the header 
-     */
+         * this is animating the header 
+         */
         var prevScrollpos = window.pageYOffset;
         window.onscroll = function() {
         var currentScrollPos = window.pageYOffset;

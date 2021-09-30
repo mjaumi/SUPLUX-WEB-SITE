@@ -89,7 +89,7 @@ span p{
 }
 .dropdown_menu_separator {
     margin: 0.35em 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px dashed #999;
 }
 .dropdown_menu_item {
     display: flex;
