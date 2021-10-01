@@ -248,7 +248,7 @@ textarea::-webkit-scrollbar-thumb {
     font-size: 1.22rem;
     border-radius: 5em;
     background-color: var(--bc-gray);
-    border: 2px solid var(--bc-gray);
+    border: 5px solid var(--bc-gray);
     transition: border .15s ease-in-out;
 }
 .form-input:hover {
