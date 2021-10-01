@@ -11,31 +11,6 @@ if (!isset($_SESSION['user_name'])) {
     header("Location: log-in-or-sign-up.php");
 }
 
-$files = $_FILES['image'];
-// $profile_image = upload_profile(".asset/profile/",$files);
-// echo $profile_image;
-
-// function upload_profile($path, $file){
-//     $target_directory = $path;
-//     $default_image = "me.jpg";
-//     $filename = basename($file['name']);
-//     $target_file_path = $target_directory.$filename;
-//     $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-//     if (!empty($filename)) {
-//         # code...
-//         $allow_type = array('jpg', 'png', 'jpeg');
-//         if (in_array($file_type, $allow_type)) {
-//             # code...
-//             if (move_uploaded_file($file['temp_name'], $target_file_path)) {
-//                 # code...
-//                 return $target_file_path;
-//             }
-    
-//         }
-    
-//     }
-//     return $path.$default_image;
-// }
 
 
 
@@ -61,32 +36,6 @@ if ($row['user_image'] === null) {
     # code...
     $user_image = "asset/me.jpg";
 }
-
-// //echo basename($file['name']);
-// $target_directory = "img/";
-// $default_image = "me.jpg";
-// $file_name = basename($file['name']);
-// $target_file_path = $target_directory.$file_name;
-// $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-// if (!empty($filename)) {
-//         # code...
-//     $allow_type = array('jpg', 'png', 'jpeg');
-//     if (in_array($file_type, $allow_type)) {
-//             # code...
-//         if (move_uploaded_file($file['tmp_name'], $target_file_path)) {
-//                 # code...
-//                 $profile_image = $target_file_path;
-//                 print ($profile_image);
-//          }
-    
-//     }
-    
-// } else{
-//     $profile_image = "img/me.jpg";
-//     echo 'failed';
-    
-// }
-
 
 
 
@@ -373,12 +322,8 @@ if (isset($_POST['cancel'])) {
                                 </div>
                                 <div class="avatar-preview">
                                     <div id="imagePreview" style="background-image: url(<?php echo $user_image; ?>);">
-                                    <?php echo "sssssssssssssssssssssssssss".$user_image; 
-                                    
-                                    
-                                    
-                                    
-                                    
+                                    <?php 
+
                                     ?>
                                 </div>
                                 </div>
@@ -391,7 +336,8 @@ if (isset($_POST['cancel'])) {
                             <div class="user_info d-flex align-items-center justify-content-center">
                                 <table class="table info_table">
                                     <tbody>
-                                        <tr>                                  
+                                        <tr>         
+                                                                
                                             <td class="field_name">Name</td>
                                             
                                             <td class="user_data"><?php echo $user_name?></td>
