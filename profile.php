@@ -4,12 +4,40 @@ include 'config.php';
 
 
 session_start();
-error_reporting(0);
-
+//error_reporting(0);
+error_reporting(E_ALL);
 
 if (!isset($_SESSION['user_name'])) {
     header("Location: log-in-or-sign-up.php");
 }
+
+$files = $_FILES['image'];
+// $profile_image = upload_profile(".asset/profile/",$files);
+// echo $profile_image;
+
+// function upload_profile($path, $file){
+//     $target_directory = $path;
+//     $default_image = "me.jpg";
+//     $filename = basename($file['name']);
+//     $target_file_path = $target_directory.$filename;
+//     $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
+//     if (!empty($filename)) {
+//         # code...
+//         $allow_type = array('jpg', 'png', 'jpeg');
+//         if (in_array($file_type, $allow_type)) {
+//             # code...
+//             if (move_uploaded_file($file['temp_name'], $target_file_path)) {
+//                 # code...
+//                 return $target_file_path;
+//             }
+    
+//         }
+    
+//     }
+//     return $path.$default_image;
+// }
+
+
 
 $user_email = $_SESSION['email'];
 $sql_query = "SELECT * FROM user_table WHERE user_email = '$user_email' ";
@@ -25,6 +53,42 @@ $user_email = $row['user_email'];
 $user_gender = $row['user_gender'];   
 $user_mobile_number = $row['user_phone'];
 $user_nid = $row['user_nid'];
+$user_image = "asset/".$row['user_image'];
+
+//profile image
+
+if ($row['user_image'] === null) {
+    # code...
+    $user_image = "asset/me.jpg";
+}
+
+// //echo basename($file['name']);
+// $target_directory = "img/";
+// $default_image = "me.jpg";
+// $file_name = basename($file['name']);
+// $target_file_path = $target_directory.$file_name;
+// $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
+// if (!empty($filename)) {
+//         # code...
+//     $allow_type = array('jpg', 'png', 'jpeg');
+//     if (in_array($file_type, $allow_type)) {
+//             # code...
+//         if (move_uploaded_file($file['tmp_name'], $target_file_path)) {
+//                 # code...
+//                 $profile_image = $target_file_path;
+//                 print ($profile_image);
+//          }
+    
+//     }
+    
+// } else{
+//     $profile_image = "img/me.jpg";
+//     echo 'failed';
+    
+// }
+
+
+
 
 
 $user_date_of_birth = $row['date_of_birth'];
@@ -158,6 +222,7 @@ if (isset($_POST['save'])) {
 
 }
 
+
 if (isset($_POST['cancel'])) {
     # code...
     unset($_POST);
@@ -168,10 +233,11 @@ if (isset($_POST['cancel'])) {
 
 
 
+
+
    
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -232,7 +298,7 @@ if (isset($_POST['cancel'])) {
                                 <div class="nav_pro_pic">
                                     <img src="img/me.jpg" width="100%" alt="user profile image">
                                 </div>
-                                <p class="nav_pro_name">Milhan Joardar</p>
+                                <p class="nav_pro_name"><?php echo $user_first_name;?></p>
                             </span>
                             <i class="dropdown_button_arrow fa fa-angle-down"></i>
                         </button>
@@ -302,12 +368,19 @@ if (isset($_POST['cancel'])) {
                         <div class="pic_container">
                             <div class="avatar-upload">
                                 <div class="avatar-edit">
-                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name = "image"/>
+                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name="image" />
                                     <label for="imageUpload"></label>
                                 </div>
                                 <div class="avatar-preview">
-                                    <div id="imagePreview" style="background-image: url(img/me.jpg);">
-                                    </div>
+                                    <div id="imagePreview" style="background-image: url(<?php echo $user_image; ?>);">
+                                    <?php echo "sssssssssssssssssssssssssss".$user_image; 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    ?>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -362,7 +435,7 @@ if (isset($_POST['cancel'])) {
                         <div id="edit_form">
                             <div class="flexbox-col">
                                 <div class="form-wrapper">
-                                    <form id="form" method="POST" name="emailform" action="">
+                                    <form id="form" method="POST" name="emailform" action="" enctype="multipart/form-data">
                                         <div class="form-input-grid">
                                             <div>
                                                 <p class="form-text-required">First Name</p>
@@ -505,6 +578,9 @@ if (isset($_POST['cancel'])) {
     </script> 
 </body>
 </html>
+
+
+
 
 
 

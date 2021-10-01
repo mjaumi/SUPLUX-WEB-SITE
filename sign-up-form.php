@@ -7,8 +7,10 @@ error_reporting(0);
 
 
 if(isset($_SESSION['user_name'])){
-    header("Location: welcome.php");
+    header("Location: profile.php");
 }
+
+$profile_image;
 
 
 if (isset($_POST['sign_up_form'])) {
@@ -21,10 +23,14 @@ if (isset($_POST['sign_up_form'])) {
     $user_nid_number = $_POST['user_nid_number'];
     $user_gender = $_POST['gender'];
 
+    $file_name = time()."-".rand(1000, 9999).".".pathinfo("asset/".basename($_FILES['image']['name']), PATHINFO_EXTENSION);//$_FILES["image"]["name"];
+    $temp_name = $_FILES["image"]["tmp_name"];    
+    $folder = "asset/".$file_name;
+    move_uploaded_file($temp_name, $folder);
 
 
-    $sql = "INSERT INTO user_table (user_name, user_email, user_password, user_first_name, user_last_name, user_gender, user_phone, user_nid) 
-    VALUES ('$user_name', '$user_email', '$user_password', '$user_first_name', '$user_last_name', '$user_gender', '$user_mobile_number', '$user_nid_number')";
+    $sql = "INSERT INTO user_table (user_name, user_email, user_password, user_first_name, user_last_name, user_gender, user_phone, user_nid, user_image) 
+    VALUES ('$user_name', '$user_email', '$user_password', '$user_first_name', '$user_last_name', '$user_gender', '$user_mobile_number', '$user_nid_number', '$file_name')";
     $result = mysqli_query($conn, $sql);
     if($result){
         echo "<script>alert('User Registration Successful.')</script>";
@@ -107,7 +113,7 @@ if (isset($_POST['sign_up_form'])) {
                     <div class="col-md-12">
                         <div class="flexbox-col">
                             <div class="form-wrapper">
-                                <form id="form" method="post" name="emailform" action="">
+                                <form id="form" method="post" name="emailform" action="" enctype="multipart/form-data">
                                     <div class="form-input-grid">
                                         <div>
                                             <p class="form-text-required">First Name</p>
