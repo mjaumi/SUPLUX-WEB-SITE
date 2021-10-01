@@ -34,21 +34,7 @@ if(isset($_POST['signup'])){
         $_SESSION['password'] = $user_password;
         header("Location: sign-up-form.php");
         
-        
-    //   $sql = "INSERT INTO user_table (user_name, user_email, user_password) VALUES ('$user_name', '$user_email', '$user_password')";
-    //   $result = mysqli_query($conn, $sql);
-    //   if($result){
-
-    //     echo "<script>alert('User Registration Successful.')</script>";
-    //     // $_POST['signup_user_name'] = "";
-    //     // $_POST['signup_user_email'] = "";
-    //     // $_POST['signup_user_password'] = "";
-    //     // $_POST['signup_user_confirm_password'] = "";
-    //     unset($_POST);
-    //     $_SESSION['status'] = "Signup";
-        
-
-        //header("Location: ".$_SERVER['PHP_SELF']);
+    
 
     }else {
         echo "<script>alert('User Registration Failed.')</script>";

@@ -65,13 +65,6 @@ if($user_religion === null){
 }
 
 
-
-    //$user_image = "";
-//$user_image = "";
-
-
-
-
 if (isset($_POST['save'])) {
     # code...
     if (!empty($_POST['user_first_name'])) {
