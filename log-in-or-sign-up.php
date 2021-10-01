@@ -8,7 +8,7 @@ error_reporting(0);
 
 
 if(isset($_SESSION['user_name'])){
-  header("Location: welcome.php");
+  header("Location: profile.php");
 }
 
 
