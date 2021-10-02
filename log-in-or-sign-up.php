@@ -192,5 +192,7 @@ if (!isset($_POST['signup']) && !isset($_POST['login'])) {
     <script src="js/log-sign.js"></script>
     <script src="js/header.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+
+    
 </body>
 </html>

@@ -181,6 +181,8 @@ if (isset($_POST['cancel'])) {
 
 
 
+
+
 // file_put_contents('img.jpeg', base64_decode());
    
 
@@ -313,7 +315,7 @@ if (isset($_POST['cancel'])) {
                 <div class="col-md-12 d-flex align-items-center justify-content-center">
                     <div class="user_details_container">
                         <div class="pic_container">
-                        <!-- <form id="form" method="POST" name="email_form" action="login.php" enctype="multipart/form-data"> -->
+                         <!-- <form id="form" method="POST" name="email_form" action="" enctype="multipart/form-data"> -->
                             <div class="avatar-upload">
                                 <div class="avatar-edit">
                                     <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name="image" />
@@ -520,10 +522,20 @@ if (isset($_POST['cancel'])) {
         }
         
     </script> 
+
+    <script>
+
+        var value = v;
+
+
+
+    </script>
+
     <?php
 
-        echo $_COOKIE["height"];
-        
+        // $ab = <script></script>
+        // echo $_COOKIE["h"];
+        echo $_GET['halum'];
 
     ?>
 
