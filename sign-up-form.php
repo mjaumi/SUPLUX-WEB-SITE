@@ -36,9 +36,6 @@ if (isset($_POST['sign_up_form'])) {
         echo "<script>alert('User Registration Successful.')</script>";
         $_SESSION['email'] = $user_email;
         header("Location: profile.php");
-
-    }else{
-        echo "<script>alert('User Registration Failed.')</script>";
     }
 }
 
@@ -178,6 +175,12 @@ if (isset($_POST['sign_up_form'])) {
                                         </div>
                                     </div>
                                 </form>
+                                <?php
+                                if (!$result) {
+                                    # code...
+                                    echo "<script>alert('User Registration Failed.')</script>";
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -239,5 +242,7 @@ if (isset($_POST['sign_up_form'])) {
           prevScrollpos = currentScrollPos;
         }
     </script> 
+
+    
 </body>
 </html>

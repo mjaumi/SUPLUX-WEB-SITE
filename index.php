@@ -1,3 +1,24 @@
+<?php
+
+session_start();
+error_reporting(0);
+$user_logged_in = "no";
+
+
+if(isset($_SESSION['user_name'])){
+    $user_logged_in = "yes";
+    
+
+
+    //header("Location: profile.php");
+}
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +38,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" integrity="sha512-4rPgyv5iG0PZw8E+oRdfN/Gq+yilzt9rQ8Yci2jJ15rAyBmF0HBE4wFjBkoB72cxBeg63uobaj1UcNt/scV93w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <Link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/user-nav.css">
 </head>
 <body>
 
@@ -46,11 +68,28 @@
         </div>
         <div id="nav">
             <ul class="nav_menu">
-                <li class="nav_items"><a class="nav_link" href="#about-us-section">about us</a></li>
-                <li class="nav_items"><a class="nav_link" href="#destinations-section">destinations</a></li>
-                <li class="nav_items"><a class="nav_link" href="#contact-us-section">contact us</a></li>
-                <li class="nav_items"><a class="nav_link" href="log-in-or-sign-up.php">log in</a></li>
-                <li class="nav_items nav_item_sign_up"><div id="nav_btn_bg"><a id="nav_link_btn" href="#">sign up</a></div></li>
+
+            
+
+            <?php if ($user_logged_in === "yes") {
+                # code...
+                include 'header-logged-in.php'; 
+                
+            } else{
+                include 'header.php'; 
+
+            }
+            
+            
+            
+            
+            ?>
+
+                <!-- // <li class="nav_items"><a class="nav_link" href="#about-us-section">about us</a></li>
+                // <li class="nav_items"><a class="nav_link" href="#destinations-section">destinations</a></li>
+                // <li class="nav_items"><a class="nav_link" href="#contact-us-section">contact us</a></li>
+                // <li class="nav_items"><a class="nav_link" href="log-in-or-sign-up.php">log in</a></li>
+                // <li class="nav_items nav_item_sign_up"><div id="nav_btn_bg"><a id="nav_link_btn" href="#">sign up</a></div></li> -->
             </ul>
         </div>
     </header>
@@ -575,6 +614,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js" integrity="sha512-gSf3NCgs6wWEdztl1e6vUqtRP884ONnCNzCpomdoQ0xXsk06lrxJsR7jX5yM/qAGkPGsps+4bLV5IEjhOZX+gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/user-nav.js"></script>
     <script src="js/home.js"></script>
     <script src="jquery/tilt.jquery.min.js"></script>
     <script src="js/header.js"></script>

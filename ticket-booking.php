@@ -1,3 +1,62 @@
+<?php
+
+include 'config.php';
+
+
+session_start();
+//error_reporting(0);
+error_reporting(E_ALL);
+// session_regenerate_id();
+
+// $_POST['from_city'] = "";
+// $_POST['to_city'] = " " ;
+
+if (!isset($_SESSION['user_name'])) {
+    header("Location: log-in-or-sign-up.php");
+}
+
+if (isset($_POST['search_buses'])) {
+    # code...
+    if(isset($_POST['from_city'])){
+    echo $_POST['from_city'];
+    //$_SESSION['from_city'] = $_POST['from_city'];
+    }
+    if(isset($_POST['to_city'])){
+    echo $_POST['to_city'];
+    //$_SESSION['to_city'] = $_POST['to_city'];
+    }
+    if(isset($_POST['date_of_journey'])){
+    echo $_POST['date_of_journey'];
+    //$_SESSION['date_of_journey'] = $_POST['date_of_journey'];
+
+    }
+    if(isset($_POST['date_of_return'])){
+    echo $_POST['date_of_return'];
+    //$_SESSION['date_of_return'] = $_POST['date_of_return'];
+
+
+    }
+    if ($_POST['from_city'] !== $_POST['to_city']) {
+    # code...   
+    //header("Location: gozayan.php");
+    
+    echo "<script>
+    window.location.href = 'profile.php?habijabi=blah'
+
+    </script>";
+    }
+
+
+}
+
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,6 +189,8 @@
                                                     <div class="form-input-wrapper flexbox-left">
                                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                                         <input class="form-input" id="starting_point" name="from_city" type="text" placeholder="Enter city" aria-label="" required>
+                                                        
+                                                        
                                                     </div>  
                                                 </div>
                                                 <div class="autocomplete">
@@ -137,6 +198,9 @@
                                                     <div class="form-input-wrapper flexbox-left">
                                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                                         <input class="form-input" id="destination_point" name="to_city" type="text" placeholder="Enter City" aria-label="" required>
+                                                        
+                                                        
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,7 +219,7 @@
                                                     <div class="form-input-wrapper flexbox-left">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                         <div class="text-center date_field">
-                                                            <input type="text" name="user_date_of_return" id="return_datepicker" class="date form-input" readonly="readonly" placeholder="Pick a date" >
+                                                            <input type="text" name="date_of_return" id="return_datepicker" class="date form-input" readonly="readonly" placeholder="Pick a date" >
                                                         </div> 
                                                     </div>
                                                 </div>
@@ -166,6 +230,9 @@
                                             <div class="form-input-grid d-flex justify-content-center">
                                                 <div class="button-wrapper">
                                                     <button id="form-button" type="submit" class="button btn-primary" name="search_buses"><i class="fa fa-search" aria-hidden="true"></i>SEARCH BUSES</button>
+                                                    
+                                                
+                                                
                                                 </div>
                                             </div>
                                         </form>
@@ -221,5 +288,29 @@
           prevScrollpos = currentScrollPos;
         }
     </script>
+
+
+<script>
+
+
+
+
+
+</script>
+
+    <?php
+
+        
+
+
+        if ($_POST['from_city'] === $_POST['to_city'] && ($_POST['from_city'] !== null || $_POST['To_city'] !== null)) {
+            
+            echo "<script>alert('Source & Destination is same here. Please choose different cities. ')</script>";
+            
+        }
+
+    ?>
+
+    
 </body>
 </html>

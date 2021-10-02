@@ -5,14 +5,12 @@ include 'config.php';
 
 session_start();
 //error_reporting(0);
+session_regenerate_id();
 error_reporting(E_ALL);
 
 if (!isset($_SESSION['user_name'])) {
     header("Location: log-in-or-sign-up.php");
 }
-
-
-
 
 $user_email = $_SESSION['email'];
 $sql_query = "SELECT * FROM user_table WHERE user_email = '$user_email' ";
@@ -22,6 +20,7 @@ $row = mysqli_fetch_assoc($result);
 
 $user_first_name = $row['user_first_name'];
 $user_last_name = $row['user_last_name'];
+$_SESSION['user_profile_name'] = $user_first_name; 
 
 $user_name = $row['user_first_name']." ".$row['user_last_name'];
 $user_email = $row['user_email'];
@@ -535,7 +534,7 @@ if (isset($_POST['cancel'])) {
 
         // $ab = <script></script>
         // echo $_COOKIE["h"];
-        echo $_GET['halum'];
+ 
 
     ?>
 
