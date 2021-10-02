@@ -1,0 +1,444 @@
+header{
+
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+body{
+
+    background-color: #119ae8;
+    padding-bottom: 500px;
+}
+
+button i{
+
+    margin-right: 0;
+    font-size: 25px;
+}
+
+svg#main_svg{
+
+    display: none;
+}
+
+.modify_search_container{
+
+    background-color: white;
+    width: 100%;
+    margin-top: 15vh;
+    margin-bottom: 3em;
+    padding: 50px;
+    border-radius: 60px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.modify_search_box_container{
+
+    background-color: white;
+    width: 100%;
+    margin-top: 15vh;
+    margin-bottom: 3em;
+    border-radius: 60px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.modify_title{
+
+    font-size: 0.85em;
+    color: #aaa;
+    margin: 0;
+}
+
+.departure_wrapper + .departure_wrapper{
+
+    margin-top: 2em;
+}
+
+.bus_icon{
+
+    height: 40px;
+    width: 60px;
+    fill: #aaa;
+}
+
+.filter_icon_wrapper{
+
+    display: flex;
+    align-items: center;
+}
+
+.filter_icon{
+
+    height: 30px;
+    width: 30px;
+}
+
+.filter_text{
+
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.bus_icon.departure{
+
+    transform: rotateY(180deg);
+}
+
+.from_to{
+
+    font-weight: 600;
+    color: #aaa;
+}
+
+.travel_date{
+
+    font-weight: 300;
+    color: #aaa;
+}
+
+.selected{
+
+    color: #032133;
+    fill: #032133;
+}
+
+.button_wrapper,
+.button-wrapper{
+
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button{
+
+    padding: 0.9em 1.2em;
+    background-color: #119ae8;
+    color: white;
+    font-weight: 600;
+    border-radius: 100px;
+    max-height: 100px;
+    border: 5px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+
+.button:hover{
+
+    color: #119ae8;
+    background-color: transparent;
+    border-color: #119ae8;
+    letter-spacing: 5px;
+}
+
+.button i{
+
+    margin-right: 10px;
+}
+
+.add_return_btn_wrapper{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button.add_return_btn{
+
+    font-size: 0.8em;
+    margin-top: 1.35em;
+}
+
+#form{
+
+    width: 100%;
+    margin: 0;
+}
+
+.button.btn-danger{
+
+    max-width: 100px;
+    font-size: 0.7em;
+    padding: 0.5em 0.2em;
+    margin-top: 2em;
+}
+
+.filter_container{
+
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.coach_filter_wrapper{
+
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trip_time_wrapper{
+
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coach_btn + .coach_btn{
+
+    margin-left: 10px;
+}
+
+.coach_btn{
+
+    background-color: #119ae8;
+    color: white;
+    font-size: 12px;
+    width: 60px;
+    border: 2px solid transparent;
+    min-height: 60px;
+    border-radius: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.coach_btn:hover{
+
+    border-color: #119ae8;
+    color: #119ae8;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+@media (min-width: 760px){
+
+    .modify_search_container{
+
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+    }
+
+    .departure_wrapper + .departure_wrapper,
+    .button_wrapper{
+
+        margin-top: 0; 
+        border-left: 1px dashed #999;
+    }
+
+    .button.add_return_btn{
+
+        font-size: 0.6em;
+    }
+
+    .departure_wrapper,
+    .button_wrapper{
+
+        width: 33.33%;
+        margin-top: 0;
+        padding: 30px;
+    }
+
+    .button{
+
+        padding: 0.9em 0.5em; 
+        font-size: 0.7em;
+    }
+
+    .from_to,
+    .travel_date{
+
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 760px){
+
+    .modify_search_container{
+
+        padding: 30px;
+    }
+
+    .button{
+
+        font-size: 1em;
+    }
+
+    .button.add_return_btn{
+
+        font-size: 0.8em;
+    }
+}
+
+
+@media (max-width: 385px){
+
+    .modify_search_container{
+
+        padding: 30px;
+    }
+
+    .button,
+    .button.add_return_btn{
+
+        font-size: 0.55em;
+    }
+}
+
+@media (max-width: 300px){
+
+    .modify_search_container{
+
+        padding: 40px;
+    }
+
+    .button,
+    .button.add_return_btn{
+
+        font-size: 0.55em;
+    }
+
+    .from_to,
+    .travel_date{
+
+        font-size: 0.8em;
+    }
+
+    .coach_btn{
+
+        font-size: 8px;
+    }
+}
+
+@media (min-width: 1022px){
+
+    #form{
+
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+    }
+
+    .from_to_wrapper,
+    .date_wrapper,
+    .search_btn_wrapper{
+
+        width: 33.33%;
+        padding: 1em;
+        padding-bottom: 1.5em;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .date_wrapper{
+
+        border-left: 1px dashed #999;
+        border-right: 1px dashed #999;
+    }
+
+    .departure_wrapper + .departure_wrapper{
+
+        margin-top: 0; 
+    }
+
+    .departure_wrapper,
+    .button_wrapper{
+
+        padding: 35px;
+    }
+
+    .button{
+
+        padding: 0.9em 0.5em; 
+        font-size: 1em;
+    }
+
+    .button.add_return_btn{
+
+        font-size: 0.8em;
+    }
+
+    .from_to,
+    .travel_date{
+
+        font-size: 1.2em;
+    }
+
+    .filter_text{
+
+        display: none;
+    }
+
+    .filter_icon_wrapper{
+
+        margin-right: 30px;
+    }
+
+    .filter_container{
+
+        padding: 0;
+    }
+
+    .filter_container,
+    .coach_filter{
+
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .coach_filter_wrapper,
+    .trip_time_wrapper{
+
+        margin-top: 0;
+    }
+
+    .coach_filter{
+
+        width: 50%;
+        padding: 30px;
+    }
+
+    .trip_time_filter{
+
+        width: 50%;
+        padding: 30px;
+        border-left: 1px dashed #999;
+    }
+}
+
+@media (min-width: 1400px){
+
+    .modify_search_container{
+
+        display: flex;
+    }
+
+    .departure_wrapper + .departure_wrapper{
+
+        margin-top: 0; 
+    }
+
+    .departure_wrapper,
+    .button_wrapper{
+
+        padding: 50px;
+    }
+
+    .button{
+
+        padding: 0.9em 0.8em; 
+        font-size: 1em;
+    }
+
+    .from_to,
+    .travel_date{
+
+        font-size: 1.5em;
+    }
+}
