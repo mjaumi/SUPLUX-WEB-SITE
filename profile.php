@@ -4,8 +4,9 @@ include 'config.php';
 
 
 session_start();
-error_reporting(0);
-
+//error_reporting(0);
+session_regenerate_id();
+error_reporting(E_ALL);
 
 if (!isset($_SESSION['user_name'])) {
     header("Location: log-in-or-sign-up.php");
@@ -19,12 +20,23 @@ $row = mysqli_fetch_assoc($result);
 
 $user_first_name = $row['user_first_name'];
 $user_last_name = $row['user_last_name'];
+$_SESSION['user_profile_name'] = $user_first_name; 
 
 $user_name = $row['user_first_name']." ".$row['user_last_name'];
 $user_email = $row['user_email'];
 $user_gender = $row['user_gender'];   
 $user_mobile_number = $row['user_phone'];
 $user_nid = $row['user_nid'];
+$user_image = "asset/".$row['user_image'];
+
+//profile image
+
+if ($row['user_image'] === null) {
+    # code...
+    $user_image = "asset/me.jpg";
+}
+
+
 
 
 $user_date_of_birth = $row['date_of_birth'];
@@ -63,13 +75,6 @@ if($user_religion === null){
 } else{
     $user_religion_for_placeholder = $user_religion;
 }
-
-
-
-    //$user_image = "";
-//$user_image = "";
-
-
 
 
 if (isset($_POST['save'])) {
@@ -165,6 +170,7 @@ if (isset($_POST['save'])) {
 
 }
 
+
 if (isset($_POST['cancel'])) {
     # code...
     unset($_POST);
@@ -175,10 +181,11 @@ if (isset($_POST['cancel'])) {
 
 
 
+
+// file_put_contents('img.jpeg', base64_decode());
    
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -239,7 +246,7 @@ if (isset($_POST['cancel'])) {
                                 <div class="nav_pro_pic">
                                     <img src="img/me.jpg" width="100%" alt="user profile image">
                                 </div>
-                                <p class="nav_pro_name">Milhan Joardar</p>
+                                <p class="nav_pro_name"><?php echo $user_first_name;?></p>
                             </span>
                             <i class="dropdown_button_arrow fa fa-angle-down"></i>
                         </button>
@@ -307,16 +314,18 @@ if (isset($_POST['cancel'])) {
                 <div class="col-md-12 d-flex align-items-center justify-content-center">
                     <div class="user_details_container">
                         <div class="pic_container">
+                         <!-- <form id="form" method="POST" name="email_form" action="" enctype="multipart/form-data"> -->
                             <div class="avatar-upload">
                                 <div class="avatar-edit">
-                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name = "image"/>
-                                    <label for="imageUpload"></label>
+                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name="image" />
+                                    <label for="imageUpload" ></label>
                                 </div>
                                 <div class="avatar-preview">
-                                    <div id="imagePreview" style="background-image: url(img/me.jpg);">
-                                    </div>
+                                    <div id="imagePreview" style="background-image: url(<?php echo $user_image; ?>);">
+                                </div>
                                 </div>
                             </div>
+                        <!-- </form> -->
                         </div>
                         <div id="user_info_container">
                             <div id="edit_option">
@@ -325,7 +334,8 @@ if (isset($_POST['cancel'])) {
                             <div class="user_info d-flex align-items-center justify-content-center">
                                 <table class="table info_table">
                                     <tbody>
-                                        <tr>                                  
+                                        <tr>         
+                                                                
                                             <td class="field_name">Name</td>
                                             
                                             <td class="user_data"><?php echo $user_name?></td>
@@ -369,7 +379,7 @@ if (isset($_POST['cancel'])) {
                         <div id="edit_form">
                             <div class="flexbox-col">
                                 <div class="form-wrapper">
-                                    <form id="form" method="POST" name="emailform" action="">
+                                    <form id="form" method="POST" name="emailform" action="" enctype="multipart/form-data">
                                         <div class="form-input-grid">
                                             <div>
                                                 <p class="form-text-required">First Name</p>
@@ -509,9 +519,30 @@ if (isset($_POST['cancel'])) {
         }
         prevScrollpos = currentScrollPos;
         }
+        
     </script> 
+
+    <script>
+
+        var value = v;
+
+
+
+    </script>
+
+    <?php
+
+        // $ab = <script></script>
+        // echo $_COOKIE["h"];
+ 
+
+    ?>
+
 </body>
 </html>
+
+
+
 
 
 
