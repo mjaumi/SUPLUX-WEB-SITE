@@ -28,6 +28,7 @@ if(isset($_SESSION['user_name'])){
     <title>SUPLUX | HOME</title>
 
     <!-- css file integration -->
+    <link rel="stylesheet" href="css/user-nav.css">
     <Link rel="stylesheet" href="css/about-us-card.css">
     <Link rel="stylesheet" href="css/destination-cards.css">
     <Link rel="stylesheet" href="css/testimonials-card.css">
@@ -38,7 +39,6 @@ if(isset($_SESSION['user_name'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" integrity="sha512-4rPgyv5iG0PZw8E+oRdfN/Gq+yilzt9rQ8Yci2jJ15rAyBmF0HBE4wFjBkoB72cxBeg63uobaj1UcNt/scV93w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <Link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/user-nav.css">
 </head>
 <body>
 
@@ -80,16 +80,8 @@ if(isset($_SESSION['user_name'])){
 
             }
             
-            
-            
-            
             ?>
 
-                <!-- // <li class="nav_items"><a class="nav_link" href="#about-us-section">about us</a></li>
-                // <li class="nav_items"><a class="nav_link" href="#destinations-section">destinations</a></li>
-                // <li class="nav_items"><a class="nav_link" href="#contact-us-section">contact us</a></li>
-                // <li class="nav_items"><a class="nav_link" href="log-in-or-sign-up.php">log in</a></li>
-                // <li class="nav_items nav_item_sign_up"><div id="nav_btn_bg"><a id="nav_link_btn" href="#">sign up</a></div></li> -->
             </ul>
         </div>
     </header>
