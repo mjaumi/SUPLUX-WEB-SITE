@@ -205,6 +205,7 @@ if (isset($_POST['cancel'])) {
     <Link rel="stylesheet" href="css/footer-social-icon.css">
     <Link rel="stylesheet" href="css/user-nav.css">
     <Link rel="stylesheet" href="css/date-picker.css">
+    <Link rel="stylesheet" href="css/image-box.css">
 </head>
 <body>
     
@@ -316,10 +317,6 @@ if (isset($_POST['cancel'])) {
                         <div class="pic_container">
                          <!-- <form id="form" method="POST" name="email_form" action="" enctype="multipart/form-data"> -->
                             <div class="avatar-upload">
-                                <div class="avatar-edit">
-                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name="image" />
-                                    <label for="imageUpload" ></label>
-                                </div>
                                 <div class="avatar-preview">
                                     <div id="imagePreview" style="background-image: url(<?php echo $user_image; ?>);">
                                 </div>
@@ -382,14 +379,14 @@ if (isset($_POST['cancel'])) {
                                     <form id="form" method="POST" name="emailform" action="" enctype="multipart/form-data">
                                         <div class="form-input-grid">
                                             <div>
-                                                <p class="form-text-required">First Name</p>
+                                                <p class="form-text">First Name</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
                                                     <input class="form-input" id="ufname" name="user_first_name" type="text" placeholder= "<?php echo $user_first_name?>" aria-label="">
                                                 </div>
                                             </div>
                                             <div>
-                                                <p class="form-text-required">Last Name</p>
+                                                <p class="form-text">Last Name</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
                                                     <input class="form-input" id="ulname" name="user_last_name" type="text" placeholder=" <?php echo $user_last_name?>" aria-label="">
@@ -407,14 +404,14 @@ if (isset($_POST['cancel'])) {
                                         </div>
                                         <div class="form-input-grid">
                                             <div>
-                                                <p class="form-text-required">Mobile Number</p>
+                                                <p class="form-text">Mobile Number</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-mobile" aria-hidden="true"></i>
                                                     <input class="form-input" id="umobile" name="user_mobile_number" type="text" placeholder="<?php echo $user_mobile_number?>" aria-label="">
                                                 </div>
                                             </div>
                                             <div>
-                                                <p class="form-text-required">NID Number</p>
+                                                <p class="form-text">NID Number</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-id-card" aria-hidden="true"></i>
                                                     <input class="form-input" id="unid" name="user_nid_number" type="text" placeholder="<?php echo $user_nid?>" aria-label="">
@@ -423,7 +420,7 @@ if (isset($_POST['cancel'])) {
                                         </div>
                                         <div class="form-input-max">
                                             <div class="gender_box">
-                                                <p class="form-text-required">Gender</p>
+                                                <p class="form-text">Gender</p>
                                                 <div class="form-input-wrapper flexbox-left gender_selector">
                                                     <i class="fa fa-venus-mars" aria-hidden="true"></i>
                                                     <select class="form-input select_field" name="gender">
@@ -437,14 +434,14 @@ if (isset($_POST['cancel'])) {
                                         </div>
                                         <div class="form-input-grid">
                                             <div>
-                                                <p class="form-text-required">Emergency Contact</p>
+                                                <p class="form-text">Emergency Contact</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-address-book" aria-hidden="true"></i>
                                                     <input class="form-input" id="uemergency" name="emergency_contact" type="text" placeholder="<?php echo $user_emergency_contact_for_placeholder?>" aria-label="">
                                                 </div>
                                             </div>
                                             <div>
-                                                <p class="form-text-required">Religion</p>
+                                                <p class="form-text">Religion</p>
                                                 <div class="form-input-wrapper flexbox-left">
                                                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                                                     <input class="form-input" id="ureligion" name="religion" type="text" placeholder="<?php echo $user_religion_for_placeholder?>" aria-label="">
@@ -452,10 +449,22 @@ if (isset($_POST['cancel'])) {
                                             </div>
                                         </div>
                                         <div class="form-input-max">
-                                            <p class="form-text-required">Address (Max 500)</p>
+                                            <p class="form-text">Address (Max 500)</p>
                                             <div id="textarea" class="form-input-wrapper flexbox-left-start">
                                                 <i class="fa fa-commenting" aria-hidden="true"></i>
                                                 <textarea class="form-input" id="address" name="address" placeholder="<?php echo $user_address_for_placeholder?>" maxlength="500" aria-label=""></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="image_box">
+                                            <p class="form-text text-center mt-5 mb-4">Upload Profile Image</p>
+                                            <div class="box">
+                                                <div class="js--image-preview"></div>
+                                                <div class="upload-options">
+                                                    <label>
+                                                        <h3 class="upload_btn_text"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD AN IMAGE</h3>
+                                                        <input type="file" class="image-upload" accept="image/*" name="image">
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-input-grid button_container">
@@ -504,6 +513,7 @@ if (isset($_POST['cancel'])) {
     <script src="js/user-nav.js"></script>
     <script src="js/date-picker.js"></script>
     <script src="js/profile.js"></script>
+    <script src="js/image-box.js"></script>
     <script>
 
         /**

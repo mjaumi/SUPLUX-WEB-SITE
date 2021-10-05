@@ -62,6 +62,7 @@ textarea::-webkit-scrollbar-thumb {
     line-height: 100%;
     pointer-events: none;
     font-size: 2em;
+    cursor: pointer;
 }
 
 :root {
@@ -247,6 +248,7 @@ textarea::-webkit-scrollbar-thumb {
     padding: 1.2em 1.2em 1.2em 3.6em;
     font-size: 1.22rem;
     border-radius: 5em;
+    cursor: pointer;
     background-color: var(--bc-gray);
     border: 5px solid var(--bc-gray);
     transition: border .15s ease-in-out;
