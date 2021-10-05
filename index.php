@@ -7,9 +7,6 @@ $user_logged_in = "no";
 
 if(isset($_SESSION['user_name'])){
     $user_logged_in = "yes";
-    
-
-
     //header("Location: profile.php");
 }
 

@@ -6,7 +6,6 @@ if (!isset($_SESSION['user_name'])) {
     header("Location: log-in-or-sign-up.php");
 }
 
-
 ?>
 
 <!DOCTYPE html>
