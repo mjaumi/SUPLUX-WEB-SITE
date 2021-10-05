@@ -1,6 +1,7 @@
 <?php
 
 include 'config.php';
+// unset($_POST);
 
 
 session_start();
@@ -38,12 +39,14 @@ if (isset($_POST['search_buses'])) {
     }
     if ($_POST['from_city'] !== $_POST['to_city']) {
     # code...   
-    //header("Location: gozayan.php");
     
-    echo "<script>
-    window.location.href = 'profile.php?habijabi=blah'
+        unset($_POST);
+        header("Location: search-result.php");
+    // echo "<script>
 
-    </script>";
+    // window.location.href = 'search-result.php'
+
+    // </script>";
     }
 
 
