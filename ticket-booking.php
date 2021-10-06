@@ -12,41 +12,51 @@ error_reporting(E_ALL);
 // $_POST['from_city'] = "";
 // $_POST['to_city'] = " " ;
 
+
+
+unset($_SESSION['date_of_return']);
+
 if (!isset($_SESSION['user_name'])) {
     header("Location: log-in-or-sign-up.php");
 }
 
 if (isset($_POST['search_buses'])) {
-    # code...
+    // $cookie_name = 'ticket-booking';
+    // $cookie_value = true;
+    // setcookie($cookie_name, $cookie_value, time() + (30 * 1), "/"); // 86400 = 1 day
+    // # code...
+    $_SESSION['ticket-booking'] = true;
     if(isset($_POST['from_city'])){
-    echo $_POST['from_city'];
-    //$_SESSION['from_city'] = $_POST['from_city'];
+        $_SESSION['from_city'] = $_POST['from_city'];
+        if ($_SESSION['from_city'] === "Cox's Bazar") {
+                $_SESSION['from_city'] = 'Coxs Bazar';
+            }
     }
     if(isset($_POST['to_city'])){
-    echo $_POST['to_city'];
-    //$_SESSION['to_city'] = $_POST['to_city'];
+        
+        $_SESSION['to_city'] = $_POST['to_city'];
+        if ($_SESSION['to_city'] === "Cox's Bazar") {
+            $_SESSION['to_city'] = 'Coxs Bazar';
+        }
     }
     if(isset($_POST['date_of_journey'])){
-    echo $_POST['date_of_journey'];
-    //$_SESSION['date_of_journey'] = $_POST['date_of_journey'];
+        $_SESSION['date_of_journey'] = $_POST['date_of_journey'];
 
     }
     if(isset($_POST['date_of_return'])){
-    echo $_POST['date_of_return'];
-    //$_SESSION['date_of_return'] = $_POST['date_of_return'];
-
-
+        $_SESSION['date_of_return'] = $_POST['date_of_return'];
     }
     if ($_POST['from_city'] !== $_POST['to_city']) {
-    # code...   
-    
         unset($_POST);
-        header("Location: search-result.php");
-    // echo "<script>
-
-    // window.location.href = 'search-result.php'
-
-    // </script>";
+        $date_of_return = $_SESSION['date_of_return'];
+        if ($date_of_return !== "") {
+            # code...
+            header("Location: search-result.php?return=y");
+        } else{
+            header("Location: search-result.php?return=n");
+        }
+        
+    // 
     }
 
 
@@ -296,24 +306,11 @@ if (isset($_POST['search_buses'])) {
 <script>
 
 
-
-
-
 </script>
-
     <?php
-
-        
-
-
-        if ($_POST['from_city'] === $_POST['to_city'] && ($_POST['from_city'] !== null || $_POST['To_city'] !== null)) {
-            
-            echo "<script>alert('Source & Destination is same here. Please choose different cities. ')</script>";
-            
+      if ($_POST['from_city'] === $_POST['to_city'] && ($_POST['from_city'] !== null || $_POST['To_city'] !== null)) {   
+        echo "<script>alert('Source & Destination is same here. Please choose different cities. ')</script>";  
         }
-
     ?>
-
-    
 </body>
 </html>
