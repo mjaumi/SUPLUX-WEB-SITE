@@ -765,6 +765,7 @@ for (const [i, element] of continueBtn.entries()){
         if(seatTableBody[i].rows.length === 0){
 
             alert("Please slect at least one seat.");
+            createCookie("seats", seatString, "-15");
         } else{
 
             for (var j = 0; j < seatTableBody[i].rows.length; j++) {
@@ -778,12 +779,10 @@ for (const [i, element] of continueBtn.entries()){
                 }
 
                 
-        
+                createCookie("seats", seatString, "15");
             }
 
         }
-
-        createCookie("seats", seatString, "15");
         
     }
 }  

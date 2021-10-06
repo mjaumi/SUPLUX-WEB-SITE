@@ -1,97 +1,21 @@
-<?php
-
-include 'config.php';
-// unset($_POST);
-
-
-session_start();
-//error_reporting(0);
-error_reporting(E_ALL);
-// session_regenerate_id();
-
-// $_POST['from_city'] = "";
-// $_POST['to_city'] = " " ;
-
-
-
-unset($_SESSION['date_of_return']);
-
-if (!isset($_SESSION['user_name'])) {
-    header("Location: log-in-or-sign-up.php");
-}
-
-if (isset($_POST['search_buses'])) {
-    // $cookie_name = 'ticket-booking';
-    // $cookie_value = true;
-    // setcookie($cookie_name, $cookie_value, time() + (30 * 1), "/"); // 86400 = 1 day
-    // # code...
-    $_SESSION['ticket-booking'] = true;
-    if(isset($_POST['from_city'])){
-        $_SESSION['from_city'] = $_POST['from_city'];
-        if ($_SESSION['from_city'] === "Cox's Bazar") {
-                $_SESSION['from_city'] = 'Coxs Bazar';
-            }
-    }
-    if(isset($_POST['to_city'])){
-        
-        $_SESSION['to_city'] = $_POST['to_city'];
-        if ($_SESSION['to_city'] === "Cox's Bazar") {
-            $_SESSION['to_city'] = 'Coxs Bazar';
-        }
-    }
-    if(isset($_POST['date_of_journey'])){
-        $_SESSION['date_of_journey'] = $_POST['date_of_journey'];
-
-    }
-    if(isset($_POST['date_of_return'])){
-        $_SESSION['date_of_return'] = $_POST['date_of_return'];
-    }
-    if ($_POST['from_city'] !== $_POST['to_city']) {
-        unset($_POST);
-        $date_of_return = $_SESSION['date_of_return'];
-        if ($date_of_return !== "") {
-            # code...
-            header("Location: search-result.php?return=y");
-        } else{
-            header("Location: search-result.php?return=n");
-        }
-        
-    // 
-    }
-
-
-}
-
-?>
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUPLUX | BOOKING</title>
+    <title>SUPLUX | TRANSACTION LOG PAGE</title>
 
     <!-- css file integration -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <Link rel="stylesheet" href="css/main.css">
     <Link rel="stylesheet" href="css/user-nav.css">
-    <Link rel="stylesheet" href="css/date-picker.css">
     <Link rel="stylesheet" href="css/footer-social-icon.css">
-    <Link rel="stylesheet" href="css/sign-up-form.css">
-    <Link rel="stylesheet" href="css/autocomplete-fields.css">
-    <Link rel="stylesheet" href="css/ticket-booking-page.css">
+    <Link rel="stylesheet" href="css/transaction-log-page.css">
 </head>
 <body>
-
-<header id="header">
+    <header id="header">
         <div id="suplux_logo">
             <a href="index.php#home-section">
                 <svg id="logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 804.3 368">
@@ -185,92 +109,47 @@ if (isset($_POST['search_buses'])) {
         </div>
     </header>
 
-    <main class="booking_page_main_container">
-        <div class="booking_search_box_container">
-            <div class="booking_title">
-                <h1>ticket booking</h1>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12 d-flex justify-content-center">
-                            <div class="booking_search_box">
-                                <div class="flexbox-col">
-                                    <div class="form-wrapper">
-                                        <form autocomplete="off" id="form" method="post" name="emailform" action="">
-                                            <div class="form-input-max">
-                                                <div class="autocomplete">
-                                                    <p class="form-text">From</p>
-                                                    <div class="form-input-wrapper flexbox-left">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                                        <input class="form-input" id="starting_point" name="from_city" type="text" placeholder="Enter city" aria-label="" required>
-                                                        
-                                                        
-                                                    </div>  
-                                                </div>
-                                                <div class="autocomplete">
-                                                    <p class="form-text">To</p>
-                                                    <div class="form-input-wrapper flexbox-left">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                                        <input class="form-input" id="destination_point" name="to_city" type="text" placeholder="Enter City" aria-label="" required>
-                                                        
-                                                        
-                                                    
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-input-grid">
-                                                <div>
-                                                    <p class="form-text">Date of Journey</p>
-                                                    <div class="form-input-wrapper flexbox-left">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        <div class="text-center date_field">
-                                                            <input type="text" name="date_of_journey" id="journey_datepicker" class="date form-input" readonly="readonly" placeholder="Pick a date" required>
-                                                        </div> 
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <p class="form-text">Date of Return</p>
-                                                    <div class="form-input-wrapper flexbox-left">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        <div class="text-center date_field">
-                                                            <input type="text" name="date_of_return" id="return_datepicker" class="date form-input" readonly="readonly" placeholder="Pick a date" >
-                                                        </div> 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-input-max">
-                                                
-                                            </div>
-                                            <div class="form-input-grid d-flex justify-content-center">
-                                                <div class="button-wrapper">
-                                                    <button id="form-button" type="submit" class="button btn-primary" name="search_buses"><i class="fa fa-search" aria-hidden="true"></i>SEARCH BUSES</button>
-                                                    
-                                                
-                                                
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="footer">
-            <div class="footer_container">
-                <div class="footer_content">
-                    <p class="footer_title">© SUPLUX 2021. All Rights Reserved</p>
-    
-                    <div class="social_footer">
-                        <div class="social_title">
-                            <p>Find us on</p>
-                        </div>
-                        <div class="icon_container">
-                            <a class="icon" href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a class="icon" href="https://twitter.com/?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a class="icon" href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    <main id="transaction_log_main_container">
+        <div class="transaction_title">
+            <h1>TRANSACTION LOG</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="transaction_table_container">
+                            <table class="table transaction_table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Serial</th>
+                                    <th scope="col">UTK Number</th>
+                                    <th scope="col">Reservation Date</th>
+                                    <th scope="col">Journey Date</th>
+                                    <th scope="col">Status</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -283,31 +162,22 @@ if (isset($_POST['search_buses'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/header.js"></script>
-    <script src="js/journey-date-picker.js"></script>
-    <script src="js/autocomplete-fields.js"></script>
     <script src="js/user-nav.js"></script>
     <script>
+
         /**
         * this is animating the header 
         */
         var prevScrollpos = window.pageYOffset;
         window.onscroll = function() {
         var currentScrollPos = window.pageYOffset;
-          if (prevScrollpos > currentScrollPos) {
+        if (prevScrollpos > currentScrollPos) {
             document.getElementById("header").style.top = "0";
-          } else {
+        } else {
             document.getElementById("header").style.top = "-10vh";
-          }
-          prevScrollpos = currentScrollPos;
+        }
+        prevScrollpos = currentScrollPos;
         }
     </script>
-
-    <?php
-      if ($_POST['from_city'] === $_POST['to_city'] && ($_POST['from_city'] !== null || $_POST['To_city'] !== null)) {   
-        echo "<script>alert('Source & Destination is same here. Please choose different cities. ')</script>";  
-        }
-    ?>
 </body>
 </html>
-
-
