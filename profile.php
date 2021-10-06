@@ -328,13 +328,11 @@ if (isset($_POST['cancel'])) {
                             <div id="edit_option">
                                 <p class="edit_option_text"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</p>
                             </div>
-                            <div class="user_info d-flex align-items-center justify-content-center">
+                            <div class="user_info d-flex align-items-center justify-content-center flex-column">
                                 <table class="table info_table">
                                     <tbody>
-                                        <tr>         
-                                                                
+                                        <tr>                              
                                             <td class="field_name">Name</td>
-                                            
                                             <td class="user_data"><?php echo $user_name?></td>
                                         </tr>
                                         <tr>                                  
@@ -371,6 +369,20 @@ if (isset($_POST['cancel'])) {
                                         </tr>
                                     </tbody>
                                 </table>
+
+                                <div class="testimonial_form">
+                                    <form action="" method="POST">
+                                        <p class="form-text">Tell about us (Max 50)</p>
+                                        <div id="textarea" class="form-input-wrapper flexbox-left-start">
+                                            <i class="fa fa-commenting" aria-hidden="true"></i>
+                                            <textarea class="form-input" id="testimonial" name="tetimonial" placeholder="Like our service? Then let others know about it." maxlength="50" aria-label=""></textarea>
+                                        </div>
+
+                                        <div class="button-wrapper-testimonial">
+                                            <button type="submit" class="button" name="submit_form"><i class="fa fa-check-circle" aria-hidden="true"></i>SUBMIT</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <div id="edit_form">

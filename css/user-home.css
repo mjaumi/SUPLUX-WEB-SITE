@@ -143,6 +143,27 @@ main{
     opacity: 1;
 }
 
+.testimonial_form{
+
+    width: 90%;
+}
+
+.button-wrapper-testimonial{
+
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.button-wrapper-testimonial button{
+
+    width: 30%;
+    border-radius: 300px;
+    padding: 0.5em 0.5em;
+    font-size: 25px;
+}
+
 #footer{
 
     min-height: 100px;
@@ -187,5 +208,10 @@ main{
     .profile_title h1{
 
         font-size: 2em;
+    }
+
+    .button-wrapper-testimonial button{
+
+        font-size: 12px;
     }
 }
