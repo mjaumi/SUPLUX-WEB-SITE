@@ -927,28 +927,31 @@ if (isset($_POST['modify_search'])) {
 
             element.onclick = function(){
 
+                alert(seatTableBody[i].rows.length);
+
                 if(seatTableBody[i].rows.length === 0){
 
-                    if(confirm('Please select at least one seat.')){
-
-                    };
+                    alert("FUCK YOU!!");
                 } else{
-                    
-                    var selectedSeatsString = '';
+
+                    var seatsString = '';
+
                     for (var j = 0; j < seatTableBody[i].rows.length; j++) {
                     
                         if(j === 0){
 
-                            selectedSeatsString = seatTableBody[i].rows[j].cells[0].innerHTML;
+                            seatsString = seatTableBody[i].rows[j].cells[0].innerHTML;
                         }else{
 
-                            selectedSeatsString += ', ' + seatTableBody[i].rows[j].cells[0].innerHTML;
+                            seatsString += ', ' + seatTableBody[i].rows[j].cells[0].innerHTML;
                         }
+
+                        alert(seatsString);
                 
                     }
 
-                    alert(SelectedSeatsString);
-                    //window.location.href = "search-result.php?seats="+ SelectedSeatsString;
+                   
+                    window.location.href = "profile.php?seats="+ seatsString;
                 }
                 
             }

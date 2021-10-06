@@ -3,9 +3,9 @@
 session_start();
 
 
-if($_SESSION['ticket-booking'] === true){
-    $_SESSION['ticket-booking'] = false;
-}
+// if($_SESSION['ticket-booking'] === true){
+//     $_SESSION['ticket-booking'] = false;
+// }*/** */
 
 ?>
 
