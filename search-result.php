@@ -920,6 +920,7 @@ if (isset($_POST['modify_search'])) {
         }
     </script> 
     <script>
+        var seatsString = '';
 
         const continueBtn = document.querySelectorAll('.continue_btn');
 
@@ -934,7 +935,7 @@ if (isset($_POST['modify_search'])) {
                     alert("FUCK YOU!!");
                 } else{
 
-                    var seatsString = '';
+                    
 
                     for (var j = 0; j < seatTableBody[i].rows.length; j++) {
                     
@@ -946,18 +947,27 @@ if (isset($_POST['modify_search'])) {
                             seatsString += ', ' + seatTableBody[i].rows[j].cells[0].innerHTML;
                         }
 
-                        alert(seatsString);
+                        
                 
                     }
 
+                    alert(seatsString);
+
+                    // <?php
+                    //     echo 'header("Location: profile.php?seats="+seatsString)';
+
+                    // ?>
+
                    
-                    window.location.href = "profile.php?seats="+ seatsString;
+                    // window.location.href = "profile.php?seats="+ seatsString;
                 }
                 
             }
         }  
 
     </script>
+
+    
             
 </body>
 </html>

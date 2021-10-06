@@ -170,6 +170,22 @@ if (isset($_POST['save'])) {
 
 }
 
+if (isset($_POST['submit_form'])) {
+    # code...
+    if($_POST['testimonial'] !== ""){
+        $message = $_POST['testimonial'];
+
+        $sql = "INSERT INTO testimonials (user_email, msg) VALUES ('$user_email', '$message')";
+        $result = mysqli_query($conn, $sql);
+        if($result > 0){
+            echo "<script>alert('We have accepted your msg.')</script>";
+            //$_SESSION['email'] = $user_email;
+            header("Location: profile.php");
+    }
+    }
+
+}
+
 
 if (isset($_POST['cancel'])) {
     # code...
@@ -375,7 +391,7 @@ if (isset($_POST['cancel'])) {
                                         <p class="form-text">Tell about us (Max 50)</p>
                                         <div id="textarea" class="form-input-wrapper flexbox-left-start">
                                             <i class="fa fa-commenting" aria-hidden="true"></i>
-                                            <textarea class="form-input" id="testimonial" name="tetimonial" placeholder="Like our service? Then let others know about it." maxlength="50" aria-label=""></textarea>
+                                            <textarea class="form-input" id="testimonial" name="testimonial" placeholder="Like our service? Then let others know about it." maxlength="50" aria-label=""></textarea>
                                         </div>
 
                                         <div class="button-wrapper-testimonial">
