@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+
+if($_SESSION['ticket-booking'] === true){
+    $_SESSION['ticket-booking'] = false;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,15 +146,15 @@
                                         </tr>
                                         <tr>
                                             <td>Boarding Point:</td>
-                                            <th scope="row">Cox's Bazar</th>
+                                            <th scope="row"><?php echo $_SESSION['boarding_point'].', '.$_SESSION['starting_from']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Reporting Time:</td>
-                                            <th scope="row">09:05AM</th>
+                                            <th scope="row"><?php echo $_SESSION['departure_time']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Coach No:</td>
-                                            <th scope="row">AK1J1011-R</th>
+                                            <th scope="row"><?php echo $_SESSION['coach_no']; ?></th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -153,23 +164,23 @@
                                     <tbody>
                                         <tr>
                                             <td>Trip Date:</td>
-                                            <th scope="row">05 Oct, 2021</th>
+                                            <th scope="row"><?php echo $_SESSION['date_of_journey']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Total Fare:</td>
-                                            <th id="journey_fare" scope="row">BDT 3600</th>
+                                            <th id="journey_fare" scope="row">BDT <?php echo $_SESSION['fare_per_seat']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Destination:</td>
-                                            <th scope="row">Khagrachari</th>
+                                            <th scope="row"><?php echo $_SESSION['destination']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Departure Time:</td>
-                                            <th scope="row">09:20AM</th>
+                                            <th scope="row"><?php echo $_SESSION['departure_time']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Coach Type:</td>
-                                            <th scope="row">AC (Multi)</th>
+                                            <th scope="row"><?php echo $_SESSION['coach_type']; ?></th>
                                         </tr>
                                         <tr>
                                             <td><button id="book_btn_journey" class="button" name="book"><i class="fa fa-bookmark" aria-hidden="true"></i>BOOK</button></td>
@@ -199,67 +210,14 @@
                         </div>
                     </div>
 
-                    <div class="journey_ticket_info_container">
-                        <h1 class="table_title">Return Ticket</h1>
-                        <div class="ticket_details_container">
-                            <div class="journey_ticket_info_wrapper">
-                                <table class="table table-borderless journey_ticket_info_table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Name:</td>
-                                            <th scope="row">Mr. Aumi</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Seats:</td>
-                                            <th scope="row">G-1,G-2,G-3,G-4</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Boarding Point:</td>
-                                            <th scope="row">Cox's Bazar</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Reporting Time:</td>
-                                            <th scope="row">09:05AM</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Coach No:</td>
-                                            <th scope="row">AK1J1011-R</th>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="journey_ticket_info_wrapper">
-                                <table class="table table-borderless journey_ticket_info_table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Trip Date:</td>
-                                            <th scope="row">05 Oct, 2021</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Fare:</td>
-                                            <th scope="row">BDT 3600</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Destination:</td>
-                                            <th scope="row">Khagrachari</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Departure Time:</td>
-                                            <th scope="row">09:20AM</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Coach Type:</td>
-                                            <th scope="row">AC (Multi)</th>
-                                        </tr>
-                                        <tr>
-                                            <td><button id="book_btn_return" class="button" name="book"><i class="fa fa-bookmark" aria-hidden="true"></i>BOOK</button></td>
-                                            <td><button id="purchase_btn_return" class="button" name="purchase"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>PURCHASE</button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                    <?php 
+                    if ($_GET['return'] === 'y') {
+                        # code...
+                        include 'booking-confirmation-for-return.php';
+                    }
+                    
+                    ?>
+                    
                 </div>
             </div>
         </div>
