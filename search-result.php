@@ -919,45 +919,11 @@ if (isset($_POST['modify_search'])) {
         prevScrollpos = currentScrollPos;
         }
     </script> 
-    <script>
-
-        const continueBtn = document.querySelectorAll('.continue_btn');
-
-        for (const [i, element] of continueBtn.entries()){
-
-            element.onclick = function(){
-
-                alert(seatTableBody[i].rows.length);
-
-                if(seatTableBody[i].rows.length === 0){
-
-                    alert("FUCK YOU!!");
-                } else{
-
-                    var seatsString = '';
-
-                    for (var j = 0; j < seatTableBody[i].rows.length; j++) {
-                    
-                        if(j === 0){
-
-                            seatsString = seatTableBody[i].rows[j].cells[0].innerHTML;
-                        }else{
-
-                            seatsString += ', ' + seatTableBody[i].rows[j].cells[0].innerHTML;
-                        }
-
-                        alert(seatsString);
-                
-                    }
-
-                   
-                    window.location.href = "profile.php?seats="+ seatsString;
-                }
-                
-            }
-        }  
-
-    </script>
             
 </body>
 </html>
+
+<?php
+
+echo $_COOKIE["seats"];   
+?>
