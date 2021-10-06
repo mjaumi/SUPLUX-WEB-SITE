@@ -13,29 +13,48 @@ error_reporting(0);
 
 //     
 // }
-
-$starting_from = $_SESSION['starting_from'];
-$coach_no = $_SESSION['coach_no'];
-$boarding_point = $_SESSION['boarding_point'];
-$destination = $_SESSION['destination'];
-$departure_time = $_SESSION['departure_time'];
-$coach_type = $_SESSION['coach_type'];
-$fare_per_seat = $_SESSION['fare_per_seat'];
-$date_of_journey = $_SESSION['date_of_journey'];
-$available_seats = $_SESSION['available_seats'];
-$date_of_return = $_SESSION['date_of_return'];
-
-if($date_of_return !== ""){
-    if(isset($_POST['continue_btn'])){
-        echo "<script>
-        window.location.href = 'search-result.php?return=y'</script>";
-    }
-        
-//echo "<script>alert('$c')</script>";
-// unset($_POST);
-        
-}
 if($_GET['return'] === 'y'){
+
+    $starting_from = $_SESSION['starting_from'];
+    $coach_no = $_SESSION['coach_no'];
+    $boarding_point = $_SESSION['boarding_point'];
+    $destination = $_SESSION['destination'];
+    $departure_time = $_SESSION['departure_time'];
+    $coach_type = $_SESSION['coach_type'];
+    $fare_per_seat = $_SESSION['fare_per_seat'];
+    $date_of_journey = $_SESSION['date_of_journey'];
+    $available_seats = $_SESSION['available_seats'];
+    $date_of_return = $_SESSION['date_of_return'];
+    if(isset($_POST['continue_btn'])){
+        // if(!isset($_GET['con'])){
+        //     echo "<script>
+        //     window.location.href = 'booking-confirmation-page.php?return=y'</script>";
+
+        // }else{
+            
+            echo "<script>
+            window.location.href = 'search-result.php?return=y1'</script>";
+
+        //}
+        
+    }
+
+}
+
+// if($date_of_return !== ""){
+//     if(isset($_POST['continue_btn'])){
+//         echo "<script>
+//         window.location.href = 'search-result.php?return=y'</script>";
+//     }
+        
+// //echo "<script>alert('$c')</script>";
+// // unset($_POST);
+        
+// }
+
+
+
+if($_GET['return'] === 'y1'){
     $_SESSION['starting_from_r'] = $starting_from = $_SESSION['destination'];
     $_SESSION['coach_no_r'] = $coach_no = $_SESSION['coach_no'].'-R';
     $_SESSION['boarding_point_r'] = $boarding_point ="";// $_SESSION['boarding_point'];
@@ -45,7 +64,28 @@ if($_GET['return'] === 'y'){
     $_SESSION['fare_per_seat_r'] = $fare_per_seat = $_SESSION['fare_per_seat'];
     $_SESSION['date_of_return'] = $date_of_journey = $_SESSION['date_of_return'];
     $_SESSION['available_seats_r'] = $available_seats = $_SESSION['available_seats'];
+    
+    
+    
 }
+if($_GET['return'] === 'n'){
+    if(isset($_POST['continue_btn'])){
+
+        echo "<script>
+        window.location.href = 'booking-confirmation-page.php?'</script>";
+        //header("Location: booking-confirmation-page.php");
+    }
+}
+
+if($_GET['return'] === 'y1'){
+    if(isset($_POST['continue_btn'])){
+
+        echo "<script>
+        window.location.href = 'booking-confirmation-page.php?return=y'</script>";
+        //header("Location: booking-confirmation-page.php");
+    }
+}
+
 
 // } else{
 //     if(isset($_POST['continue_btn'])){

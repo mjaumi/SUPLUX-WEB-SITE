@@ -57,6 +57,8 @@ if (isset($_POST['search_buses'])) {
     }
     if(isset($_POST['date_of_return'])){
         $_SESSION['date_of_return'] = $date_of_return = $_POST['date_of_return'];
+        echo "<script>
+        window.location.href = 'search-result.php?return=y'</script>";
         //$_SESSION['date_of_return'] = $_POST['date_of_return'];
     } 
 
@@ -367,13 +369,13 @@ if (isset($_POST['modify_search'])) {
                             $_SESSION['coach_type'] = $coach_type = $row['coach_type'];
                             $_SESSION['fare_per_seat'] = $fare_per_seat = $row['fare_per_seat'];
                             $_SESSION['date_of_journey'] = $date_of_journey;
-                            if(isset($_GET['return']) === 'y'){
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_return'";
-                            
 
+                            if(isset($_GET['return']) === 'y1'){
+                                $date = date('d-M-Y', strtotime($date_of_return)); 
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }else {
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_journey'";
-                            
+                                $date = date('d-M-Y', strtotime($date_of_journey));
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }
                             
                             $result_for_available_seats = mysqli_query($conn, $sql_query_for_available_seats);
@@ -419,13 +421,12 @@ if (isset($_POST['modify_search'])) {
                             $_SESSION['coach_type'] = $coach_type = $row['coach_type'];
                             $_SESSION['fare_per_seat'] = $fare_per_seat = $row['fare_per_seat'];
                             $_SESSION['date_of_journey'] = $date_of_journey;
-                            if(isset($_GET['return']) === 'y'){
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_return'";
-                            
-
+                            if(isset($_GET['return']) === 'y1'){
+                                $date = date('d-M-Y', strtotime($date_of_return)); 
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }else {
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_journey'";
-                            
+                                $date = date('d-M-Y', strtotime($date_of_journey));
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }
                             $result_for_available_seats = mysqli_query($conn, $sql_query_for_available_seats);
 
@@ -471,13 +472,12 @@ if (isset($_POST['modify_search'])) {
                             $_SESSION['coach_type'] = $coach_type = $row['coach_type'];
                             $_SESSION['fare_per_seat'] = $fare_per_seat = $row['fare_per_seat'];
                             $_SESSION['date_of_journey'] = $date_of_journey;
-                            if(isset($_GET['return']) === 'y'){
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_return'";
-                            
-
+                            if(isset($_GET['return']) === 'y1'){
+                                $date = date('d-M-Y', strtotime($date_of_return)); 
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }else {
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_journey'";
-                            
+                                $date = date('d-M-Y', strtotime($date_of_journey));
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }
                             $result_for_available_seats = mysqli_query($conn, $sql_query_for_available_seats);
 
@@ -523,13 +523,12 @@ if (isset($_POST['modify_search'])) {
                             $_SESSION['coach_type'] = $coach_type = $row['coach_type'];
                             $_SESSION['fare_per_seat'] = $fare_per_seat = $row['fare_per_seat'];
                             $_SESSION['date_of_journey'] = $date_of_journey;
-                            if(isset($_GET['return']) === 'y'){
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_return'";
-                            
-
+                            if(isset($_GET['return']) === 'y1'){
+                                $date = date('d-M-Y', strtotime($date_of_return)); 
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }else {
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_journey'";
-                            
+                                $date = date('d-M-Y', strtotime($date_of_journey));
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }
                             $result_for_available_seats = mysqli_query($conn, $sql_query_for_available_seats);
 
@@ -575,13 +574,12 @@ if (isset($_POST['modify_search'])) {
                             $_SESSION['coach_type'] = $coach_type = $row['coach_type'];
                             $_SESSION['fare_per_seat'] = $fare_per_seat = $row['fare_per_seat'];
                             $_SESSION['date_of_journey'] = $date_of_journey;
-                            if(isset($_GET['return']) === 'y'){
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_return'";
-                            
-
+                            if(isset($_GET['return']) === 'y1'){
+                                $date = date('d-M-Y', strtotime($date_of_return)); 
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }else {
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_journey'";
-                            
+                                $date = date('d-M-Y', strtotime($date_of_journey));
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }
                             $result_for_available_seats = mysqli_query($conn, $sql_query_for_available_seats);
 
@@ -627,13 +625,12 @@ if (isset($_POST['modify_search'])) {
                             $_SESSION['coach_type'] = $coach_type = $row['coach_type'];
                             $_SESSION['fare_per_seat'] = $fare_per_seat = $row['fare_per_seat'];
                             $_SESSION['date_of_journey'] = $date_of_journey;
-                            if(isset($_GET['return']) === 'y'){
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_return'";
-                            
-
+                            if(isset($_GET['return']) === 'y1'){
+                                $date = date('d-M-Y', strtotime($date_of_return)); 
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }else {
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_journey'";
-                            
+                                $date = date('d-M-Y', strtotime($date_of_journey));
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }
                             $result_for_available_seats = mysqli_query($conn, $sql_query_for_available_seats);
 
@@ -679,13 +676,12 @@ if (isset($_POST['modify_search'])) {
                             $_SESSION['coach_type'] = $coach_type = $row['coach_type'];
                             $_SESSION['fare_per_seat'] = $fare_per_seat = $row['fare_per_seat'];
                             $_SESSION['date_of_journey'] = $date_of_journey;
-                            if(isset($_GET['return']) === 'y'){
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_return'";
-                            
-
+                            if(isset($_GET['return']) === 'y1'){
+                                $date = date('d-M-Y', strtotime($date_of_return)); 
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }else {
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_journey'";
-                            
+                                $date = date('d-M-Y', strtotime($date_of_journey));
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }
                             $result_for_available_seats = mysqli_query($conn, $sql_query_for_available_seats);
 
@@ -731,13 +727,12 @@ if (isset($_POST['modify_search'])) {
                             $_SESSION['coach_type'] = $coach_type = $row['coach_type'];
                             $_SESSION['fare_per_seat'] = $fare_per_seat = $row['fare_per_seat'];
                             $_SESSION['date_of_journey'] = $date_of_journey;
-                            if(isset($_GET['return']) === 'y'){
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_return'";
-                            
-
+                            if(isset($_GET['return']) === 'y1'){
+                                $date = date('d-M-Y', strtotime($date_of_return)); 
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }else {
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_journey'";
-                            
+                                $date = date('d-M-Y', strtotime($date_of_journey));
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }
                             $result_for_available_seats = mysqli_query($conn, $sql_query_for_available_seats);
 
@@ -783,13 +778,12 @@ if (isset($_POST['modify_search'])) {
                             $_SESSION['coach_type'] = $coach_type = $row['coach_type'];
                             $_SESSION['fare_per_seat'] = $fare_per_seat = $row['fare_per_seat'];
                             $_SESSION['date_of_journey'] = $date_of_journey;
-                            if(isset($_GET['return']) === 'y'){
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_return'";
-                            
-
+                            if(isset($_GET['return']) === 'y1'){
+                                $date = date('d-M-Y', strtotime($date_of_return)); 
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }else {
-                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date_of_journey'";
-                            
+                                $date = date('d-M-Y', strtotime($date_of_journey));
+                                $sql_query_for_available_seats = "SELECT * FROM reservation JOIN tripData ON tripData.coach_no = reservation.coach_no WHERE reservation.coach_no = '$coach_no' AND date_of_journey = '$date'";
                             }
                             $result_for_available_seats = mysqli_query($conn, $sql_query_for_available_seats);
 
