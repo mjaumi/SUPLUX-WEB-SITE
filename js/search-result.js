@@ -752,3 +752,56 @@ for (const [i, element] of nonACSeat.entries()) {
         totalFare[tableIndex].innerHTML = 'BDT ' + totalInt;
     }
 } 
+
+const continueBtn = document.querySelectorAll('.continue_btn');
+
+for (const [i, element] of continueBtn.entries()){
+
+    element.onclick = function(){
+
+        var seatString = '';
+
+
+        if(seatTableBody[i].rows.length === 0){
+
+            alert("Please slect at least one seat.");
+        } else{
+
+            for (var j = 0; j < seatTableBody[i].rows.length; j++) {
+            
+                if(j === 0){
+
+                    seatString = seatTableBody[i].rows[j].cells[0].innerHTML;
+                }else{
+
+                    seatString += ', ' + seatTableBody[i].rows[j].cells[0].innerHTML;
+                }
+
+                
+        
+            }
+
+        }
+
+        createCookie("seats", seatString, "15");
+        
+    }
+}  
+
+
+function createCookie(name, value, minutes) {
+    var expires;
+      
+    if (minutes) {
+        var date = new Date();
+        date.setTime(date.getTime() + (minutes * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+      
+    document.cookie = escape(name) + "=" + 
+        escape(value) + expires + "; path=/";
+}
+  
