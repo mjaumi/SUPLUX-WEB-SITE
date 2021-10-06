@@ -971,3 +971,8 @@ if (isset($_POST['modify_search'])) {
             
 </body>
 </html>
+
+<?php
+
+echo $_COOKIE["seats"];   
+?>
