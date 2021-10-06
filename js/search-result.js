@@ -61,6 +61,9 @@ const ddUpper = document.querySelectorAll('.seat_wrapper_ac_dd_upper');
 const deckSelectorContainer = document.querySelectorAll('.deck_selector_container'); 
 const deckSelector = document.querySelectorAll('.deck_selector'); 
 
+/**
+ * seat table attributes
+ */
 const seatTable = document.querySelectorAll('.seat_details_table');
 const seatTableBody = document.querySelectorAll('.seat_details_table_body');
 const seatTableData = document.querySelectorAll('.seat_details_table .details_title_table');
@@ -287,8 +290,6 @@ for (const [i, element] of multiACSeat.entries()) {
 
             totalInt += fareInt;
 
-            console.log(totalInt);
-
             seatTableBody[tableIndex].appendChild(tableRow);
             selectedSeatCount++;
 
@@ -360,7 +361,7 @@ for (const [i, element] of biACSeat.entries()) {
 
             totalInt += fareInt;
 
-            console.log(totalInt);
+            
 
             seatTableBody[tableIndex].appendChild(tableRow);
             selectedSeatCount++;
@@ -433,8 +434,6 @@ for (const [i, element] of ddSeatUpper.entries()) {
 
             totalInt += fareInt;
 
-            console.log(totalInt);
-
             seatTableBody[tableIndex].appendChild(tableRow);
             selectedSeatCount++;
 
@@ -505,8 +504,6 @@ for (const [i, element] of ddSeatLower.entries()) {
             var fareInt = parseInt(fareString);
 
             totalInt += fareInt;
-
-            console.log(totalInt);
 
             seatTableBody[tableIndex].appendChild(tableRow);
             selectedSeatCount++;
@@ -579,8 +576,6 @@ for (const [i, element] of sleeperSeatUpper.entries()) {
 
             totalInt += fareInt;
 
-            console.log(totalInt);
-
             seatTableBody[tableIndex].appendChild(tableRow);
             selectedSeatCount++;
 
@@ -652,8 +647,6 @@ for (const [i, element] of sleeperSeatLower.entries()) {
 
             totalInt += fareInt;
 
-            console.log(totalInt);
-
             seatTableBody[tableIndex].appendChild(tableRow);
             selectedSeatCount++;
 
@@ -724,8 +717,6 @@ for (const [i, element] of nonACSeat.entries()) {
             var fareInt = parseInt(fareString);
 
             totalInt += fareInt;
-
-            console.log(totalInt);
 
             seatTableBody[tableIndex].appendChild(tableRow);
             selectedSeatCount++;

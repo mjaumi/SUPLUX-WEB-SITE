@@ -927,21 +927,40 @@ if (isset($_POST['modify_search'])) {
     </script> 
     <script>
 
-        document.getElementById('cancel_btn').onclick = function(){
-        var isReturnSelected = "<?php if($date_of_return !== "") echo "Yes"; else echo "No"; ?>"
-        }
-        console.log(isReturnSelected);
+        const continueBtn = document.querySelectorAll('.continue_btn');
 
+        for (const [i, element] of continueBtn.entries()){
 
-       
-        
+            element.onclick = function(){
 
+                if(seatTableBody[i].rows.length === 0){
 
+                    if(confirm('Please select at least one seat.')){
 
-        
+                    };
+                } else{
+                    
+                    var selectedSeatsString = '';
+                    for (var j = 0; j < seatTableBody[i].rows.length; j++) {
+                    
+                        if(j === 0){
 
+                            selectedSeatsString = seatTableBody[i].rows[j].cells[0].innerHTML;
+                        }else{
 
+                            selectedSeatsString += ', ' + seatTableBody[i].rows[j].cells[0].innerHTML;
+                        }
+                
+                    }
+
+                    alert(SelectedSeatsString);
+                    //window.location.href = "search-result.php?seats="+ SelectedSeatsString;
+                }
+                
+            }
+        }  
 
     </script>
+            
 </body>
 </html>
