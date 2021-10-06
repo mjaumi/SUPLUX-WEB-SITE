@@ -177,7 +177,7 @@ if (isset($_POST['submit_form'])) {
 
         $sql = "INSERT INTO testimonials (user_email, msg) VALUES ('$user_email', '$message')";
         $result = mysqli_query($conn, $sql);
-        if($result > 0){
+        if($result){
             echo "<script>alert('We have accepted your msg.')</script>";
             //$_SESSION['email'] = $user_email;
             header("Location: profile.php");
