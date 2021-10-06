@@ -783,18 +783,18 @@ for (const [i, element] of continueBtn.entries()){
 
         }
 
-        createCookie("seats", seatString, "1");
+        createCookie("seats", seatString, "15");
         
     }
 }  
 
 
-function createCookie(name, value, days) {
+function createCookie(name, value, minutes) {
     var expires;
       
-    if (days) {
+    if (minutes) {
         var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        date.setTime(date.getTime() + (minutes * 60 * 1000));
         expires = "; expires=" + date.toGMTString();
     }
     else {
