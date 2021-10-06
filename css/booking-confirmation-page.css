@@ -1,0 +1,338 @@
+body{
+
+    background-color: #119ae8;
+}
+
+header{
+
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.modal-header{
+
+    border-bottom: 1px dashed #999;
+}
+
+.modal-footer{
+
+    border-top: 1px dashed #999;
+}
+
+.button{
+
+    padding: 0.5em 0.75em;
+    margin-bottom: 1em;
+    border-radius: 300px;
+    width: 100%;
+    font-size: 15px;
+    border: 2px solid #119ae8;
+    background-color: #119ae8;
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+
+.button i{
+
+    margin-right: 5px;
+}
+
+.button:hover{
+
+    letter-spacing: 3px;
+    background-color: transparent;
+    color: #119ae8;
+}
+
+#footer{
+
+    min-height: 100px;
+    padding: 1em 0;
+}
+
+.footer_title{
+
+    margin-bottom: 0;
+}
+
+@media (max-width: 750px){
+
+    .footer_title{
+
+        margin-bottom: 1.5em;
+    }
+}
+
+.confirm_title{
+
+    padding: 0 1em 1em;
+    margin-top: 5em;
+}
+
+.confirm_title h1{
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 4em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.journey_ticket_info_container{
+
+    background-color: white;
+    border-radius: 30px;
+}
+
+.journey_ticket_info_wrapper + .journey_ticket_info_wrapper{
+
+    border-top: 1px dashed #999;
+    padding-top: 16px;
+}
+
+.journey_ticket_info_container + .journey_ticket_info_container{
+
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
+
+.journey_ticket_info_table{
+
+    text-align: center;
+    color: #032133;
+}
+
+.table_title{
+
+    text-align: center;
+    width: 100%;
+    margin: 0.5em 0;
+    font-weight: 200;
+    padding-top: 0.5em;
+}
+
+.journey_ticket_info_table td,
+.journey_ticket_info_table th{
+
+    width: 50%;
+    vertical-align: middle;
+}
+
+#payment_method_journey_container{
+
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    border-top: 1px dashed #999;
+    border-radius: 0 0 30px 30px;
+    transform-origin: top;
+}
+
+.modal_table td,
+.modal_table th{
+
+    width: 50%;
+    vertical-align: middle;
+    text-align: center;
+    color: #032133;
+}
+
+.payment_method_mode{
+
+    animation: animate_payment_method 0.3s ease-in-out forwards;
+}
+
+@keyframes animate_payment_method{
+
+    from{
+
+        transform: scaleY(0);
+    }
+
+    to{
+
+        transform: scaleY(1);
+    }
+}
+
+.payment_methods_container h3{
+
+    font-weight: 300;
+    margin-right: 10px;
+    color: #032133;
+}
+
+.payment_method_holder{
+
+    display: flex;
+}
+
+.payment_methods_container{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.modal-title{
+
+    font-size: 25px;
+    color: #032133;
+    font-weight: 300;
+}
+
+.bkash{
+
+    height: 70px;
+    width: 100px;
+    border-radius: 15px;
+    background-color: #bbb;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.bkash:hover{
+
+    background-color: #119ae8;
+}
+
+.bkash + .bkash{
+
+    margin-left: 10px;
+}
+
+.bkash img{
+
+    width: 100%;
+}
+
+.form-input{
+
+    border: 3px solid transparent;
+    padding: 0.5em 0.25em 0.5em 3.6em;
+}
+
+.form-input:hover{
+
+    border: 3px solid #119ae8;
+}
+
+.flexbox-left + .flexbox-left{
+
+    margin-top: 1em;
+}
+
+.number_container{
+
+    padding: 1.5em 1.5em;
+    border-top: 1px dashed #999;
+}
+
+.modal-footer{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.btn_modal{
+
+    width: 40%;
+}
+
+.btn_modal + .btn_modal{
+
+    margin-left: 1em;
+} 
+
+.btn.btn-danger{
+
+    border: 4px solid red;
+}
+
+.modal-body{
+
+    padding: 0;
+}
+
+@media (max-width: 290px){
+
+    .journey_ticket_info_table td,
+    .journey_ticket_info_table th{
+
+        font-size: 15px;
+    }
+
+    .button{
+
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 355px){
+
+    .bkash{
+
+        width: 60px;
+        height: 42px;
+    }
+
+    .payment_methods_container h3{
+
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .button.btn-danger{
+
+        min-width: 0;
+    }
+    
+}
+
+@media (max-width: 770px) {
+    
+    .confirm_title h1{
+
+        font-size: 1.6em;
+    }
+
+    .payment_methods_container{
+
+        flex-direction: column;
+    }
+
+}
+
+@media (min-width: 765px){
+
+    .ticket_details_container{
+
+        display: flex;
+    }
+
+    .journey_ticket_info_wrapper{
+
+        width: 50%;
+    }
+
+    .journey_ticket_info_wrapper + .journey_ticket_info_wrapper{
+
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .button{
+
+        margin-top: 1em;
+    }
+} 
+
+@media (min-width: 990px){
+
+    .button{
+
+        font-size: 20px;
+        border: 4px solid #119ae8;
+    }
+}
