@@ -13,7 +13,7 @@ error_reporting(0);
 
 //     
 // }
-if($_GET['return'] === 'y'){
+if($_GET['return'] === 'y' || $_GET['return'] === 'n'){
 
     $starting_from = $_SESSION['starting_from'];
     $coach_no = $_SESSION['coach_no'];
@@ -25,20 +25,7 @@ if($_GET['return'] === 'y'){
     $date_of_journey = $_SESSION['date_of_journey'];
     $available_seats = $_SESSION['available_seats'];
     $date_of_return = $_SESSION['date_of_return'];
-    if(isset($_POST['continue_btn'])){
-        // if(!isset($_GET['con'])){
-        //     echo "<script>
-        //     window.location.href = 'booking-confirmation-page.php?return=y'</script>";
-
-        // }else{
-            
-            echo "<script>
-            window.location.href = 'search-result.php?return=y1'</script>";
-
-        //}
-        
-    }
-
+    
 }
 
 // if($date_of_return !== ""){
@@ -68,9 +55,12 @@ if($_GET['return'] === 'y1'){
     
     
 }
-if($_GET['return'] === 'n'){
-    if(isset($_POST['continue_btn'])){
 
+if($_GET['return'] === 'n'){
+    if(isset($_POST['continue_btn']) && isset($_COOKIE["seats"])){
+
+        // $p = $_COOKIE["seats"];
+        echo "<script>alert('Choose at least one seat.')</script>";
         echo "<script>
         window.location.href = 'booking-confirmation-page.php?'</script>";
         //header("Location: booking-confirmation-page.php");
@@ -78,12 +68,25 @@ if($_GET['return'] === 'n'){
 }
 
 if($_GET['return'] === 'y1'){
-    if(isset($_POST['continue_btn'])){
+    if(isset($_POST['continue_btn']) && isset($_COOKIE["seats"])){
+        echo "<script>alert('Choose at least one seat.')</script>";
 
         echo "<script>
         window.location.href = 'booking-confirmation-page.php?return=y'</script>";
         //header("Location: booking-confirmation-page.php");
     }
+}
+
+if($_GET['return'] === 'y'){
+    if(isset($_POST['continue_btn']) && isset($_COOKIE["seats"])){
+        echo "<script>alert('Choose at least one seat.')</script>";
+        echo "<script>
+        window.location.href = 'search-result.php?return=y1'</script>";
+
+        //}
+        
+    }
+
 }
 
 
@@ -1791,3 +1794,5 @@ if($_GET['return'] === 'y1'){
         </div>
     </div>
 </div>
+
+
