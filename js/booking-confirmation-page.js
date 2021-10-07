@@ -225,6 +225,8 @@ rocketReturn.onclick = function() {
         
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
+
+        createCookie("payable_fare",  $('#pay_fare').html(), "15");
     } else{
 
         $('#payment_modal_title').text('Rocket Purchase Payment');
@@ -241,7 +243,11 @@ rocketReturn.onclick = function() {
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
 
+        createCookie("payable_fare",  "0", "15");
+
     }
+
+    createCookie("pay_method", "Bkash", "15");
 
     $('#payment_phone_no_journey').attr('placeholder', 'Enter Rocket Number');
     $('#payment_pin_journey').attr('placeholder', 'Enter Rocket Number');
@@ -268,6 +274,8 @@ nagadJourney.onclick = function() {
         
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
+
+        createCookie("payable_fare",  $('#pay_fare').html(), "15");
     } else{
 
         $('#payment_modal_title').text('Nagad Purchase Payment');
@@ -283,7 +291,11 @@ nagadJourney.onclick = function() {
         
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
+
+        createCookie("payable_fare",  "0", "15");
     }
+
+    createCookie("pay_method", "Rocket", "15");
 
     $('#payment_phone_no_journey').attr('placeholder', 'Enter Nagad Number');
     $('#payment_pin_journey').attr('placeholder', 'Enter Nagad Number');
@@ -309,6 +321,9 @@ nagadReturn.onclick = function() {
         
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
+
+        createCookie("payable_fare",  $('#pay_fare').html(), "15");
+
     } else{
 
         $('#payment_modal_title').text('Nagad Purchase Payment');
@@ -325,10 +340,14 @@ nagadReturn.onclick = function() {
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
 
+        createCookie("payable_fare",  "0", "15");
     }
+
+    createCookie("pay_method", "Nagad", "15");
 
     $('#payment_phone_no_journey').attr('placeholder', 'Enter Nagad Number');
     $('#payment_pin_journey').attr('placeholder', 'Enter Nagad Number');
+
 };
 
 
@@ -348,3 +367,21 @@ window.onload = function(){
                 $('#journey_ticket').addClass('add_margin');
             }
 };
+
+
+function createCookie(name, value, minutes) {
+    var expires;
+      
+    if (minutes) {
+        var date = new Date();
+        date.setTime(date.getTime() + (minutes * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+      
+    document.cookie = escape(name) + "=" + 
+        escape(value) + expires + "; path=/";
+}
+  
