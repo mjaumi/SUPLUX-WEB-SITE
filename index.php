@@ -1,5 +1,8 @@
 <?php
 
+
+include 'config.php';
+
 session_start();
 error_reporting(0);
 $user_logged_in = "no";
@@ -9,6 +12,13 @@ if(isset($_SESSION['user_name'])){
     $user_logged_in = "yes";
     //header("Location: profile.php");
 }
+
+unset($_POST['name']);
+unset($_POST['email']);
+unset($_POST['message']);
+
+
+
 
 ?>
 
@@ -461,7 +471,7 @@ if(isset($_SESSION['user_name'])){
                         <img src="img/envelope.png" alt="IMG">
                     </div>
         
-                    <form class="contact-form validate-form">
+                    <form class="contact-form validate-form" method="POST" action="">
                         <span class="contact-form-title">
                             Say Hello!
                         </span>
@@ -484,7 +494,7 @@ if(isset($_SESSION['user_name'])){
                         </div>
         
                         <div class="container-contact-form-btn">
-                            <button class="contact-form-btn">
+                            <button class="contact-form-btn" type="submit" name="submit">
                                 <span>
                                     Send Email
                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -633,3 +643,27 @@ if(isset($_SESSION['user_name'])){
 
 </body>
 </html>
+
+<?php
+if (isset($_POST['submit'])) {
+    if($_POST['name'] !== "" && $_POST['email'] !== "" && $_POST['name'] !== ""){
+        
+        $r_name = $_POST['name'];
+        $email = $_POST['email'];
+        $msg = $_POST['message'];
+
+        $sql = "INSERT INTO `contact_us`(`u_name`, `email`, `msg`) VALUES ('$r_name','$email','$msg')";
+        $result = mysqli_query($conn, $sql);
+        if($result){
+            echo "<script>alert('We have accepted your msg.')</script>";
+            unset($_POST['submit']);
+        }
+        
+        
+    }
+
+
+    # code...
+}
+
+?>
