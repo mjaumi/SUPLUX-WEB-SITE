@@ -26,6 +26,9 @@ const coachNoTripDetails = document.querySelectorAll('.coach_no_trip_details');
 const startingPointTripDetails = document.querySelectorAll('.starting_trip_details'); 
 const endingPointTripDetails = document.querySelectorAll('.ending_trip_details'); 
 const farePerSeatTripDetails = document.querySelectorAll('.fare_per_seat_table');
+const reportingTime = document.querySelectorAll('.reporting_time');
+const departureTime = document.querySelectorAll('.departure_time');
+
 
 /**
  * seat maps for different coach types
@@ -788,9 +791,23 @@ for (const [i, element] of continueBtn.entries()){
             if(queries[0] === 'return=y1'){
 
                 createCookie("seats_return", seatString, "15");
+                createCookie("coach_type_return", coachTypeTripDetails[tableIndex].innerHTML, "15");
+                createCookie("coach_no_return", coachNoTripDetails[tableIndex].innerHTML, "15");
+                createCookie("starting_point_return", startingPointTripDetails[tableIndex].innerHTML, "15");
+                createCookie("ending_point_return", endingPointTripDetails[tableIndex].innerHTML, "15");
+                createCookie("fare_return", farePerSeatTripDetails[tableIndex].innerHTML, "15");
+                createCookie("reporting_time_return", reportingTime[tableIndex].innerHTML, "15");
+                createCookie("departure_time_return", departureTime[tableIndex].innerHTML, "15");
             } else{
 
                 createCookie("seats", seatString, "15");
+                createCookie("coach_type", coachTypeTripDetails[tableIndex].innerHTML, "15");
+                createCookie("coach_no", coachNoTripDetails[tableIndex].innerHTML, "15");
+                createCookie("starting_point", startingPointTripDetails[tableIndex].innerHTML, "15");
+                createCookie("ending_point", endingPointTripDetails[tableIndex].innerHTML, "15");
+                createCookie("fare", farePerSeatTripDetails[tableIndex].innerHTML, "15");
+                createCookie("reporting_time", reportingTime[tableIndex].innerHTML, "15");
+                createCookie("departure_time", departureTime[tableIndex].innerHTML, "15");
             }
 
         }
