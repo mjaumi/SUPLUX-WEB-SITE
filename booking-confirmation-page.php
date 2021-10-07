@@ -17,7 +17,11 @@ if(isset($_POST['confirm'])){
 
 
 $departure_time_with_date =  $_COOKIE['departure_time'];
-// $date = mb_split()
+$date_departure = explode( "," , $departure_time_with_date);
+
+
+$reporting_time_with_date = $_COOKIE['departure_time_return']; 
+$date_return = explode( "," , $reporting_time_with_date);
 
 
 
@@ -158,7 +162,7 @@ $departure_time_with_date =  $_COOKIE['departure_time'];
                                         </tr>
                                         <tr>
                                             <td>Reporting Time:</td>
-                                            <th scope="row"><?php echo $_COOKIE['reporting_time']; ?></th>
+                                            <th scope="row"><?php echo $date_departure[0]; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Coach No:</td>
@@ -172,7 +176,7 @@ $departure_time_with_date =  $_COOKIE['departure_time'];
                                     <tbody>
                                         <tr>
                                             <td>Trip Date:</td>
-                                            <th scope="row"><?php echo $_SESSION['date_of_journey']; ?></th>
+                                            <th scope="row"><?php echo $date_departure[1]; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Total Fare:</td>
@@ -184,7 +188,7 @@ $departure_time_with_date =  $_COOKIE['departure_time'];
                                         </tr>
                                         <tr>
                                             <td>Departure Time:</td>
-                                            <th scope="row"><?php echo $_COOKIE['departure_time']; ?></th>
+                                            <th scope="row"><?php echo $date_departure[0]; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Coach Type:</td>
@@ -240,7 +244,7 @@ $departure_time_with_date =  $_COOKIE['departure_time'];
                                         </tr>
                                         <tr>
                                             <td>Reporting Time:</td>
-                                            <th scope="row"><?php echo $_COOKIE['departure_time_return']; ?></th>
+                                            <th scope="row"><?php echo $date_return[0]; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Coach No:</td>
@@ -254,7 +258,7 @@ $departure_time_with_date =  $_COOKIE['departure_time'];
                                     <tbody>
                                         <tr>
                                             <td>Trip Date:</td>
-                                            <th scope="row"><?php echo $_SESSION['date_of_return']; ?></th>
+                                            <th scope="row"><?php echo $date_return[1]; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Total Fare:</td>
@@ -266,7 +270,7 @@ $departure_time_with_date =  $_COOKIE['departure_time'];
                                         </tr>
                                         <tr>
                                             <td>Departure Time:</td>
-                                            <th scope="row"><?php echo $_COOKIE['departure_time_return']; ?></th>
+                                            <th scope="row"><?php echo $date_return[0]; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Coach Type:</td>
