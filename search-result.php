@@ -110,7 +110,7 @@ if (isset($_POST['modify_search'])) {
     ?> -->
 
 
-    <title>SUPLUX | <?php echo $from_city ?> TO <?php echo $to_city ?> BUS SEARCH RESULT</title>
+    <title>SUPLUX | <?php echo strtoupper($from_city)?> TO <?php echo strtoupper($to_city)?> BUS SEARCH RESULT</title>
 
     <!-- css file integration -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -924,8 +924,3 @@ if (isset($_POST['modify_search'])) {
     </script>          
 </body>
 </html>
-
-<?php
-
-echo $_COOKIE["seats"];   
-?>

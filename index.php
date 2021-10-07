@@ -250,7 +250,7 @@ if(isset($_SESSION['user_name'])){
                         <div class="destination_card_content">
                             <h2 class="destination_card_title">Bandarban</h2>
                             <p class="destination_card_body">One of the three hill districts of Bangladesh and a part of Chattogram hill tracts and also a polular tourist spot.</p>  
-                            <a href="#" class="destination_card_button">View details</a>
+                            <a href="destination-description.php?q=bandarban" class="destination_card_button">View details</a>
                         </div>
                     </div>
                     <div class="destination_card">

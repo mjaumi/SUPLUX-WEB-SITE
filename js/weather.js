@@ -10,7 +10,15 @@ $(document).ready(function() {
 
     function success() {
         
-        weather("cox's bazar");
+      var queryString = decodeURIComponent(window.location.search);
+      queryString = queryString.substring(1);
+      var queries = queryString.split("&");
+
+      if(queries[0] === 'q=bandarban'){
+
+        weather('bandarban');
+      }
+        
     }
 
     function error() {

@@ -795,7 +795,7 @@ for (const [i, element] of continueBtn.entries()){
                 createCookie("coach_no_return", coachNoTripDetails[tableIndex].innerHTML, "15");
                 createCookie("starting_point_return", startingPointTripDetails[tableIndex].innerHTML, "15");
                 createCookie("ending_point_return", endingPointTripDetails[tableIndex].innerHTML, "15");
-                createCookie("fare_return", farePerSeatTripDetails[tableIndex].innerHTML, "15");
+                createCookie("fare_return", totalFare[tableIndex].innerHTML, "15");
                 createCookie("reporting_time_return", reportingTime[tableIndex].innerHTML, "15");
                 createCookie("departure_time_return", departureTime[tableIndex].innerHTML, "15");
             } else{
@@ -805,7 +805,7 @@ for (const [i, element] of continueBtn.entries()){
                 createCookie("coach_no", coachNoTripDetails[tableIndex].innerHTML, "15");
                 createCookie("starting_point", startingPointTripDetails[tableIndex].innerHTML, "15");
                 createCookie("ending_point", endingPointTripDetails[tableIndex].innerHTML, "15");
-                createCookie("fare", farePerSeatTripDetails[tableIndex].innerHTML, "15");
+                createCookie("fare", totalFare[tableIndex].innerHTML, "15");
                 createCookie("reporting_time", reportingTime[tableIndex].innerHTML, "15");
                 createCookie("departure_time", departureTime[tableIndex].innerHTML, "15");
             }
@@ -831,4 +831,42 @@ function createCookie(name, value, minutes) {
     document.cookie = escape(name) + "=" + 
         escape(value) + expires + "; path=/";
 }
-  
+
+
+
+const modifyTitle = document.querySelectorAll('.modify_title');
+const busIcon = document.querySelectorAll('.bus_icon');
+const fromTo = document.querySelectorAll('.from_to');
+const travelDate = document.querySelectorAll('.travel_date'); 
+
+window.onload = function(){
+
+    var queryString = decodeURIComponent(window.location.search);
+    console.log(queryString);
+    queryString = queryString.substring(1);
+    var queries = queryString.split("&");
+
+    if(queries[0] === 'return=y1'){
+
+        modifyTitle[0].classList.remove('selected');
+        busIcon[0].classList.remove('selected');
+        fromTo[0].classList.remove('selected');
+        travelDate[0].classList.remove('selected');
+
+        modifyTitle[1].classList.add('selected');
+        busIcon[1].classList.add('selected');
+        fromTo[1].classList.add('selected');
+        travelDate[1].classList.add('selected');
+    } else{
+
+        modifyTitle[1].classList.remove('selected');
+        busIcon[1].classList.remove('selected');
+        fromTo[1].classList.remove('selected');
+        travelDate[1].classList.remove('selected');
+
+        modifyTitle[0].classList.add('selected');
+        busIcon[0].classList.add('selected');
+        fromTo[0].classList.add('selected');
+        travelDate[0].classList.add('selected');
+    }
+};

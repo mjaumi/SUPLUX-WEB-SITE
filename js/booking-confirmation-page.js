@@ -366,25 +366,6 @@ nagadReturn.onclick = function() {
 
 };
 
-
-window.onload = function(){
-
-    var queryString = decodeURIComponent(window.location.search);
-            console.log(queryString);
-            queryString = queryString.substring(1);
-            var queries = queryString.split("&");
-
-            if(queries[0] === 'return=y'){
-
-                $('#return_ticket').removeClass('d-none');
-            } else{
-
-                $('#return_ticket').addClass('d-none');
-                $('#journey_ticket').addClass('add_margin');
-            }
-};
-
-
 function createCookie(name, value, minutes) {
     var expires;
     
@@ -401,4 +382,22 @@ function createCookie(name, value, minutes) {
     document.cookie = escape(name) + "=" + 
         escape(value) + expires + "; path=/";
 }
+
+window.onload = function(){
+
+    var queryString = decodeURIComponent(window.location.search);
+            
+    queryString = queryString.substring(1);
+    var queries = queryString.split("&");
+
+    if(queries[0] === 'return=y'){
+
+        $('#return_ticket').removeClass('d-none');
+    } else{
+
+        $('#return_ticket').addClass('d-none');
+        $('#journey_ticket').addClass('add_margin');
+    }
+};
+
   

@@ -185,7 +185,6 @@ if($c === 'ok' && isset($_POST['return_confirm'])){
                 <div class="col-md-12">
                     
 
-                    
 
                     <?php
                         include 'booking-confirmation-journey.php';
@@ -248,12 +247,12 @@ if($c === 'ok' && isset($_POST['return_confirm'])){
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <form action="" method="POST">
+                        <form action="" method="POST" id="submission">
 
                         
-                        <button type="submit" id="journey_confirm" class="btn button btn_modal" name="journey_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirm</button>
-                        <button type="submit" id="return_confirm" class="btn button btn_modal d-none" name="return_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirmr</button>
-                        <button type="button" class="btn btn-danger button btn_modal" data-bs-dismiss="modal"><i class="fa fa-ban" aria-hidden="true"></i>Cancel</button>
+                            <button type="submit" id="journey_confirm" class="btn button btn_modal" name="journey_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>CONFIRM</button>
+                            <button type="submit" id="return_confirm" class="btn button btn_modal d-none" name="return_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>CONFIRM</button>
+                            <button type="button" class="btn btn-danger button btn_modal" data-bs-dismiss="modal"><i class="fa fa-ban" aria-hidden="true"></i>CANCEL</button>
                         </form>
                     
                     

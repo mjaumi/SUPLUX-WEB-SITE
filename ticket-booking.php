@@ -33,7 +33,9 @@ if (isset($_POST['search_buses'])) {
         $_SESSION['from_city'] = $_POST['from_city'];
         if ($_SESSION['from_city'] === "Cox's Bazar") {
                 $_SESSION['from_city'] = 'Coxs Bazar';
-            }
+        }
+
+        
     }
     if(isset($_POST['to_city'])){
         
@@ -52,6 +54,13 @@ if (isset($_POST['search_buses'])) {
     }
     if ($_POST['from_city'] !== $_POST['to_city']) {
         //unset($_POST);
+
+        if($_SESSION['from_city'] !== "Dhaka"){
+            $temp =  $_SESSION['from_city'];
+            $_SESSION['from_city'] = $_SESSION['to_city'];
+            $_SESSION['to_city'] = $temp;
+        }
+
         if ($_SESSION['date_of_return'] !== "") {
             # code...
             //$_SESSION['date_of_return'] = $_POST['date_of_return'];
