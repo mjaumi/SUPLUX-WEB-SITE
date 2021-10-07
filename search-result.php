@@ -59,11 +59,6 @@ if (isset($_POST['search_buses'])) {
         window.location.href = 'search-result.php?return=y'</script>";
     }
         //$_SESSION['date_of_return'] = $_POST['date_of_return'];
-    //   else{
-    //      echo "<script>
-    //      window.location.href = 'booking-confirmation-page.php?return=n'</script>";
-
-    //  }
 
 }
 

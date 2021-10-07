@@ -87,10 +87,26 @@ if($_GET['return'] === 'y'){
         //}
         
     }
+    
+}else if($_GET['return'] === 'y1'){
+    if(isset($_POST["continue_btn"]) && $_COOKIE["seats"] !== null){
+        //echo "<script>alert('Choose at least one seat.')</script>";
+
+        echo "<script>
+        window.location.href = 'booking-confirmation-page.php?return=y'</script>";
+        //header("Location: booking-confirmation-page.php");
+    }
+}else if($_GET['return'] === 'y'){
+    if(isset($_POST["continue_btn"]) && $_COOKIE["seats"] !== null){
+        //echo "<script>alert('Choose at least one seat.')</script>";
+        echo "<script>
+        window.location.href = 'search-result.php?return=y1'</script>";
+
+        //}
+        
+    }
 
 }
-
-
 
 
 // } else{

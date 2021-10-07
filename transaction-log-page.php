@@ -150,6 +150,25 @@
         </div>
     </main>
 
+    <div id="footer">
+            <div class="footer_container">
+                <div class="footer_content">
+                    <p class="footer_title">© SUPLUX 2021. All Rights Reserved</p>
+    
+                    <div class="social_footer">
+                        <div class="social_title">
+                            <p>Find us on</p>
+                        </div>
+                        <div class="icon_container">
+                            <a class="icon" href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a class="icon" href="https://twitter.com/?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a class="icon" href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <!-- js file integration -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
