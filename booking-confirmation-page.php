@@ -16,6 +16,12 @@ if(isset($_POST['confirm'])){
 
 
 
+$departure_time_with_date =  $_COOKIE['departure_time'];
+// $date = mb_split()
+
+
+
+
 ?>
 
 <!DOCTYPE html>
