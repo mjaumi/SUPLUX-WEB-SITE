@@ -13,7 +13,7 @@ error_reporting(0);
 
 //     
 // }
-if($_GET['return'] === 'y' || $_GET['return'] === 'n'){
+if($_POST['return'] === 'y' || $_POST['return'] === 'n'){
 
     $starting_from = $_SESSION['starting_from'];
     $coach_no = $_SESSION['coach_no'];
@@ -41,7 +41,7 @@ if($_GET['return'] === 'y' || $_GET['return'] === 'n'){
 
 
 
-if($_GET['return'] === 'y1'){
+if($_POST['return'] === 'y1'){
     $_SESSION['starting_from_r'] = $starting_from = $_SESSION['destination'];
     $_SESSION['coach_no_r'] = $coach_no = $_SESSION['coach_no'].'-R';
     $_SESSION['boarding_point_r'] = $boarding_point ="";// $_SESSION['boarding_point'];
@@ -56,6 +56,7 @@ if($_GET['return'] === 'y1'){
     
 }
 
+<<<<<<< HEAD
 /*if($_GET['return'] === 'n'){
     if(isset($_POST["continue_btn"]) && $_COOKIE["seats"] !== null){
 
@@ -84,6 +85,9 @@ if($_GET['return'] === 'y1'){
     }
 
 }*/
+=======
+
+>>>>>>> fa5faf058b1fc32232b5445e075f5bfe374e30c2
 
 
 // } else{
@@ -103,7 +107,7 @@ if($_GET['return'] === 'y1'){
         <div class="origin_destination_wrapper">
             <div class="origin_container wrapper_33">
                 <h1 class="destination_short">DHA</h1>
-                <p class="destination_full starting"><?php echo "$starting_from" ?></p>
+                <p class="destination_full starting"><?php echo "$starting_from"?></p>
             </div>
 
             <div class="trip_icon wrapper_33">
@@ -216,10 +220,19 @@ if($_GET['return'] === 'y1'){
                         <div class="form-input-wrapper flexbox-left boarding_point_selector">
                             <i class="fa fa-suitcase" aria-hidden="true"></i>
                             <select class="form-input-boarding select_field" id="boarding_point_selector">
-                                <option selected value="None">None</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Others">Others</option>
+                                <?php
+                                if($starting_from === 'Dhaka'){
+                                    include 'dhaka-boarding-point.php';
+                                }else{
+                                    # code...
+                                    //echo $starting_from;
+                                    $_SESSION['s'] = $starting_from;
+                                    include 'other-boarding-point.php';
+                                }
+                                
+                                
+                                ?>
+                            
                             </select>
                         </div> 
                     </div>
