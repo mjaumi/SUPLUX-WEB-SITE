@@ -88,7 +88,7 @@
                             </li>
                         
                             <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
-                                <a class="logged_in_nav_btn" href="#">
+                                <a class="logged_in_nav_btn" href="transaction-log-page.php">
                                     <i class="dropdown_item_icon fa fa-calendar" aria-hidden="true"></i>
                                     <span>Purchase Log</span>
                                 </a>
@@ -111,7 +111,7 @@
 
     <main id="transaction_log_main_container">
         <div class="transaction_title">
-            <h1>TRANSACTION LOG</h1>
+            <h1>PURCHASE LOG</h1>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -129,10 +129,10 @@
                                 <tbody>
                                   <tr>
                                     <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
+                                    <td>221020212210-AK1J1011-RC1-251020211350</td>
+                                    <td>22-Oct-2021</td>
+                                    <td>25-Oct-2021</td>
+                                    <td>SOLD</td>
                                   </tr>
                                   <tr>
                                     <th scope="row">2</th>

@@ -58,7 +58,7 @@ $user_profile_name = $_SESSION['user_profile_name'];
                             </li>
                         
                             <li class="dropdown_menu_item" tabindex="-1" aria-role="menuitem">
-                                <a class="logged_in_nav_btn" href="#">
+                                <a class="logged_in_nav_btn" href="transaction-log-page.php">
                                     <i class="dropdown_item_icon fa fa-calendar" aria-hidden="true"></i>
                                     <span>Purchase Log</span>
                                 </a>

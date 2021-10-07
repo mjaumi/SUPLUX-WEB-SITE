@@ -43,6 +43,7 @@ header{
 
     text-align: center;
     color: #032133;
+    border-bottom: 1px dashed #999;
 }
 
 
@@ -64,6 +65,16 @@ header{
 }
 
 @media (max-width: 770px){
+
+    .transaction_table td,
+    .transaction_table th{
+
+        font-size: 18px;
+    }    
+}
+
+
+@media (max-width: 575px){
 
     .transaction_table td,
     .transaction_table th{

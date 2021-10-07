@@ -778,7 +778,18 @@ for (const [i, element] of continueBtn.entries()){
                     seatString += ', ' + seatTableBody[i].rows[j].cells[0].innerHTML;
                 }
 
-                
+            }
+
+            var queryString = decodeURIComponent(window.location.search);
+            console.log(queryString);
+            queryString = queryString.substring(1);
+            var queries = queryString.split("&");
+
+            if(queries[0] === 'return=y1'){
+
+                createCookie("seats_return", seatString, "15");
+            } else{
+
                 createCookie("seats", seatString, "15");
             }
 
