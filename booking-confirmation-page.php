@@ -9,19 +9,40 @@ session_start();
 //     $_SESSION['ticket-booking'] = false;
 // }*/** */
 
+date_default_timezone_set("Asia/Dhaka");
 
-if(isset($_POST['confirm'])){
+$departure_time_with_date =  $_COOKIE['departure_time'];
+$date_departure = explode( "," , $departure_time_with_date);
+
+$departure_time_with_date_return = $_COOKIE['departure_time_return']; 
+$date_departure_return = explode( "," , $departure_time_with_date_return);
+
+
+$reporting_time_with_date = $_COOKIE['departure_time_return']; 
+$date_return = explode( "," , $reporting_time_with_date);
+
+
+if(isset($_POST['journey_confirm'])){
+    $booked_seats = explode("," , $_COOKIE['seats']);
+
+
+    $utk_no = rand(15978, 456789);
+    $user_email = $_SESSION['user_email'];
+    $coach_no = $_COOKIE['coach_no'];
+    $reservation_date = date("Y-m-d");
+    $date_of_journey = date('Y-m-d', $date_departure[1]);
+    
+
+    
+
+
+
     
 }
 
 
 
-$departure_time_with_date =  $_COOKIE['departure_time'];
-$date_departure = explode( "," , $departure_time_with_date);
 
-
-$reporting_time_with_date = $_COOKIE['departure_time_return']; 
-$date_return = explode( "," , $reporting_time_with_date);
 
 
 
@@ -150,7 +171,7 @@ $date_return = explode( "," , $reporting_time_with_date);
                                     <tbody>
                                         <tr>
                                             <td>Name:</td>
-                                            <th scope="row">Mr. Aumi</th>
+                                            <th scope="row">Mr. <?php echo $_SESSION['user_last_name'];?></th>
                                         </tr>
                                         <tr>
                                             <td>Seats:</td>
@@ -232,7 +253,7 @@ $date_return = explode( "," , $reporting_time_with_date);
                                     <tbody>
                                         <tr>
                                             <td>Name:</td>
-                                            <th scope="row">Mr. Aumi</th>
+                                            <th scope="row">Mr. <?php echo $_SESSION['user_last_name'];?></th>
                                         </tr>
                                         <tr>
                                             <td>Seats:</td>
@@ -348,8 +369,8 @@ $date_return = explode( "," , $reporting_time_with_date);
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" id="journey_confirm" class="btn button btn_modal"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirm</button>
-                        <button type="submit" id="return_confirm" class="btn button btn_modal d-none"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirmr</button>
+                        <button type="submit" id="journey_confirm" class="btn button btn_modal" name ="journey_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirm</button>
+                        <button type="submit" id="return_confirm" class="btn button btn_modal d-none" name ="return_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirmr</button>
                         <button type="button" class="btn btn-danger button btn_modal" data-bs-dismiss="modal"><i class="fa fa-ban" aria-hidden="true"></i>Cancel</button>
                     </div>
                 </div>
