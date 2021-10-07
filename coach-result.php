@@ -1823,4 +1823,11 @@ if($_GET['return'] === 'y'){
     </div>
 </div>
 
+<?php 
+
+echo $_SESSION['2']; 
+
+
+?>
+
 

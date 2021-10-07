@@ -1,5 +1,6 @@
 <?php
 
+
 include 'config.php';
 // unset($_POST);
 
@@ -16,6 +17,8 @@ error_reporting(E_ALL);
 
 
 
+
+
 if (!isset($_SESSION['user_name'])) {
     header("Location: log-in-or-sign-up.php");
 }
@@ -25,7 +28,7 @@ if (isset($_POST['search_buses'])) {
     // $cookie_value = true;
     // setcookie($cookie_name, $cookie_value, time() + (30 * 1), "/"); // 86400 = 1 day
     // # code...
-    $_SESSION['ticket-booking'] = true;
+    
     if(isset($_POST['from_city'])){
         $_SESSION['from_city'] = $_POST['from_city'];
         if ($_SESSION['from_city'] === "Cox's Bazar") {

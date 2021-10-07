@@ -11,11 +11,7 @@ if (!isset($_SESSION['user_name'])) {
     header("Location: log-in-or-sign-up.php");
 }
 
-if($_SESSION['ticket-booking'] !== true){
-    header("Location: ticket-booking.php");
-} else {
-    
-}
+
 
 
 
@@ -355,10 +351,13 @@ if (isset($_POST['modify_search'])) {
                     !isset($_POST['morning']) && 
                     !isset($_POST['afternoon']) && 
                     !isset($_POST['night'])) {
+                        
                         $sql = "SELECT * FROM tripData WHERE starting_from = '$from_city' AND destination = '$to_city'";
                         $result = mysqli_query($conn, $sql);
 
                         while($row = $result->fetch_assoc()) {
+
+
 
                             $_SESSION['coach_no'] = $coach_no = $row['coach_no'];
                             $_SESSION['starting_from'] = $starting_from = $row['starting_from'];
@@ -368,6 +367,11 @@ if (isset($_POST['modify_search'])) {
                             $_SESSION['coach_type'] = $coach_type = $row['coach_type'];
                             $_SESSION['fare_per_seat'] = $fare_per_seat = $row['fare_per_seat'];
                             $_SESSION['date_of_journey'] = $date_of_journey;
+
+
+
+                            
+
 
                             if(isset($_GET['return']) === 'y1'){
                                 $date = date('d-M-Y', strtotime($date_of_return)); 

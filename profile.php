@@ -5,12 +5,14 @@ include 'config.php';
 
 session_start();
 //error_reporting(0);
-session_regenerate_id();
-error_reporting(E_ALL);
+
 
 if (!isset($_SESSION['user_name'])) {
     header("Location: log-in-or-sign-up.php");
 }
+unset($_POST['journey_confirm']);
+
+unset($_POST['return_confirm']);
 
 $user_email = $_SESSION['email'];
 $sql_query = "SELECT * FROM user_table WHERE user_email = '$user_email' ";
@@ -175,7 +177,7 @@ if (isset($_POST['save'])) {
     move_uploaded_file($temp_name, $folder);
 
 
-    $sql = "UPDATE user_table SET user_image = '$file_name'";
+    $sql = "UPDATE user_table SET user_image = '$file_name' WHERE user_email = '$user_email'";
     $result = mysqli_query($conn, $sql);
     }
     header("Location: profile.php");

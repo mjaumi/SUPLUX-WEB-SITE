@@ -1,3 +1,32 @@
+<?php
+
+include 'config.php';
+
+
+session_start();
+//error_reporting(0);
+// session_regenerate_id();
+// error_reporting(E_ALL);
+
+if (!isset($_SESSION['user_name'])) {
+    header("Location: log-in-or-sign-up.php");
+}
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,13 +149,57 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>221020212210-AK1J1011-RC1-251020211350</td>
-                                    <td>22-Oct-2021</td>
-                                    <td>25-Oct-2021</td>
-                                    <td>SOLD</td>
-                                  </tr>
+                                  
+                                  <?php
+
+                                    $count = 1;
+
+                                    
+
+                                    $email = $_SESSION['email'];
+                                    $sql_query = "SELECT * FROM transactionInformation WHERE userEmail = '$email'";
+
+                                    $result = mysqli_query($conn, $sql_query);
+
+                                    while($row = $result->fetch_assoc()) {
+
+                                        $transaction_id = $row['transactionId'];
+
+                                        $new_sql_query = "SELECT * FROM reservation WHERE utk_no = '$transaction_id' ";
+                                        $new_result = mysqli_query($conn, $new_sql_query);
+
+                                        if($new_row = $new_result->fetch_assoc()){
+                                            if(strpos($row['transactionId'], '-R') !== false){
+                                                
+                                                $_SESSION['utk_no'] = $row['transactionId'];
+                                                $_SESSION['reservation_date'] = $new_row['reservation_date'];
+                                                $_SESSION['journey_date'] = $new_row['date_of_return'];
+                                                $_SESSION['status'] = $row['statusInfo'];
+                                                
+                                            }else{
+                                               
+                                                $_SESSION['utk_no'] = $row['transactionId'];
+                                                $_SESSION['reservation_date'] = $new_row['reservation_date'];
+                                                $_SESSION['journey_date'] = $new_row['date_of_journey'];
+                                                $_SESSION['status'] = $row['statusInfo'];
+
+                                            }
+                                            include 'transaction-log.php';
+
+
+                                        }
+                                       
+
+
+
+
+
+                                    }
+                                  
+                                  ?>
+                                  
+
+                                  <!-- </tr>
                                   <tr>
                                     <th scope="row">2</th>
                                     <td>Jacob</td>
@@ -140,7 +213,7 @@
                                     <td>@twitter</td>
                                     <td>@mdo</td>
                                     <td>@mdo</td>
-                                  </tr>
+                                  </tr> -->
                                 </tbody>
                             </table>
                         </div>
@@ -193,3 +266,4 @@
     </script>
 </body>
 </html>
+
