@@ -22,15 +22,22 @@ $reporting_time_with_date = $_COOKIE['departure_time_return'];
 $date_return = explode( "," , $reporting_time_with_date);
 
 
-if(isset($_POST['journey_confirm'])){
-    $booked_seats = explode("," , $_COOKIE['seats']);
+// if(isset($_POST['journey_confirm'])){
 
+//     $utk_no = rand(15978, 456789);
+//     $user_email = $_SESSION['user_email'];
+//     $coach_no = $_COOKIE['coach_no'];
+//     $reservation_date = date("Y-m-d");
+//     $date_of_journey = date('Y-m-d', $date_departure[1]);
 
-    $utk_no = rand(15978, 456789);
-    $user_email = $_SESSION['user_email'];
-    $coach_no = $_COOKIE['coach_no'];
-    $reservation_date = date("Y-m-d");
-    $date_of_journey = date('Y-m-d', $date_departure[1]);
+    
+//     $booked_seats = explode("," , $_COOKIE['seats']);
+//     foreach($seat as $booked_seats){
+
+//     }
+
+    
+    
     
 
     
@@ -38,7 +45,7 @@ if(isset($_POST['journey_confirm'])){
 
 
     
-}
+// }
 
 
 
@@ -369,9 +376,15 @@ if(isset($_POST['journey_confirm'])){
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" id="journey_confirm" class="btn button btn_modal" name ="journey_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirm</button>
-                        <button type="submit" id="return_confirm" class="btn button btn_modal d-none" name ="return_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirmr</button>
+                        <form action="" method="POST">
+
+                        
+                        <button type="submit" id="journey_confirm" class="btn button btn_modal" name="journey_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirm</button>
+                        <button type="submit" id="return_confirm" class="btn button btn_modal d-none" name="return_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirmr</button>
                         <button type="button" class="btn btn-danger button btn_modal" data-bs-dismiss="modal"><i class="fa fa-ban" aria-hidden="true"></i>Cancel</button>
+                        </form>
+                    
+                    
                     </div>
                 </div>
             </div>
@@ -423,3 +436,36 @@ if(isset($_POST['journey_confirm'])){
     </script> 
 </body>
 </html>
+
+<?php
+
+if(isset($_POST['journey_confirm'])){
+
+    $utk_no = rand(15978, 456789);
+    $user_email = $_SESSION['user_email'];
+    $coach_no = $_COOKIE['coach_no'];
+    $reservation_date = date("Y-m-d");
+    $date_of_journey = $date_departure[1];
+    
+    $booked_seats = explode(", " , $_COOKIE["seats"]);
+    foreach($booked_seats as $seat){
+        echo $seat; 
+    }
+
+    
+
+    
+    
+    
+
+    
+
+
+
+    
+}
+
+
+
+
+?>
