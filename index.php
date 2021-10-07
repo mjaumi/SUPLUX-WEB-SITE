@@ -657,10 +657,6 @@ if (isset($_POST['submit'])) {
         if($result){
             echo "<script>alert('We have accepted your msg.')</script>";
             
-<<<<<<< HEAD
-            
-=======
->>>>>>> 795626a42a283ed04e1f5635cebcdbf45896a503
         }
         
         
