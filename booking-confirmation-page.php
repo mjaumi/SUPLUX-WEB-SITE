@@ -52,11 +52,8 @@ $c= "";
 if(isset($_POST['journey_confirm']) && $_GET['return'] === 'n'){
     header("Location: profile.php");
 }
-if (isset($_POST['journey_confirm'])) {
-    # code...
-    $c = "ok";
-}
-if($c === 'ok' && isset($_POST['return_confirm'])){
+
+if(isset($_POST['return_confirm'])){
     header("Location: profile.php");
 }
 
@@ -187,7 +184,12 @@ if($c === 'ok' && isset($_POST['return_confirm'])){
 
 
                     <?php
+
+                    //if($_SESSION['journey_confirm'] !== 'ok' && isset($_GET['return']) !== "n"){
                         include 'booking-confirmation-journey.php';
+                        //
+                    //}
+                        
 
                         //}
                         
@@ -335,6 +337,8 @@ if(isset($_POST['journey_confirm'])){
 
     $sql_query = "INSERT INTO transactioninformation (transactionId, userEmail, statusInfo) VALUES ('$utk_no', '$user_email', '$status')";
     $result = mysqli_query($conn, $sql_query);
+
+    $_SESSION['journey_confirm'] = 'ok'; 
     
         
         

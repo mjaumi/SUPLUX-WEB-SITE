@@ -13,9 +13,9 @@ if(isset($_SESSION['user_name'])){
     //header("Location: profile.php");
 }
 
-unset($_POST['name']);
-unset($_POST['email']);
-unset($_POST['message']);
+// unset($_POST['name']);
+// unset($_POST['email']);
+// unset($_POST['message']);
 
 
 
@@ -488,7 +488,7 @@ unset($_POST['message']);
         
                         
         
-                        <div class="wrap-input validate-input" data-validate = "Message is required">
+                        <div class="wrap-input validate-input" data-validate = "Message is required" required>
                             <textarea class="input" name="message" placeholder="Message"></textarea>
                             <span class="shadow-input"></span>
                         </div>
@@ -646,7 +646,7 @@ unset($_POST['message']);
 
 <?php
 if (isset($_POST['submit'])) {
-    if($_POST['name'] !== "" && $_POST['email'] !== "" && $_POST['name'] !== ""){
+    if($_POST['name'] !== "" && $_POST['email'] !== "" && $_POST['message'] !== ""){
         
         $r_name = $_POST['name'];
         $email = $_POST['email'];
@@ -656,7 +656,7 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($conn, $sql);
         if($result){
             echo "<script>alert('We have accepted your msg.')</script>";
-            unset($_POST['submit']);
+            
         }
         
         
