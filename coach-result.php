@@ -199,11 +199,11 @@ if($_GET['return'] === 'n'){
                         </tr>
                         <tr>
                             <td class="details_title">Reporting Time:</td>
-                            <td class="details_data" colspan="4"><?php echo "$departure_time, $date_of_journey";?></td>
+                            <td class="details_data reporting_time" colspan="4"><?php echo "$departure_time, $date_of_journey";?></td>
                         </tr>
                         <tr>
                             <td class="details_title">Departure Time:</td>
-                            <td class="details_data" colspan="4"><?php echo "$departure_time, $date_of_journey";?></td>
+                            <td class="details_data departure_time" colspan="4"><?php echo "$departure_time, $date_of_journey";?></td>
                         </tr>
                     </tbody>
                 </table>
