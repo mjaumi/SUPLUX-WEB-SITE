@@ -13,7 +13,9 @@ if(isset($_SESSION['user_name'])){
     //header("Location: profile.php");
 }
 
-
+// unset($_POST['name']);
+// unset($_POST['email']);
+// unset($_POST['message']);
 
 
 
@@ -288,7 +290,7 @@ if(isset($_SESSION['user_name'])){
                         <div class="destination_card_content">
                             <h2 class="destination_card_title">Cox's Bazar</h2>
                             <p class="destination_card_body">The longest sea beach in the world. Every year millions of tourists come to visit cox's bazar from all around the world.</p>  
-                            <a href="#" class="destination_card_button">View details</a>
+                            <a href="destination-description.php?q=coxsbazar" class="destination_card_button">View details</a>
                         </div>
                     </div>
                 </div>
@@ -486,7 +488,7 @@ if(isset($_SESSION['user_name'])){
         
                         
         
-                        <div class="wrap-input validate-input" data-validate = "Message is required">
+                        <div class="wrap-input validate-input" data-validate = "Message is required" required>
                             <textarea class="input" name="message" placeholder="Message"></textarea>
                             <span class="shadow-input"></span>
                         </div>
@@ -644,7 +646,7 @@ if(isset($_SESSION['user_name'])){
 
 <?php
 if (isset($_POST['submit'])) {
-    if($_POST['name'] !== "" && $_POST['email'] !== "" && $_POST['name'] !== ""){
+    if($_POST['name'] !== "" && $_POST['email'] !== "" && $_POST['message'] !== ""){
         
         $r_name = $_POST['name'];
         $email = $_POST['email'];
@@ -655,7 +657,10 @@ if (isset($_POST['submit'])) {
         if($result){
             echo "<script>alert('We have accepted your msg.')</script>";
             
+<<<<<<< HEAD
             
+=======
+>>>>>>> 795626a42a283ed04e1f5635cebcdbf45896a503
         }
         
         

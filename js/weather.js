@@ -19,6 +19,10 @@ $(document).ready(function() {
         weather('bandarban');
       }
         
+      if(queries[0] === 'q=coxsbazar'){
+
+        weather("cox's bazar");
+      }
     }
 
     function error() {
