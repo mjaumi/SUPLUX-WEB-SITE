@@ -184,27 +184,27 @@ if(isset($_SESSION['user_name'])){
                                 <tr>
                                     <th width="33.33%" scope="col"><h4 class="coach_type">NON-AC</h4></th>
                                     <th width="33.33%" scope="col"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></th>
-                                    <th width="33.33%"scope="col"><h4 class="fare">800 BDT</h4></th>
+                                    <th width="33.33%"scope="col"><h4 class="fare" id="fare_non">800 BDT</h4></th>
                                 </tr>
                                 <tr>
                                     <th scope="col"><h4 class="coach_type">AC (Bi)</h4></th>
                                     <th scope="col"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></th>
-                                    <th scope="col"><h4 class="fare">1800 BDT</h4></th>
+                                    <th scope="col"><h4 class="fare" id="fare_bi">1800 BDT</h4></th>
                                 </tr>
                                 <tr>
                                     <th scope="col"><h4 class="coach_type">AC (Multi)</h4></th>
                                     <th scope="col"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></th>
-                                    <th scope="col"><h4 class="fare">1800 BDT</h4></th>
+                                    <th scope="col"><h4 class="fare" id="fare_multi">1800 BDT</h4></th>
                                 </tr>
                                 <tr>
                                     <th scope="col"><h4 class="coach_type">Double Decker</h4></th>
                                     <th scope="col"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></th>
-                                    <th scope="col"><h4 class="fare">1800 BDT</h4></th>
+                                    <th scope="col"><h4 class="fare" id="fare_dd">1800 BDT</h4></th>
                                 </tr>
                                 <tr>
                                     <th scope="col"><h4 class="coach_type">Sleeper</h4></th>
                                     <th scope="col"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></th>
-                                    <th scope="col"><h4 class="fare">2500 BDT</h4></th>
+                                    <th scope="col"><h4 class="fare" id="fare_sleeper">2500 BDT</h4></th>
                                 </tr>
                             </thead>
                         </table>

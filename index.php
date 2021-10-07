@@ -280,7 +280,7 @@ if(isset($_SESSION['user_name'])){
                         <div class="destination_card_content">
                             <h2 class="destination_card_title">Cox's Bazar</h2>
                             <p class="destination_card_body">The longest sea beach in the world. Every year millions of tourists come to visit cox's bazar from all around the world.</p>  
-                            <a href="#" class="destination_card_button">View details</a>
+                            <a href="destination-description.php?q=coxsbazar" class="destination_card_button">View details</a>
                         </div>
                     </div>
                 </div>
