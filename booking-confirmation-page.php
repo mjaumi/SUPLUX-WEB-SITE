@@ -234,7 +234,7 @@ if(isset($_POST['confirm'])){
                                         </tr>
                                         <tr>
                                             <td>Reporting Time:</td>
-                                            <th scope="row"><?php echo $_SESSION['departure_time_r']; ?></th>
+                                            <th scope="row"><?php echo $_COOKIE['departure_time_return']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Coach No:</td>
@@ -252,19 +252,19 @@ if(isset($_POST['confirm'])){
                                         </tr>
                                         <tr>
                                             <td>Total Fare:</td>
-                                            <th id="return_fare" scope="row">BDT <?php echo $_SESSION['fare_per_seat_r']; ?></th>
+                                            <th id="return_fare" scope="row"><?php echo $_COOKIE['fare_return']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Destination:</td>
-                                            <th scope="row"><?php echo $_SESSION['destination_r']; ?></th>
+                                            <th scope="row"><?php echo $_COOKIE['ending_point_return']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Departure Time:</td>
-                                            <th scope="row"><?php echo $_SESSION['departure_time_r']; ?></th>
+                                            <th scope="row"><?php echo $_COOKIE['departure_time_return']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Coach Type:</td>
-                                            <th scope="row"><?php echo $_SESSION['coach_type_r']; ?></th>
+                                            <th scope="row"><?php echo $_COOKIE['coach_type_return']; ?></th>
                                         </tr>
                                         <tr>
                                             <td><button id="book_btn_return" class="button" name="book"><i class="fa fa-bookmark" aria-hidden="true"></i>BOOK</button></td>
