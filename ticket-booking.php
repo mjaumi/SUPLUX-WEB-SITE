@@ -195,8 +195,6 @@ if (isset($_POST['search_buses'])) {
                                                     <div class="form-input-wrapper flexbox-left">
                                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                                         <input class="form-input" id="starting_point" name="from_city" type="text" placeholder="Enter city" aria-label="" required>
-                                                        
-                                                        
                                                     </div>  
                                                 </div>
                                                 <div class="autocomplete">
@@ -204,9 +202,6 @@ if (isset($_POST['search_buses'])) {
                                                     <div class="form-input-wrapper flexbox-left">
                                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                                         <input class="form-input" id="destination_point" name="to_city" type="text" placeholder="Enter City" aria-label="" required>
-                                                        
-                                                        
-                                                    
                                                     </div>
                                                 </div>
                                             </div>
@@ -221,7 +216,7 @@ if (isset($_POST['search_buses'])) {
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <p class="form-text">Date of Return</p>
+                                                    <p class="form-text">Date of Return (Optional)</p>
                                                     <div class="form-input-wrapper flexbox-left">
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                         <div class="text-center date_field">
@@ -236,9 +231,6 @@ if (isset($_POST['search_buses'])) {
                                             <div class="form-input-grid d-flex justify-content-center">
                                                 <div class="button-wrapper">
                                                     <button id="form-button" type="submit" class="button btn-primary" name="search_buses"><i class="fa fa-search" aria-hidden="true"></i>SEARCH BUSES</button>
-                                                    
-                                                
-                                                
                                                 </div>
                                             </div>
                                         </form>

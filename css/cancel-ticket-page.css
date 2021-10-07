@@ -1,0 +1,23 @@
+.cancel_title{
+
+    padding: 0 1em 1.5em;
+    margin: 5em 0 3em;
+}
+
+.cancel_title h1{
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 4em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.cancel_search_container{
+
+    background-color: white;
+    padding: 1.8em;
+    border-radius: 30px;
+    margin-top: 2.1em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

@@ -56,7 +56,7 @@ if($_GET['return'] === 'y1'){
     
 }
 
-if($_GET['return'] === 'n'){
+/*if($_GET['return'] === 'n'){
     if(isset($_POST["continue_btn"]) && $_COOKIE["seats"] !== null){
 
         // $p = $_COOKIE["seats"];
@@ -83,7 +83,7 @@ if($_GET['return'] === 'n'){
         
     }
 
-}
+}*/
 
 
 // } else{
