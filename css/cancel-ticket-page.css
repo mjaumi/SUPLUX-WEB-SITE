@@ -13,6 +13,11 @@
     text-transform: uppercase;
 }
 
+.table_title{
+
+    color: #032133;
+}
+
 .cancel_search_container{
 
     background-color: white;
@@ -20,4 +25,30 @@
     border-radius: 30px;
     margin-top: 2.1em;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.journey_ticket_info_wrapper{
+
+    width: 50%;
+}
+
+.ticket_details_container{
+
+    border-top: 1px dashed #999;
+    padding: 0;
+    display: flex;
+    padding-top: 2em;
+    justify-content: space-between;
+}
+
+.journey_ticket_info_table{
+
+    text-align: center;
+    color: #032133;
+}
+
+.journey_ticket_info_table td,
+.journey_ticket_info_table th{
+
+    vertical-align: middle;
 }
