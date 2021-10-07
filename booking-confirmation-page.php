@@ -442,28 +442,60 @@ $date_return = explode( "," , $reporting_time_with_date);
 if(isset($_POST['journey_confirm'])){
 
     $utk_no = rand(15978, 456789);
-    $user_email = $_SESSION['user_email'];
+    $user_email = $_SESSION['email'];
     $coach_no = $_COOKIE['coach_no'];
     $reservation_date = date("Y-m-d");
     $date_of_journey = $date_departure[1];
-    
+    $payment_method = $_COOKIE["pay_method"];
+    $due_payment = $_COOKIE["payable_fare"];
     $booked_seats = explode(", " , $_COOKIE["seats"]);
     foreach($booked_seats as $seat){
-        echo $seat; 
+        $sql  = "INSERT INTO reservation (utk_no, user_email, coach_no, booked_seat, reservation_date, date_of_journey, payment_method, due_payment) VALUES ('$utk_no', '$user_email', '$coach_no', '$seat', '$reservation_date', '$date_of_journey', '$payment_method', '$due_payment')";
+        $result = mysqli_query($conn, $sql);
+    }   
+
+    if ($due_payment === "0") {
+        # code...
+        $status = "PAID";
+    }else{
+        $status = "BOOKED";
     }
 
-    
-
-    
-    
-    
-
-    
+    $sql_query = "INSERT INTO transactioninformation (transactionId, userEmail, statusInfo) VALUES ('$utk_no', '$user_email', '$status')";
+    $result = mysqli_query($conn, $sql_query);
 
 
 
-    
 }
+
+if(isset($_POST['return_confirm'])){
+
+    $utk_no = rand(15978, 456789);
+    $user_email = $_SESSION['email'];
+    $coach_no = $_COOKIE['coach_no_return'];
+    $reservation_date = date("Y-m-d");
+    $date_of_journey = $date_departure_return[1];
+    $payment_method = $_COOKIE["pay_method"];
+    $due_payment = $_COOKIE["payable_fare"];
+    $booked_seats = explode(", " , $_COOKIE["seats_return"]);
+    foreach($booked_seats as $seat){
+        $sql  = "INSERT INTO reservation (utk_no, user_email, coach_no, booked_seat, reservation_date, date_of_return, payment_method, due_payment) VALUES ('$utk_no', '$user_email', '$coach_no', '$seat', '$reservation_date', '$date_of_journey', '$payment_method', '$due_payment')";
+        $result = mysqli_query($conn, $sql);
+    }   
+
+    if ($due_payment === "0") {
+        # code...
+        $status = "PAID";
+    }else{
+        $status = "BOOKED";
+    }
+
+    $sql_query = "INSERT INTO transactioninformation (transactionId, userEmail, statusInfo) VALUES ('$utk_no', '$user_email', '$status')";
+    $result = mysqli_query($conn, $sql_query);
+
+}
+
+
 
 
 

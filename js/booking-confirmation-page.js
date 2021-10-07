@@ -98,6 +98,9 @@ bkashJourney.onclick = function() {
         
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
+
+        createCookie("payable_fare",  $('#pay_fare').html(), "15");
+
     } else{
 
         $('#payment_modal_title').text('Bkash Purchase Payment');
@@ -114,7 +117,10 @@ bkashJourney.onclick = function() {
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
 
+        createCookie("payable_fare",  "0", "15");
+
     }
+    createCookie("pay_method", "Bkash", "15");
 
     $('#payment_phone_no_journey').attr('placeholder', 'Enter Bkash Number');
     $('#payment_pin_journey').attr('placeholder', 'Enter Bkash Number');
@@ -141,6 +147,8 @@ bkashReturn.onclick = function() {
         
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
+
+        createCookie("payable_fare",  $('#pay_fare').html(), "15");
     } else{
 
         $('#payment_modal_title').text('Bkash Purchase Payment');
@@ -157,7 +165,10 @@ bkashReturn.onclick = function() {
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
 
+        createCookie("payable_fare",  "0", "15");
+
     }
+    createCookie("pay_method", "Bkash", "15");
 
     $('#payment_phone_no_journey').attr('placeholder', 'Enter Bkash Number');
     $('#payment_pin_journey').attr('placeholder', 'Enter Bkash Number');
@@ -184,6 +195,8 @@ rocketJourney.onclick = function() {
         
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
+
+        createCookie("payable_fare",  $('#pay_fare').html(), "15");
     } else{
 
         $('#payment_modal_title').text('Rocket Purchase Payment');
@@ -199,7 +212,10 @@ rocketJourney.onclick = function() {
         
         $('#dis_fare').text('BDT ' + discountFare); 
         $('#pay_fare').text('BDT ' + (fareInt - discountFare));
+
+        createCookie("payable_fare",  "0", "15");
     }
+    createCookie("pay_method", "Rocket", "15");
 
     $('#payment_phone_no_journey').attr('placeholder', 'Enter Rocket Number');
     $('#payment_pin_journey').attr('placeholder', 'Enter Rocket Number');
@@ -247,7 +263,7 @@ rocketReturn.onclick = function() {
 
     }
 
-    createCookie("pay_method", "Bkash", "15");
+    createCookie("pay_method", "Rocket", "15");
 
     $('#payment_phone_no_journey').attr('placeholder', 'Enter Rocket Number');
     $('#payment_pin_journey').attr('placeholder', 'Enter Rocket Number');
@@ -295,7 +311,7 @@ nagadJourney.onclick = function() {
         createCookie("payable_fare",  "0", "15");
     }
 
-    createCookie("pay_method", "Rocket", "15");
+    createCookie("pay_method", "Nagad", "15");
 
     $('#payment_phone_no_journey').attr('placeholder', 'Enter Nagad Number');
     $('#payment_pin_journey').attr('placeholder', 'Enter Nagad Number');
@@ -371,6 +387,7 @@ window.onload = function(){
 
 function createCookie(name, value, minutes) {
     var expires;
+    
       
     if (minutes) {
         var date = new Date();
