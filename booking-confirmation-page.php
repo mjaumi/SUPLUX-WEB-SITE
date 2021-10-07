@@ -4,6 +4,8 @@ include 'config.php';
 
 session_start();
 
+error_reporting(0);
+
 
 // if($_SESSION['ticket-booking'] === true){
 //     $_SESSION['ticket-booking'] = false;
@@ -250,7 +252,6 @@ $date_return = explode( "," , $reporting_time_with_date);
                         </div>
                     </div>
 
-                    
 
                     <div class="journey_ticket_info_container d-none" id="return_ticket">
                         <h1 class="table_title">Return Ticket</h1>
@@ -376,12 +377,12 @@ $date_return = explode( "," , $reporting_time_with_date);
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <form action="" method="POST">
+                        <form action="" method="POST" id="submission">
 
                         
-                        <button type="submit" id="journey_confirm" class="btn button btn_modal" name="journey_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirm</button>
-                        <button type="submit" id="return_confirm" class="btn button btn_modal d-none" name="return_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirmr</button>
-                        <button type="button" class="btn btn-danger button btn_modal" data-bs-dismiss="modal"><i class="fa fa-ban" aria-hidden="true"></i>Cancel</button>
+                            <button type="submit" id="journey_confirm" class="btn button btn_modal" name="journey_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>CONFIRM</button>
+                            <button type="submit" id="return_confirm" class="btn button btn_modal d-none" name="return_confirm"><i class="fa fa-check-circle" aria-hidden="true"></i>CONFIRM</button>
+                            <button type="button" class="btn btn-danger button btn_modal" data-bs-dismiss="modal"><i class="fa fa-ban" aria-hidden="true"></i>CANCEL</button>
                         </form>
                     
                     

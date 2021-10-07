@@ -81,7 +81,7 @@ if(isset($_SESSION['user_name'])){
     </header>
 
     <main id="main">
-        <div class="destination_intro d-flex align-items-center">
+        <div class="destination_intro d-flex align-items-center" style="background-image: url('img/coxs-bazar.jpg');">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -146,21 +146,21 @@ if(isset($_SESSION['user_name'])){
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src="img/inani.jpg" class="d-block w-100" alt="...">
+                <img src="img/inani.jpg" class="d-block w-100" id="carousel_1" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Inani Sea Beach</h3>
+                    <h3 id="carousel_caption_1">Inani Sea Beach</h3>
                 </div>
                 </div>
                 <div class="carousel-item">
-                <img src="img/marine.jpg" class="d-block w-100" alt="...">
+                <img src="img/marine.jpg" class="d-block w-100" id="carousel_2"alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Marine Drive</h3>
+                    <h3 id="carousel_caption_2">Marine Drive</h3>
                 </div>
                 </div>
                 <div class="carousel-item">
-                <img src="img/himchori.jpg" class="d-block w-100" alt="...">
+                <img src="img/himchori.jpg" class="d-block w-100" id="carousel_3"alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Himchori</h3>
+                    <h3 id="carousel_caption_3">Himchori</h3>
                 </div>
                 </div>
             </div>
@@ -217,7 +217,7 @@ if(isset($_SESSION['user_name'])){
             <div class="container_fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="#">BOOK NOW</a>
+                        <a href="ticket-booking.php">BOOK NOW</a>
                     </div>
                 </div>
             </div>
@@ -250,6 +250,7 @@ if(isset($_SESSION['user_name'])){
     <script src="js/header.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/user-nav.js"></script>
+    <script src="js/destination-description.js"></script>
     <script>
         /**
         * this is animating the header 

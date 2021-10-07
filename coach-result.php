@@ -125,7 +125,7 @@ if($_GET['return'] === 'y'){
     <div class="result_wrapper">
         <div class="origin_destination_wrapper">
             <div class="origin_container wrapper_33">
-                <h1 class="destination_short">DHA</h1>
+                <h1 class="destination_short"><?php echo  strtoupper(substr($starting_from,0,3))  ?></h1>
                 <p class="destination_full starting"><?php echo "$starting_from"?></p>
             </div>
 
@@ -145,7 +145,7 @@ if($_GET['return'] === 'y'){
             </div>
 
             <div class="destination_container wrapper_33">
-                <h1 class="destination_short">KHU</h1>
+                <h1 class="destination_short"><?php echo  strtoupper(substr($destination,0,3))  ?></h1>
                 <p class="destination_full ending"><?php echo "$destination" ?></p>
             </div>
         </div>
