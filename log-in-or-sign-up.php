@@ -19,8 +19,8 @@ if(isset($_POST['signup'])){
     $user_confirm_password = mysqli_real_escape_string($conn, md5($_POST['signup_user_confirm_password']));
 
     $check_email = mysqli_num_rows(mysqli_query($conn, "SELECT user_email FROM user_table WHERE user_email = '$user_email'"));
-    $check_user_name = mysqli_num_rows(mysqli_query($conn, "SELECT user_name FROM user_table WHERE user_name = '$user_name'"));
-
+    $check_user_name = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM user_table WHERE user_name = '$user_name'"));
+    
     if($user_password !== $user_confirm_password){
         echo "<script>alert('Password did not match.')</script>";
     }elseif( $check_email > 0){
@@ -32,6 +32,7 @@ if(isset($_POST['signup'])){
         $_SESSION['name'] = $user_name;
         $_SESSION['email'] = $user_email;
         $_SESSION['password'] = $user_password;
+        
         header("Location: sign-up-form.php");
         
     
@@ -54,6 +55,7 @@ if(isset($_POST['login'])){
     $row = mysqli_fetch_assoc($check_email);
     $_SESSION['user_name'] = $row['user_name'];
     $_SESSION['email'] = $user_email;
+    $_SESSION['user_last_name'] = $row['user_last_name'];
     
     header("Location: profile.php");
 
