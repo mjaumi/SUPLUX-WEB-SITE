@@ -124,6 +124,70 @@
                                     <button id="form-button" type="submit" class="button btn-primary" name="search_ticket"><i class="fa fa-search" aria-hidden="true"></i>SEARCH TICKET</button>
                                 </div>
                             </div>
+
+                            <div class="journey_ticket_info_container" id="journey_ticket">
+                                <h1 class="table_title">No Ticket Found</h1>
+                                <div class="ticket_details_container">
+                                    <div class="journey_ticket_info_wrapper">
+                                        <table class="table table-borderless journey_ticket_info_table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Name:</td>
+                                                    <th scope="row">Mr. Aumi</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Seats:</td>
+                                                    <th scope="row">G1, G2, G3, G4</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Boarding Point:</td>
+                                                    <th scope="row">Dhaka</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Reporting Time:</td>
+                                                    <th scope="row">09:15PM</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Coach No:</td>
+                                                    <th scope="row">AK1J1011</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="journey_ticket_info_wrapper">
+                                        <table class="table table-borderless journey_ticket_info_table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Trip Date:</td>
+                                                    <th scope="row"><?php echo $_SESSION['date_of_journey']; ?></th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total Fare:</td>
+                                                    <th id="journey_fare" scope="row"><?php echo $_COOKIE['fare']; ?></th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Destination:</td>
+                                                    <th scope="row"><?php echo $_COOKIE['ending_point']; ?></th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Departure Time:</td>
+                                                    <th scope="row"><?php echo $_COOKIE['departure_time']; ?></th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Coach Type:</td>
+                                                    <th scope="row"><?php echo $_COOKIE['coach_type']; ?></th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+        
+                                <div class="form-input-grid d-flex justify-content-center">
+                                    <div class="button-wrapper">
+                                        <button id="form-button" type="submit" class="button btn-primary" name="search_ticket"><i class="fa fa-ban" aria-hidden="true"></i>CANCEL TICKET</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
