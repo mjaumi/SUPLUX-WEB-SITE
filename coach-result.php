@@ -61,6 +61,7 @@ if($_GET['return'] === 'n'){
 
         // $p = $_COOKIE["seats"];
         
+        
         echo "<script>
         window.location.href = 'booking-confirmation-page.php?'</script>";
         //header("Location: booking-confirmation-page.php");
