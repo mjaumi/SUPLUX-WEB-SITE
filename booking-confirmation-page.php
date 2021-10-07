@@ -263,7 +263,8 @@ session_start();
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn button btn_modal"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirm</button>
+                        <button type="submit" id="journey_confirm" class="btn button btn_modal"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirm</button>
+                        <button type="submit" id="return_confirm" class="btn button btn_modal d-none"><i class="fa fa-check-circle" aria-hidden="true"></i>Confirmr</button>
                         <button type="button" class="btn btn-danger button btn_modal" data-bs-dismiss="modal"><i class="fa fa-ban" aria-hidden="true"></i>Cancel</button>
                     </div>
                 </div>
