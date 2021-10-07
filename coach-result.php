@@ -13,7 +13,7 @@ error_reporting(0);
 
 //     
 // }
-if($_POST['return'] === 'y' || $_POST['return'] === 'n'){
+if($_GET['return'] === 'y' || $_GET['return'] === 'n'){
 
     $starting_from = $_SESSION['starting_from'];
     $coach_no = $_SESSION['coach_no'];
@@ -41,7 +41,7 @@ if($_POST['return'] === 'y' || $_POST['return'] === 'n'){
 
 
 
-if($_POST['return'] === 'y1'){
+if($_GET['return'] === 'y1'){
     $_SESSION['starting_from_r'] = $starting_from = $_SESSION['destination'];
     $_SESSION['coach_no_r'] = $coach_no = $_SESSION['coach_no'].'-R';
     $_SESSION['boarding_point_r'] = $boarding_point ="";// $_SESSION['boarding_point'];
@@ -54,6 +54,40 @@ if($_POST['return'] === 'y1'){
     
     
     
+}
+
+if($_GET['return'] === 'n'){
+    if(isset($_POST['continue_btn']) && $_COOKIE["seats"] !== "" ){
+
+        // $p = $_COOKIE["seats"];
+        //echo "<script>alert('Choose  one seat.')</script>";
+
+
+        echo "<script>
+        window.location.href = 'booking-confirmation-page.php?return=n'</script>";
+        // header("Location: booking-confirmation-page.php?");
+    }
+}
+if($_GET['return'] === 'y1'){
+    if(isset($_POST['continue_btn']) && $_COOKIE["seats"] !== ""){
+        
+
+         echo "<script>
+         window.location.href = 'booking-confirmation-page.php?return=y'</script>";
+        //header("Location: booking-confirmation-page.php?return=y");
+    }
+}
+if($_GET['return'] === 'y'){
+    if(isset($_POST['continue_btn']) && $_COOKIE["seats"] !== ""){
+        //echo "<script>alert('Choose at least one seat.')</script>";
+         echo "<script>
+         window.location.href = 'search-result.php?return=y1'</script>";
+        //header("Location: search-result.php?return=y1");
+
+        //}
+        
+    }
+
 }
 
 
