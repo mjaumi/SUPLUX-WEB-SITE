@@ -137,7 +137,7 @@ if(isset($_POST['confirm'])){
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="journey_ticket_info_container">
+                    <div class="journey_ticket_info_container" id="journey_ticket">
                         <h1 class="table_title">Journey Ticket</h1>
                         <div class="ticket_details_container">
                             <div class="journey_ticket_info_wrapper">
@@ -219,7 +219,7 @@ if(isset($_POST['confirm'])){
 
                     
 
-                    <div class="journey_ticket_info_container">
+                    <div class="journey_ticket_info_container d-none" id="return_ticket">
                         <h1 class="table_title">Return Ticket</h1>
                         <div class="ticket_details_container">
                             <div class="journey_ticket_info_wrapper">
@@ -257,7 +257,7 @@ if(isset($_POST['confirm'])){
                                         </tr>
                                         <tr>
                                             <td>Total Fare:</td>
-                                            <th scope="row">BDT <?php echo $_SESSION['fare_per_seat_r']; ?></th>
+                                            <th id="return_fare" scope="row">BDT <?php echo $_SESSION['fare_per_seat_r']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Destination:</td>
@@ -277,6 +277,23 @@ if(isset($_POST['confirm'])){
                                         </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                        <div id="payment_method_return_container" class="d-none">
+
+                            <div class="payment_methods_container">
+                                <h3>Select your payment option:</h3>
+                                <div class="payment_method_holder">
+                                    <div id="bkash_return" class="bkash" data-bs-toggle="modal" data-bs-target="#payment_modal">
+                                        <img src="img/BKash-Logo.svg" alt="bkash icon">
+                                    </div>
+                                    <div id="rocket_return" class="bkash" data-bs-toggle="modal" data-bs-target="#payment_modal">
+                                        <img src="img/Rocket-Logo.svg" alt="rocket icon">
+                                    </div>
+                                    <div id="nagad_return" class="bkash" data-bs-toggle="modal" data-bs-target="#payment_modal">
+                                        <img src="img/Nagad-Logo.svg" alt="nagad icon">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
