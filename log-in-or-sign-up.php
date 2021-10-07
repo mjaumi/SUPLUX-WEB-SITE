@@ -56,7 +56,7 @@ if(isset($_POST['login'])){
     $_SESSION['user_name'] = $row['user_name'];
     $_SESSION['email'] = $user_email;
     $_SESSION['user_last_name'] = $row['user_last_name'];
-    
+    $_SESSION['user_first_name'] = $row['user_first_name'];
     header("Location: profile.php");
 
   } else{

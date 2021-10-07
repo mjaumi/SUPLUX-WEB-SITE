@@ -164,9 +164,9 @@ if (isset($_POST['modify_search'])) {
                         <button class="dropdown_button" aria-haspopup="true" aria-expanded="false">
                             <span>
                                 <div class="nav_pro_pic">
-                                    <img src="img/me.jpg" width="100%" alt="user profile image">
+                                    <img src="<?php echo $_SESSION['user_img']; ?>" width="100%" alt="user profile image">
                                 </div>
-                                <p class="nav_pro_name">Milhan Joardar</p>
+                                <p class="nav_pro_name"><?php echo $_SESSION['user_first_name']; ?></p>
                             </span>
                             <i class="dropdown_button_arrow fa fa-angle-down"></i>
                         </button>

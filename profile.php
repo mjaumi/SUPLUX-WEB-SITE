@@ -28,6 +28,7 @@ $user_gender = $row['user_gender'];
 $user_mobile_number = $row['user_phone'];
 $user_nid = $row['user_nid'];
 $user_image = "asset/".$row['user_image'];
+$_SESSION['user_img'] = $user_image;
 
 //profile image
 
@@ -166,6 +167,19 @@ if (isset($_POST['save'])) {
         mysqli_query($conn, $sql_query);
     }
 
+    if (isset($_FILES['image'])) {
+        # code...
+    $file_name = time()."-".rand(1000, 9999).".".pathinfo("asset/".basename($_FILES['image']['name']), PATHINFO_EXTENSION);//$_FILES["image"]["name"];
+    $temp_name = $_FILES["image"]["tmp_name"];    
+    $folder = "asset/".$file_name;
+    move_uploaded_file($temp_name, $folder);
+
+
+    $sql = "UPDATE user_table SET user_image = '$file_name'";
+    $result = mysqli_query($conn, $sql);
+    }
+    header("Location: profile.php");
+
     
 
 }
@@ -261,9 +275,9 @@ if (isset($_POST['cancel'])) {
                             <span>
                             
                                 <div class="nav_pro_pic">
-                                    <img src="img/me.jpg" width="100%" alt="user profile image">
+                                    <img src="<?php echo $_SESSION['user_img']; ?>" width="100%" alt="user profile image">
                                 </div>
-                                <p class="nav_pro_name"><?php echo $user_first_name;?></p>
+                                <p class="nav_pro_name"><?php echo $_SESSION['user_first_name'];?></p>
                             </span>
                             <i class="dropdown_button_arrow fa fa-angle-down"></i>
                         </button>

@@ -109,7 +109,7 @@ $date_return = explode( "," , $reporting_time_with_date);
                         <button class="dropdown_button" aria-haspopup="true" aria-expanded="false">
                             <span>
                                 <div class="nav_pro_pic">
-                                    <img src="img/me.jpg" width="100%" alt="user profile image">
+                                    <img src="<?php echo $_SESSION['user_img']; ?>" width="100%" alt="user profile image">
                                 </div>
                                 <p class="nav_pro_name">Milhan Joardar</p>
                             </span>

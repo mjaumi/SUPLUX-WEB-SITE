@@ -1,7 +1,9 @@
 <?php
 
 session_start();
+
 $user_profile_name = $_SESSION['user_profile_name'];
+$user_image = $_SESSION['user_img'];
 
 ?>
 
@@ -19,7 +21,7 @@ $user_profile_name = $_SESSION['user_profile_name'];
                             <span>
                             
                                 <div class="nav_pro_pic">
-                                    <img src="img/me.jpg" width="100%" alt="user profile image">
+                                    <img src= "<?php echo $_SESSION['user_img']; ?>" width="100%" alt="user profile image">
                                 </div>
                                 <p class="nav_pro_name"><?php echo $user_profile_name;?></p>
                             </span>
