@@ -24,49 +24,60 @@ $to_city = $_SESSION['to_city'];
 $date_of_journey = $_SESSION['date_of_journey'];
 //
     # code...
-    $date_of_return = $_SESSION['date_of_return'];
+    if(isset($_SESSION['date_of_return'])){
+
+        $date_of_return = $_SESSION['date_of_return'];
+    }
+    
     
 //}
-
-
-
-
-
-
-
 
 if (isset($_POST['search_buses'])) {
     // # code...
     if(isset($_POST['from_city'])){
         $from_city = $_POST['from_city'];
-        //$_SESSION['from_city'] = $_POST['from_city'];
+        $_SESSION['from_city'] = $_POST['from_city'];
         if($from_city === "Cox's Bazar"){
             $from_city = 'Coxs Bazar';
         }
     }
     if(isset($_POST['to_city'])){
         $to_city = $_POST['to_city'];
-        //$_SESSION['to_city'] = $_POST['to_city'];
+        $_SESSION['to_city'] = $_POST['to_city'];
         if($to_city === "Cox's Bazar"){
             $to_city = 'Coxs Bazar';
         }
     }
     if(isset($_POST['date_of_journey'])){
         $date_of_journey = $_POST['date_of_journey'];
-        //$_SESSION['date_of_journey'] = $_POST['date_of_journey'];
+        $_SESSION['date_of_journey'] = $_POST['date_of_journey'];
     }
-    if(isset($_POST['date_of_return'])){
-        $_SESSION['date_of_return'] = $date_of_return = $_POST['date_of_return'];
+    if($_POST['date_of_return'] !== ""){
+        $date_of_return = $_POST['date_of_return'];
+        $_SESSION['date_of_return'] = $_POST['date_of_return'];
         echo "<script>
         window.location.href = 'search-result.php?return=y'</script>";
+    }
         //$_SESSION['date_of_return'] = $_POST['date_of_return'];
-    } 
+    // }  else{
+    //     echo "<script>
+    //     window.location.href = 'search-result.php?return=n'</script>";
+
+    // }
 
 }
+
+
+
+
+
+
+
 
 if (isset($_POST['modify_search'])) {
     # code...
     //unset($_POST);
+    
 }
 
 // echo "<script>if (confirm('Are you sure you want to go back? You will lose all your data...')) {

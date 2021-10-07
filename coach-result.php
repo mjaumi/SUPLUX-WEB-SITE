@@ -103,7 +103,7 @@ if($_GET['return'] === 'n'){
         <div class="origin_destination_wrapper">
             <div class="origin_container wrapper_33">
                 <h1 class="destination_short">DHA</h1>
-                <p class="destination_full starting"><?php echo "$starting_from" ?></p>
+                <p class="destination_full starting"><?php echo "$starting_from"?></p>
             </div>
 
             <div class="trip_icon wrapper_33">
@@ -216,10 +216,19 @@ if($_GET['return'] === 'n'){
                         <div class="form-input-wrapper flexbox-left boarding_point_selector">
                             <i class="fa fa-suitcase" aria-hidden="true"></i>
                             <select class="form-input-boarding select_field" id="boarding_point_selector">
-                                <option selected value="None">None</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Others">Others</option>
+                                <?php
+                                if($starting_from === 'Dhaka'){
+                                    include 'dhaka-boarding-point.php';
+                                }else{
+                                    # code...
+                                    //echo $starting_from;
+                                    $_SESSION['s'] = $starting_from;
+                                    include 'other-boarding-point.php';
+                                }
+                                
+                                
+                                ?>
+                            
                             </select>
                         </div> 
                     </div>

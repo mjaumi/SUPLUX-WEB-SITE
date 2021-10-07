@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 
 
 
-unset($_SESSION['date_of_return']);
+
 
 if (!isset($_SESSION['user_name'])) {
     header("Location: log-in-or-sign-up.php");
@@ -44,13 +44,14 @@ if (isset($_POST['search_buses'])) {
 
     }
     if(isset($_POST['date_of_return'])){
+        
         $_SESSION['date_of_return'] = $_POST['date_of_return'];
     }
     if ($_POST['from_city'] !== $_POST['to_city']) {
-        unset($_POST);
-        $date_of_return = $_SESSION['date_of_return'];
-        if ($date_of_return !== "") {
+        //unset($_POST);
+        if ($_SESSION['date_of_return'] !== "") {
             # code...
+            //$_SESSION['date_of_return'] = $_POST['date_of_return'];
             header("Location: search-result.php?return=y");
         } else{
             header("Location: search-result.php?return=n");
