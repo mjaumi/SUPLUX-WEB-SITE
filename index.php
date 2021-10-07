@@ -13,9 +13,7 @@ if(isset($_SESSION['user_name'])){
     //header("Location: profile.php");
 }
 
-unset($_POST['name']);
-unset($_POST['email']);
-unset($_POST['message']);
+
 
 
 
@@ -656,7 +654,8 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($conn, $sql);
         if($result){
             echo "<script>alert('We have accepted your msg.')</script>";
-            unset($_POST['submit']);
+            
+            
         }
         
         

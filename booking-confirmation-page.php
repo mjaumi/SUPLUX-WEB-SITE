@@ -52,11 +52,8 @@ $c= "";
 if(isset($_POST['journey_confirm']) && $_GET['return'] === 'n'){
     header("Location: profile.php");
 }
-if (isset($_POST['journey_confirm'])) {
-    # code...
-    $c = "ok";
-}
-if($c === 'ok' && isset($_POST['return_confirm'])){
+
+if(isset($_POST['return_confirm'])){
     header("Location: profile.php");
 }
 
