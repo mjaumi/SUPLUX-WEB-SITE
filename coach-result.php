@@ -57,9 +57,6 @@ if($_GET['return'] === 'y1'){
 }
 
 if($_GET['return'] === 'n'){
-<<<<<<< HEAD
-    if(isset($_POST["continue_btn"]) && $_COOKIE["seats"] !== null){
-=======
     if(isset($_POST['continue_btn']) && $_COOKIE["seats"] !== "" ){
 
         // $p = $_COOKIE["seats"];
@@ -90,17 +87,7 @@ if($_GET['return'] === 'y'){
         //}
         
     }
-
-}
-
->>>>>>> f54c903f6c862830c6180f31a4eafb5543dd327d
-
-        // $p = $_COOKIE["seats"];
-        
-        echo "<script>
-        window.location.href = 'booking-confirmation-page.php?'</script>";
-        //header("Location: booking-confirmation-page.php");
-    }
+    
 }else if($_GET['return'] === 'y1'){
     if(isset($_POST["continue_btn"]) && $_COOKIE["seats"] !== null){
         //echo "<script>alert('Choose at least one seat.')</script>";

@@ -8,6 +8,8 @@ session_start();
 // if($_SESSION['ticket-booking'] === true){
 //     $_SESSION['ticket-booking'] = false;
 // }*/** */
+
+
 if(isset($_POST['confirm'])){
     
 }
@@ -150,11 +152,11 @@ if(isset($_POST['confirm'])){
                                         </tr>
                                         <tr>
                                             <td>Reporting Time:</td>
-                                            <th scope="row"><?php echo $_SESSION['departure_time']; ?></th>
+                                            <th scope="row"><?php echo $_COOKIE['reporting_time']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Coach No:</td>
-                                            <th scope="row"><?php echo $_SESSION['coach_no']; ?></th>
+                                            <th scope="row"><?php echo $_COOKIE['coach_no']; ?></th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -168,19 +170,19 @@ if(isset($_POST['confirm'])){
                                         </tr>
                                         <tr>
                                             <td>Total Fare:</td>
-                                            <th id="journey_fare" scope="row">BDT <?php echo $_SESSION['fare_per_seat']; ?></th>
+                                            <th id="journey_fare" scope="row"><?php echo $_COOKIE['fare']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Destination:</td>
-                                            <th scope="row"><?php echo $_SESSION['destination']; ?></th>
+                                            <th scope="row"><?php echo $_COOKIE['ending_point']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Departure Time:</td>
-                                            <th scope="row"><?php echo $_SESSION['departure_time']; ?></th>
+                                            <th scope="row"><?php echo $_COOKIE['departure_time']; ?></th>
                                         </tr>
                                         <tr>
                                             <td>Coach Type:</td>
-                                            <th scope="row"><?php echo $_SESSION['coach_type']; ?></th>
+                                            <th scope="row"><?php echo $_COOKIE['coach_type']; ?></th>
                                         </tr>
                                         <tr>
                                             <td><button id="book_btn_journey" class="button" name="book"><i class="fa fa-bookmark" aria-hidden="true"></i>BOOK</button></td>
@@ -236,7 +238,7 @@ if(isset($_POST['confirm'])){
                                         </tr>
                                         <tr>
                                             <td>Coach No:</td>
-                                            <th scope="row"><?php echo $_SESSION['coach_no_r']; ?></th>
+                                            <th scope="row"><?php echo $_COOKIE['coach_no_return']; ?></th>
                                         </tr>
                                     </tbody>
                                 </table>
