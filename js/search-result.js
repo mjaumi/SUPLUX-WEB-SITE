@@ -764,7 +764,7 @@ for (const [i, element] of continueBtn.entries()){
 
         if(seatTableBody[i].rows.length === 0){
 
-            alert("Please slect at least one seat.");
+            alert("Please select at least one seat.");
             createCookie("seats", seatString, "-15");
         } else{
 

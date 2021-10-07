@@ -15,7 +15,7 @@
                                         </tr>
                                         <tr>
                                             <td>Seats:</td>
-                                            <th scope="row">G-1,G-2,G-3,G-4</th>
+                                            <th scope="row"><?php echo $_COOKIE["seats_return"];?></th>
                                         </tr>
                                         <tr>
                                             <td>Boarding Point:</td>
